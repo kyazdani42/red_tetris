@@ -1,0 +1,3 @@
+export const SET_ROOMS = 'SET_ROOMS';
+export const SET_SELECTED_ROOM = 'SET_SELECTED_ROOM';
+export const HANDLE_JOIN_ROOM = 'HANDLE_JOIN_ROOM';

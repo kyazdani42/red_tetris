@@ -2,9 +2,6 @@
   "compilerOptions": {
     "module": "commonjs",
     "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "outDir": "dist",
     "strict": true,
     "alwaysStrict": true,
     "noUnusedParameters": true,
@@ -12,6 +9,6 @@
     "target": "es6",
     "jsx": "react"
   },
-  "include": ["./src/server/**/*", "./src/client/**/*"],
+  "include": ["./src/client/**/*"],
   "exclude": ["node_modules"]
 }

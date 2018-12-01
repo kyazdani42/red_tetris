@@ -1,7 +1,10 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import room from './reducers/rooms';
 
-const reducers = combineReducers({});
+const reducers = combineReducers({
+  room 
+});
 
 const sagaMiddleware = createSagaMiddleware();
 

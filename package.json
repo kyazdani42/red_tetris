@@ -1,5 +1,5 @@
 {
-  "name": "temp",
+  "name": "red-tetris",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -50,6 +50,7 @@
     "ts-loader": "^4.5.0",
     "tslint": "^5.11.0",
     "typescript": "^3.0.1",
+    "typings-for-css-modules-loader": "^1.7.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8",
