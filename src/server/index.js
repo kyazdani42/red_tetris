@@ -2,7 +2,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const express = require('express');
 
-// const mongoClient = require('./client/mongodb');
+const mongoClient = require('./client/mongodb');
 // const socketClient = require('./client/socket.io');
 
 const corsConfig = require('./middlewares/cors');
@@ -49,7 +49,7 @@ const listen = function () {
 };
 
 async function initServer() {
-    // await mongoClient.initClient();
+    await mongoClient.initClient();
     // await socketClient.initClient();
 }
 
