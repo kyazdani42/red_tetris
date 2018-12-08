@@ -13,8 +13,9 @@ interface RoomsProps {
 
 const StyledContainer = styled.div`
   position: relative;
-  z-index: 2;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+  z-index: 10;
   top: 50%;
   left: 50%;
   border-radius: 4px;
@@ -22,8 +23,8 @@ const StyledContainer = styled.div`
   transform: translate(-50%, -50%);
   padding: 35px;
   width: 70%;
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 10px 10px rgba(255,255,255,0.10), 0 5px 5px rgba(255,255,255,0.10);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 10px 10px rgba(255,44,55,0.10), 0 5px 5px rgba(255,55,55,0.10);
 `;
 
 const StyledWrapper = styled.div`
@@ -39,7 +40,7 @@ const StyledWrapper = styled.div`
 const RoomSeparator = styled.hr`
   border: none;
   height: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: 0 20px 20px -20px #fff;
   margin: 0 auto 15px;
   padding: 0;
@@ -54,8 +55,8 @@ export const RoomsManager: React.SFC<RoomsProps> = ({ rooms }) => (
   </StyledContainer>
 );
 
-const getRoomRows = (rooms: RoomType[]): JSX.Element[] => rooms.map(d => (
-  <React.Fragment key={`room-_${d.id}`}>
+const getRoomRows = (rooms: RoomType[]): JSX.Element[] => rooms.map((d, i) => (
+  <React.Fragment key={`room-_${d.id}_${i}`}>
     <RoomRow {...d} />
     <RoomSeparator />
   </React.Fragment>
