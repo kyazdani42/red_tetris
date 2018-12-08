@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { RoomType } from '../../../types';
 import { connect } from 'react-redux';
+
 import { RoomReducerType } from '../../../reducers/rooms';
+import { RoomType } from '../../../types';
 import { RoomRow } from './RoomRow/Component';
 
 interface RoomsProps {
@@ -14,12 +15,10 @@ export const Rooms: React.SFC<RoomsProps> = ({ rooms }) => (
   </div>
 );
 
-const getRoomRows = (rooms: RoomType[]) => rooms.map(d => (
+const getRoomRows = (rooms: RoomType[]): JSX.Element[] => rooms.map(d => (
   <RoomRow {...d} key={`room-_${d.id}`} />
 ));
 
-const mapStateToProps = ({ room }: { room: RoomReducerType }) => ({
-  rooms: room.rooms
-})
+const mapStateToProps = ({ room: { rooms }}: { room: RoomReducerType }) => ({ rooms });
 
 export default connect(mapStateToProps)(Rooms);

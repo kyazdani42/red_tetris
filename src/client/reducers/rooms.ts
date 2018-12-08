@@ -1,4 +1,4 @@
-import { handleActions, Action } from 'redux-actions';
+import { Action, handleActions } from 'redux-actions';
 import { RoomType } from '../types';
 
 export interface RoomReducerType {
@@ -8,8 +8,8 @@ export interface RoomReducerType {
 
 const initialState: RoomReducerType = {
   rooms: [],
-  selectedRoom: null 
-}
+  selectedRoom: null
+};
 
 const reducer = handleActions<any>(
   {
@@ -23,6 +23,6 @@ const reducer = handleActions<any>(
     }),
   },
   initialState
-)
+);
 
 export default reducer;

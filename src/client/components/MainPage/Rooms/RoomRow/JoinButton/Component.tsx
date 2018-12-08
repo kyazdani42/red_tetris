@@ -8,20 +8,19 @@ interface Props {
   roomId: string;
 }
 
-
 export const JoinButton: React.SFC<Props> = ({ joinRoom, roomId }) => (
-  <div
-    onClick={() => joinRoom(roomId)}
-  >
-  </div>
+  <div onClick={() => joinRoom(roomId)} />
 );
 
 const mapStateToProps = (_: any, { roomId }: { roomId: string }) => ({
   roomId
-})
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
   joinRoom: dispatch(handleJoinRoom())
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(JoinButton);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(JoinButton);
