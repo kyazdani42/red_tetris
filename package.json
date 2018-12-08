@@ -17,7 +17,8 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-actions": "^2.6.4",
-    "redux-saga": "^0.16.2"
+    "redux-saga": "^0.16.2",
+    "styled-components": "^4.1.2"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.12",
@@ -31,6 +32,7 @@
     "@types/redux": "^3.6.0",
     "@types/redux-actions": "^2.3.1",
     "@types/redux-saga": "^0.10.5",
+    "@types/styled-components": "^4.1.2",
     "chai": "^4.2.0",
     "concurrently": "^4.0.1",
     "css-loader": "^1.0.0",
