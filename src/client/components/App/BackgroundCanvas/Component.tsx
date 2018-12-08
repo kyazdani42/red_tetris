@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import { createCube, drawTitle } from './utils';
 
 const BackgroundContainer = styled.canvas`
   position: absolute;
@@ -23,11 +24,6 @@ const initBackgroundCanvasProperties = () => {
   const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  drawTitle(canvas, ctx);
   createCube(ctx);
-};
-
-const createCube = (ctx: CanvasRenderingContext2D) => {
-  if (ctx) {}
-  // ctx.fillStyle = 'rgb(233, 133, 44)';
-  // ctx.fillRect(0, 0, 100, 100);
 };

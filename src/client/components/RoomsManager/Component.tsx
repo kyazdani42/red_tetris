@@ -12,15 +12,15 @@ interface RoomsProps {
 }
 
 const StyledContainer = styled.div`
-  position: relative;
+  position: absolute;
   background-color: #fff;
   color: #000;
   z-index: 10;
-  top: 50%;
+  top: 120px;
   left: 50%;
   border-radius: 4px;
   height: 70%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   padding: 35px;
   width: 70%;
   border: 1px solid rgba(0,0,0,0.1);
