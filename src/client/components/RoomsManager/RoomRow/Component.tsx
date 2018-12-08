@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RoomType } from '../../../../types';
+import { RoomType } from '../../../types';
 import JoinButton from './JoinButton/Component';
 
 export const RoomRow: React.SFC<RoomType> = ({ id, running, owner, players }) => {

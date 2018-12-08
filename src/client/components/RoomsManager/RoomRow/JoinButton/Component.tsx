@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { handleJoinRoom } from '../../../../../actions/room';
+import { handleJoinRoom } from '../../../../actions/room';
 
 interface Props {
   joinRoom: (id: string) => void;
