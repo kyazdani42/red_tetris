@@ -1,12 +1,10 @@
-import { colors } from './constants';
-
-export const drawTitle = (canvas: any, ctx: CanvasRenderingContext2D) => {
+export const drawTitle = (canvas: any, ctx: CanvasRenderingContext2D, colors: any) => {
   ctx.strokeStyle = colors.primary.dark;
   ctx.font = '80px serif';
   ctx.strokeText('Red Tetris', canvas.width / 2 - 180, 90);
   ctx.fillStyle = colors.primary.normal;
   ctx.fillText('Red Tetris', canvas.width / 2 - 175, 92);
-}
+};
 
 export const createCube = (ctx: CanvasRenderingContext2D) => {
   if (ctx) {}

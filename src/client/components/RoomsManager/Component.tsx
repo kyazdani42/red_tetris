@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { RoomReducerType } from '../../reducers/rooms';
 import { RoomType } from '../../types';
+import { CreateRoomButton } from './CreateRoomButton/Component';
 import { RoomRow } from './RoomRow/Component';
 import { data } from './rooms_data';
 
@@ -18,32 +19,29 @@ const StyledContainer = styled.div`
   z-index: 10;
   top: 120px;
   left: 50%;
-  border-radius: 4px;
   height: 70%;
   transform: translate(-50%, 0);
   padding: 35px;
   width: 70%;
+  max-width: 800px;
   border: 1px solid rgba(0,0,0,0.1);
-  box-shadow: 0 10px 10px rgba(255,44,55,0.10), 0 5px 5px rgba(255,55,55,0.10);
+  box-shadow: 0 10px 10px rgba(255,44,55,0.20), 0 5px 5px rgba(255,55,55,0.20);
 `;
 
 const StyledWrapper = styled.div`
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: grid;
+  background-color: rgba(255, 10,10,0.02);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 15px;
+  grid-template-rows: 180px;
   position: relative;
   overflow-y: scroll;
-  height: 100%;
+  height: 90%;
   width: 100%;
   box-sizing: border-box;
   padding: 5px;
-  border-radius: 5px;
-`;
-
-const RoomSeparator = styled.hr`
-  border: none;
-  height: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0 20px 20px -20px #fff;
-  margin: 0 auto 15px;
-  padding: 0;
+  border-radius: 3px;
 `;
 
 // this must be edited later (data is temp data)
@@ -52,15 +50,12 @@ export const RoomsManager: React.SFC<RoomsProps> = ({ rooms }) => (
     <StyledWrapper>
       {rooms.length && getRoomRows(rooms) || getRoomRows(data as any)}
     </StyledWrapper>
+    <CreateRoomButton />
   </StyledContainer>
 );
 
-const getRoomRows = (rooms: RoomType[]): JSX.Element[] => rooms.map((d, i) => (
-  <React.Fragment key={`room-_${d.id}_${i}`}>
-    <RoomRow {...d} />
-    <RoomSeparator />
-  </React.Fragment>
-));
+const getRoomRows = (rooms: RoomType[]): JSX.Element[] =>
+  rooms.map((d, i) => <RoomRow {...d} key={`room-_${d.id}_${i}`} />);
 
 const mapStateToProps = ({ room: { rooms }}: { room: RoomReducerType }) => ({ rooms });
 

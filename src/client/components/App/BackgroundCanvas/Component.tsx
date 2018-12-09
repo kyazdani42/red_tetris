@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import { createCube, drawTitle } from './utils';
 
 const BackgroundContainer = styled.canvas`
@@ -9,21 +9,21 @@ const BackgroundContainer = styled.canvas`
   background-color: #000;
 `;
 
-export const BackgroundCanvas = () => {
+export const BackgroundCanvas = withTheme(({ theme }: any) => {
 
   React.useEffect(() => {
-    initBackgroundCanvasProperties();
-    window.addEventListener('resize', initBackgroundCanvasProperties);
+    initBackgroundCanvasProperties(theme.colors);
+    window.addEventListener('resize', () => initBackgroundCanvasProperties(theme.colors));
   }, []);
 
   return <BackgroundContainer id="bg-anim" />;
-};
+});
 
-const initBackgroundCanvasProperties = () => {
+const initBackgroundCanvasProperties = (colors: any) => {
   const canvas: any = document.getElementById('bg-anim');
   const ctx: CanvasRenderingContext2D = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  drawTitle(canvas, ctx);
+  drawTitle(canvas, ctx, colors);
   createCube(ctx);
 };
