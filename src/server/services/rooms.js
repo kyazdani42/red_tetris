@@ -65,13 +65,13 @@ async function removeUserInRoomDatabase(idRoom, userId) {
     return { roomIdError: 'No room available' };
   }
 
-  _.reduce(room.players, (accu, player) => {
+  players = _.reduce(room.players, (accu, player) => {
     if (player.id !== userId) {
       accu.push(player);
     }
     return accu;
   }, []);
-console.log(room);
+  room.players = players;
   room.save();
 
   return {data: 'OK'};

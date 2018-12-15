@@ -17,7 +17,6 @@ function validate(params) {
 }
 
 const removeUser = async (req, res) => {
-  console.log('la')
   const { error, userId } = validate(req.body);
   if ( error ) res.status(500).json({error});
 
