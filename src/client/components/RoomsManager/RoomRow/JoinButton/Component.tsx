@@ -25,6 +25,7 @@ const Button = styled.div`
   align-items: center;
   align-content: center;
   transition: box-shadow 300ms;
+  user-select: none;
   cursor: pointer;
   &:hover {
     box-shadow: 0 3px 6px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.3);
@@ -32,8 +33,15 @@ const Button = styled.div`
 `;
 
 export const JoinButton: React.SFC<Props> = ({ joinRoom, roomId }) => (
-  <Button onClick={() => joinRoom(roomId)}><span>Join</span><Svg /></Button>
+  <Button onClick={handleClick(joinRoom, roomId)}><span>Join</span><Svg /></Button>
 );
+
+const handleClick = (joinRoom: (id: string) => void, roomId: string) => (e: any) => {
+  const target = e.currentTarget;
+  target.style.opacity = '0.9';
+  setTimeout(() => { target.style.opacity = '1'; }, 100);
+  joinRoom(roomId);
+};
 
 const Svg = () => (
   <svg width="16" height="16" viewBox="0 0 24 24">
