@@ -18,10 +18,8 @@ const mongoOptions = {
 const buildConnectUri = function () {
   let uri = '';
   uri += config.mongo.uriPrefix;
-  uri += `${config.mongo.username}:`;
-  uri += `${config.mongo.password}@`;
   uri += `${config.mongo.host}:${config.mongo.port}`;
-  uri += config.mongo.database;
+  uri += `/${config.mongo.database}`;
   return uri;
 };
 

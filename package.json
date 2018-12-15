@@ -12,6 +12,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "joi": "^14.3.0",
     "lodash": "^4.17.11",
     "mongoose": "^5.3.14",
     "react": "^16.7.0-alpha.2",

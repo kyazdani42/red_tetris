@@ -1,5 +1,9 @@
-const getAvailable = require('./getAvailable');
+const getAll = require('./getAll');
+const createRoom = require('./createRoom');
+const addUser = require('./addUser');
 
 module.exports = {
-  getAvailable,
+  getAll,
+  createRoom,
+  addUser,
 };

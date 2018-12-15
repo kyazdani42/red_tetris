@@ -8,13 +8,21 @@ router.use((req, res, next) => {
     console.log('Time: ', Date.now());
     next();
 });
-// define the home page route
+
 router.get('/', (req, res) => {
     res.send('Birds home page');
 });
-// define the about route
+
 router.get('/rooms', (req, res) => {
-    res.json(roomsApi.getAvailable());
+    roomsApi.getAll(req, res);
+});
+
+router.post('/room', (req, res) => {
+    roomsApi.createRoom(req, res);
+});
+
+router.post('/room/:roomId([0-9a-fA-F]{24})/addUser', (req, res) => {
+    roomsApi.addUser(req, res);
 });
 
 module.exports = router;

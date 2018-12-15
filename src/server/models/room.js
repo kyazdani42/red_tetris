@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const roomSchema = new Schema({
-  id: String,
-  players: Array,
-  activePlayers: Array,
-  owner: {
+  updated: { type: Date, default: Date.now },
+  players: [{
     id: String,
-    username: String,
-  },
-  running: Boolean
-});
+    name: String,
+    isPlaying: { type: Boolean, default: false },
+  }],
+  running: Boolean,
+  owner: String,
+}, {versionKey: false});
 
 const Room = mongoose.model('Room', roomSchema);
 
