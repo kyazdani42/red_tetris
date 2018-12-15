@@ -5,10 +5,7 @@ const { getRoomWithoutPlayerId } = require('./utils');
 
 async function searchRoomsDatabase(filter) {
   const query = await Room.find(filter).lean();
-  const result = _.map(query, (room) => {
-    const players = getRoomWithoutPlayerId(room);
-    return { players, id: room.id, running: room.running };
-  });
+  const result = _.map(query, (room) => getRoomWithoutPlayerId(room));
 
   return result;
 }
