@@ -16,19 +16,19 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Circular Book';
     font-style: normal;
     font-weight: normal;
-    src: local('Circular Book'), url('lineto-circular-pro-book.woff') format('woff');
+    src: local('assets/Circular Book');
   }
   @font-face {
     font-family: 'Circular Book Italic';
     font-style: normal;
     font-weight: normal;
-    src: local('Circular Book Italic'), url('lineto-circular-pro-bookItalic.woff') format('woff');
+    src: local('assets/Circular Book Italic');
   }
   @font-face {
     font-family: 'Circular Bold';
     font-style: normal;
     font-weight: normal;
-    src: local('Circular Bold'), url('lineto-circular-pro-bold.woff') format('woff');
+    src: local('assets/Circular Bold');
   }
 `;
 

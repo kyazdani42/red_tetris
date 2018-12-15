@@ -1,12 +1,10 @@
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 const htmlPlugin = new htmlWebpackPlugin({
   template: './public/index.html',
   filename: 'index.html'
 });
-const cssPlugin = new ExtractTextPlugin({ filename: 'style.css' });
 
 module.exports = env => {
   return {
@@ -41,23 +39,19 @@ module.exports = env => {
           use: 'source-map-loader'
         },
         {
-          test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: ['css-loader']
-          })
-        },
-        {
-          test: /\.(png|jpg|jpeg|ico)$/,
+          test: /\.(png|jpg|jpeg|ico|woff)$/,
           use: [
             {
               loader: 'file-loader',
-              options: {}
+              options: {
+                name: "./assets/[name].[ext]",
+                publicPath: '../'
+              }
             }
           ]
         },
         {
-          test: /\.(png|jpg|jpeg|ico)$/,
+          test: /\.(png|jpg|jpeg|ico|woff)$/,
           use: [
             {
               loader: 'url-loader',
@@ -69,6 +63,6 @@ module.exports = env => {
         }
       ]
     },
-    plugins: [htmlPlugin, cssPlugin]
+    plugins: [htmlPlugin]
   };
 };
