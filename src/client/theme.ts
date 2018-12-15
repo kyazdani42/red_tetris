@@ -10,5 +10,9 @@ export default {
       dark: '#000a12',
       light: '#4f5b62'
     }
+  },
+  fonts: {
+    title: 'Circular Book,Helvetica Neue,Arial,sans-serif',
+    text: 'Gira,Helvetica Neue,Arial,sans-serif'
   }
 };
