@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-const { addUserInRoomDatabase, getRoomByIdDatabase } = require('../../services');
+const { addUserInRoomDatabase } = require('../../services');
 
 const SCHEMA = Joi.object().keys({
   player: Joi.object().keys({
@@ -24,11 +24,10 @@ const addUser = async (req, res) => {
   const { error, name, id } = validate(req.body);
   if ( error ) res.status(500).json({error});
 
-  const { roomIdError } = await addUserInRoomDatabase(req.params.roomId, {id, name });
+  const { roomIdError, data } = await addUserInRoomDatabase(req.params.roomId, {id, name });
   if ( roomIdError ) res.status(500).json({roomIdError});
 
-  const result = await getRoomByIdDatabase(req.params.roomId, {});
-  res.json(result);
+  res.json(data);
 };
 
 module.exports = addUser;

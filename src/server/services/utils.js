@@ -5,7 +5,6 @@ function getRoomWithoutPlayerId(room) {
     accu.push({ name: player.name, isPlaying: player.isPlaying });
     return accu;
   }, []);
-  console.log(room)
   return { id: room._id, players, running: room.running, updated: room.updated }
 }
 

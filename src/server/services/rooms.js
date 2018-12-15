@@ -27,23 +27,23 @@ console.log(data);
 }
 
 async function addUserInRoomDatabase(idRoom, { id, name }) {
-  const query = await Room.findOne({_id: idRoom, running:  false});
-  if (!query) {
+  const room = await Room.findOne({_id: idRoom, running:  false});
+  if (!room) {
     return { roomIdError: 'No room available' };
   }
-  const player = _.find(query.players, (player) => {
+  const player = _.find(room.players, (player) => {
     return player.id === id;
   });
   if (!player) {
-    query.players.push({
+    room.players.push({
       id,
       name,
       isPlaying: false,
     });
-    query.save();
+    room.save();
   }
-
-  return { success: 'ok' };
+  const data = getRoomWithoutPlayerId(room);
+  return { data };
 }
 
 async function getRoomByIdDatabase(idRoom, { allField = false }) {
@@ -59,9 +59,28 @@ async function getRoomByIdDatabase(idRoom, { allField = false }) {
   return getRoomWithoutPlayerId(room);
 }
 
+async function removeUserInRoomDatabase(idRoom, userId) {
+  const room = await Room.findOne({_id: idRoom});
+  if (!room) {
+    return { roomIdError: 'No room available' };
+  }
+
+  _.reduce(room.players, (accu, player) => {
+    if (player.id !== userId) {
+      accu.push(player);
+    }
+    return accu;
+  }, []);
+console.log(room);
+  room.save();
+
+  return {data: 'OK'};
+}
+
 module.exports = {
   searchRoomsDatabase,
   createRoomDatabase,
   addUserInRoomDatabase,
   getRoomByIdDatabase,
+  removeUserInRoomDatabase,
 };

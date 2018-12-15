@@ -3,6 +3,7 @@ const {
   createRoomDatabase,
   addUserInRoomDatabase,
   getRoomByIdDatabase,
+  removeUserInRoomDatabase,
 } = require('./rooms');
 
 
@@ -11,4 +12,5 @@ module.exports = {
   createRoomDatabase,
   addUserInRoomDatabase,
   getRoomByIdDatabase,
+  removeUserInRoomDatabase,
 };
