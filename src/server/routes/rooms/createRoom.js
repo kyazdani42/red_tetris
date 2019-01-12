@@ -1,6 +1,7 @@
 const Joi = require('joi');
 
 const { createRoomDatabase } = require('../../services');
+const { newRoom } = require('../../client/socket.io');
 
 const SCHEMA = Joi.object().keys({
   player: Joi.object().keys({
@@ -24,8 +25,9 @@ const createRoom = async (req, res) => {
   const { error, name, id } = validate(req.body);
   if ( error ) res.status(500).json({error});
 
+  const newRoomName = newRoom();
   const result = await createRoomDatabase({id, name });
-  res.json({result});
+  res.json({result, room: newRoomName});
 };
 
 module.exports = createRoom;

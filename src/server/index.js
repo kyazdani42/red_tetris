@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 
 const mongoClient = require('./client/mongodb');
-// const socketClient = require('./client/socket.io');
+const socketServer = require('./client/socket.io');
 
 const corsConfig = require('./middlewares/cors');
 
@@ -23,17 +23,11 @@ app.use(bodyParser.json({ limit: '15mb' }));
 app.use(corsConfig);
 app.use('/', routes);
 
-// unhandled error logging
-process.on('unhandledRejection', (error) => {
-    console.log(error); // eslint-disable-line no-console
-});
-
 // Server configuration
 const server = http.createServer(app);
 
 const listen = function () {
     const port = app.get('port');
-    if (!process.env.TEST) {
         const httpServer = server.listen(port, (error) => {
             if (error) {
                 console.log(error);
@@ -41,16 +35,11 @@ const listen = function () {
                 console.log('Server started');
             }
         });
-        process.on('SIGINT', () => {
-            httpServer.close();
-            process.exit();
-        });
-    }
 };
 
 async function initServer() {
     await mongoClient.initClient();
-    // await socketClient.initClient();
+    await socketServer.initServer(server);
 }
 
 async function startServer() {
