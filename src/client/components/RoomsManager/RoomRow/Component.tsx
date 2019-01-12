@@ -5,7 +5,7 @@ import { RoomType } from '../../../types';
 import JoinButton from './JoinButton/Component';
 
 const StyledRow = styled.div`
-  height: 180px;
+  height: 50px;
   box-sizing: border-box;
   background-color: #000;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);

@@ -39,8 +39,6 @@ const StyledContainer = styled.div`
 const StyledWrapper = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #000;
-  display: flex;
-  flex-direction: column;
   position: relative;
   overflow-y: scroll;
   height: 90%;
