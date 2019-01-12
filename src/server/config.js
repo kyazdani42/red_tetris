@@ -14,12 +14,8 @@ module.exports = {
         ],
     },
     endpoints: {
-        app: {
-            host: '',
-        },
-        api : {
-            host: '',
-        },
+        app: 'http://localhost:3001',
+        api: 'http://localhost:3000',
     },
   mongo: {
     uriPrefix: 'mongodb://',

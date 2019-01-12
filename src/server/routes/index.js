@@ -10,7 +10,7 @@ router.use((req, res, next) => {
 });
 
 router.get('/', (req, res) => {
-    res.send('Birds home page');
+  res.render('test');
 });
 
 router.get('/rooms', (req, res) => {
