@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { createRoom } from '../../../actions/actions';
+import { createRoom } from '../../actions/actions';
 
 const Button = styled.div`
   font-family: ${props => props.theme.fonts.title};
@@ -54,5 +54,3 @@ const mapDispatchToProps = (dispatch: any) => ({
 });
 
 export default connect(undefined, mapDispatchToProps)(CreateRoomButton);
-
-// on click > dispatch action for saga, saga ask for the backend for a new room and create a socket which will be dispatched to the store, then updates the location somehow

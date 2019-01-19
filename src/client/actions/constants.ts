@@ -4,3 +4,4 @@ export const HANDLE_JOIN_ROOM = 'HANDLE_JOIN_ROOM';
 
 export const CHANGE_PAGE = 'CHANGE_PAGE';
 export const CREATE_ROOM = 'CREATE_ROOM';
+export const SET_SOCKET = 'SET_SOCKET';

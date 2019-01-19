@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { RoomType } from '../../../types';
+import { RoomType } from '../../types';
 import JoinButton from './JoinButton/Component';
 
 const StyledRow = styled.div`

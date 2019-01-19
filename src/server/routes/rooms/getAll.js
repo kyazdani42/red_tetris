@@ -2,9 +2,9 @@
 // const _ = require('lodash');
 // const { searchRoomsDatabase } = require('../../services');
 const { getRooms } = require('../../client/socket.io');
-const SCHEMA = Joi.object().keys({
-  running: Joi.boolean(),
-});
+// const SCHEMA = Joi.object().keys({
+//   running: Joi.boolean(),
+// });
 
 // function validate(params) {
 //   const result = Joi.validate(params, SCHEMA);

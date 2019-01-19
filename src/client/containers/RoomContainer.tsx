@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { RoomReducerType } from '../../reducers/rooms';
-import { RoomType } from '../../types';
-import CreateRoomButton from './CreateRoomButton/Component';
-import { RoomRow } from './RoomRow/Component';
+import CreateRoomButton from '../components/CreateRoomButton/Component';
+import { RoomRow } from '../components/RoomRow/Component';
+import { State } from '../reducers/rooms';
+import { RoomType } from '../types';
 
 interface RoomsProps {
+  playerName: string;
   rooms: RoomType[];
+  socket: SocketIOClient.Socket | null;
 }
 
 const StyledContainer = styled.div`
@@ -47,19 +50,25 @@ const StyledWrapper = styled.div`
   border-radius: 15px;
 `;
 
-// this must be edited later (data is temp data)
-export const RoomsManager: React.SFC<RoomsProps> = ({ rooms }) => (
-  <StyledContainer>
-    <StyledWrapper>
-      {getRoomRows(rooms)}
-    </StyledWrapper>
-    <CreateRoomButton />
-  </StyledContainer>
-);
+export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName }) => {
+  if (socket) {
+    const redirectUrl = `${socket.nsp}[${playerName}]`;
+    return <Redirect to={redirectUrl} />;
+  } else {
+    return (
+      <StyledContainer>
+        <StyledWrapper>
+          {getRoomRows(rooms)}
+        </StyledWrapper>
+        <CreateRoomButton />
+      </StyledContainer>
+    );
+  }
+};
 
 const getRoomRows = (rooms: RoomType[]): JSX.Element[] =>
   rooms.map((d, i) => <RoomRow {...d} key={`room-_${d.id}_${i}`} />);
 
-const mapStateToProps = ({ room: { rooms } }: { room: RoomReducerType }) => ({ rooms });
+const mapStateToProps = ({ room: { rooms, socket, playerName } }: { room: State }) => ({ rooms, socket, playerName });
 
-export default connect(mapStateToProps)(RoomsManager);
+export default connect(mapStateToProps)(RoomContainer);

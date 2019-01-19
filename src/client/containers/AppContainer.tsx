@@ -2,8 +2,9 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import RoomsManager from '../RoomsManager/Component';
-import { BackgroundCanvas } from './BackgroundCanvas/Component';
+import { BackgroundCanvas } from '../components/BackgroundCanvas/Component';
+import GameContainer from './GameContainer';
+import RoomContainer from './RoomContainer';
 
 const GlobalStyle = createGlobalStyle`
   body, html, #root {
@@ -35,8 +36,8 @@ const GlobalStyle = createGlobalStyle`
 export const App = () => (
   <React.Fragment>
     <BackgroundCanvas />
-    <Route exact path="/" component={RoomsManager} />
-    <Route path="/:room[:player_name]" />
+    <Route exact path="/" component={RoomContainer} />
+    <Route path="/:room[:player_name]" component={GameContainer} />
     <GlobalStyle />
   </React.Fragment>
 );

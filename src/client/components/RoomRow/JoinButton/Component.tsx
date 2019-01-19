@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
 
-import { handleJoinRoom } from '../../../../actions/actions';
+import { handleJoinRoom } from '../../../actions/actions';
 
 interface Props {
   joinRoom: (id: string) => void;
