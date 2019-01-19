@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
 
-import { handleJoinRoom } from '../../../../actions/room';
+import { handleJoinRoom } from '../../../../actions/actions';
 
 interface Props {
   joinRoom: (id: string) => void;
@@ -12,7 +12,7 @@ interface Props {
 const Button = styled.div`
   height: 30px;
   width: 80px;
-  background-color: ${props => props.theme.colors.primary.light};
+  background-color: ${props => props.theme.colors.primary.dark};
   border: 1px solid rgba(0,0,0,0.2);
   font-size: 17px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.13);

@@ -15,10 +15,7 @@ module.exports = env => {
       publicPath: '/'
     },
     devServer: {
-      port: 3000,
-      proxy: {
-        '/': 'http://localhost:3001/'
-      }
+      port: 3001,
     },
     resolve: {
       extensions: ['.js', '.ts', '.tsx', '.json']

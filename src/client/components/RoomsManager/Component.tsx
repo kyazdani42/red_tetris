@@ -4,9 +4,8 @@ import styled from 'styled-components';
 
 import { RoomReducerType } from '../../reducers/rooms';
 import { RoomType } from '../../types';
-import { CreateRoomButton } from './CreateRoomButton/Component';
+import CreateRoomButton from './CreateRoomButton/Component';
 import { RoomRow } from './RoomRow/Component';
-import { data } from './rooms_data';
 
 interface RoomsProps {
   rooms: RoomType[];
@@ -52,7 +51,7 @@ const StyledWrapper = styled.div`
 export const RoomsManager: React.SFC<RoomsProps> = ({ rooms }) => (
   <StyledContainer>
     <StyledWrapper>
-      {rooms.length && getRoomRows(rooms) || getRoomRows(data as any)}
+      {getRoomRows(rooms)}
     </StyledWrapper>
     <CreateRoomButton />
   </StyledContainer>

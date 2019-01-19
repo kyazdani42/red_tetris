@@ -1,9 +1,12 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+
+import { createRoom } from '../../../actions/actions';
 
 const Button = styled.div`
   font-family: ${props => props.theme.fonts.title};
-  background-color: ${props => props.theme.colors.primary.normal};
+  background-color: ${props => props.theme.colors.primary.dark};
   border-radius: 24px;
   color: #fff;
   line-height: 50px;
@@ -27,16 +30,29 @@ const Wrapper = styled.div`
   align-items: flex-end;
 `;
 
-export const CreateRoomButton = () => (
+interface Props {
+  dispatchCreateRoom: () => void;
+}
+
+export const CreateRoomButton: React.SFC<Props> = ({ dispatchCreateRoom }) => (
   <Wrapper>
-    <Button onClick={handleClick}>
+    <Button onClick={handleClick(dispatchCreateRoom)}>
       New Game
     </Button>
   </Wrapper>
 );
 
-const handleClick = (e: any) => {
+const handleClick = (dispatchCreateRoom: any) => (e: any) => {
   const target = e.currentTarget;
   target.style.opacity = '0.90';
   setTimeout(() => { target.style.opacity = '1'; }, 100);
+  dispatchCreateRoom();
 };
+
+const mapDispatchToProps = (dispatch: any) => ({
+  dispatchCreateRoom: () => dispatch(createRoom())
+});
+
+export default connect(undefined, mapDispatchToProps)(CreateRoomButton);
+
+// on click > dispatch action for saga, saga ask for the backend for a new room and create a socket which will be dispatched to the store, then updates the location somehow
