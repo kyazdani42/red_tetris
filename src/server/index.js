@@ -40,6 +40,7 @@ const listen = function () {
 async function initServer() {
     await mongoClient.initClient();
     await socketServer.initServer(server);
+    await socketServer.newRoom();
 }
 
 async function startServer() {

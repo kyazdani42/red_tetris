@@ -7,18 +7,24 @@
 
 </head>
 <body>
-<div onclick="tt()">
-    clickMe
+<div onclick="start()">
+    start
+</div>
+<div onclick="stop()">
+    stop
 </div>
 <script>
   var socket = io('http://localhost:3000/123');
   socket.on('connect', () => { console.log('connect')});
-  socket.on('start', function(data){console.log(data)});
-  socket.on('update2', function(data){console.log(data)});
+  socket.on('updateData', function(data){console.log(data)});
   socket.on('disconnect', function(){ console.log('close')});
-  function tt() {
-    console.log('emis');
-    socket.emit('update', {test: 'test'});
+  function start() {
+    console.log('start');
+    socket.emit('start');
+  }
+  function stop() {
+      console.log('stop');
+      socket.emit('stop');
   }
 </script>
 </body>
