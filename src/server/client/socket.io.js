@@ -19,8 +19,11 @@ timeout = () => {
     return new Promise(resolve => setTimeout(resolve, 1000));
 };
 
-const getRooms = () => rooms.reduce((accu, value, index) => {
-  return accu.push(index);
+const getRooms = () => rooms.reduce((accu, room, index) => {
+    if (!room.data.running) {
+        return accu.push(index);
+    }
+    return accu;
 }, []);
 
 const getSocket = () => socket;
@@ -62,7 +65,7 @@ const newRoom = () => {
       if (rooms[name].data.running) {
         socket.disconnect();
       }
-
+      socket.emit('id', socket.id);
       rooms[name].data.playeurs.push({id: socket.id, playing: true});
       if (!rooms[name].data.owner) {
         rooms[name].data.owner = socket.id;
