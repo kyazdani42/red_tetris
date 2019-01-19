@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { RoomType } from '../../types';
-import JoinButton from './JoinButton/Component';
+import { RoomType } from '../types';
+import JoinButton from './JoinButton';
 
 const StyledRow = styled.div`
   height: 50px;
