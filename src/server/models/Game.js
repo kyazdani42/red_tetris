@@ -1,14 +1,25 @@
 const { initSocket } = require('../client/socket.io');
 const Player = require('./Player');
+const Piece = require('./Piece')
 
 timeout = () => {
     return new Promise(resolve => setTimeout(resolve, 1000));
 };
 
+const generate = () => {
+    const allPieces = [];
+  for (let i = 0; i < 200; i++) {
+    allPieces.push(new Piece());
+  }
+  return allPieces;
+}
+
 class Game {
     constructor(name) {
-        this.socket = initSocket(name);
-        this.allPieces = [];
+        this.name = name;
+        console.log(initSocket)
+        this.socket = initSocket.apply(this, name);
+        this.allPieces = generate();
         this.data = {
           owner: null,
           players: [],
@@ -32,13 +43,6 @@ class Game {
         }
     };
 
-    generate() {
-        for (let i = 0; i < 200; i++) {
-            this.allPices.push(new Piece());
-        }
-        this.allPices = [];
-    }
-
     start(id) {
         if (id === this.owner) {
             // map player playing: true
@@ -48,11 +52,11 @@ class Game {
         }
     };
 
-    stop = () => {
+    stop() {
         this.data.running = false;
     };
 
-    getPlayerIndex = (id) => {
+    getPlayerIndex(id) {
         return this.data.players.findIndex((player) => {
             return player.id === id;
         });

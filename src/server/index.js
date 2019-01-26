@@ -37,6 +37,8 @@ const listen = function () {
         });
 };
 
+const { newRoom } = require('./services/rooms');
+
 async function initServer() {
 //    await mongoClient.initClient();
     await socketServer.initServer(server);
