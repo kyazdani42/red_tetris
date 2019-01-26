@@ -1,5 +1,4 @@
 const	socket = require('socket.io');
-const { getRooms } = require('../services/rooms');
 
 let io;
 
@@ -7,10 +6,6 @@ const initServer = (server) => {
   return new Promise(async (resolve, reject) => {
     try {
       io = await socket(server);
-      // io.on('connection', async (socket) => {
-      //   const allRooms = getRooms();
-      //   socket.emit('getRooms', allRooms);
-      // });
       resolve("done!")
     } catch (err) {
       reject(err);
@@ -29,7 +24,7 @@ const initSocket = (game, name) => {
                 socket.disconnect();
             }
             socket.emit('id', socket.id);
-            game.addPlayer(id);
+            game.addPlayer(socket.id);
             console.log(socket.id);
             socket.on('disconnect', () => {
                 game.removePlayer(socket.id);

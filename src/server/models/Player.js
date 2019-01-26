@@ -19,6 +19,10 @@ class Player {
     this.stack = initStack();
   }
 
+  updateGrid() {
+    console.log('inGame');
+  };
+
   nextPiece() {
     this.actualPieceIndex++;
   };
