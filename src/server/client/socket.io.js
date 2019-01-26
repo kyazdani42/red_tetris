@@ -1,4 +1,5 @@
 const	socket = require('socket.io');
+const { getRooms } = require('../services/rooms');
 
 let io;
 
@@ -13,9 +14,15 @@ const initServer = (server) => {
   });
 };
 
+io.on('connection', async (socket) => {
+  const allRooms = getRooms();
+  socket.emit('getRooms', allRooms);
+});
+
 const getIo = () => io;
 
 const initSocket = (game, name) => {
+  io.emit('newRoom', name);
     return io
         .of(`/${name}`)
         .on('connection', (socket) => {

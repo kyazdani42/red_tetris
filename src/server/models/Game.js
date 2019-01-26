@@ -15,7 +15,6 @@ class Game {
         running: false,
     };
 
-
     constructor(name) {
         socket = initSocket(name);
     }

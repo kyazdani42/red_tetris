@@ -4,7 +4,7 @@ const {
   addUserInRoomDatabase,
   getRoomByIdDatabase,
   removeUserInRoomDatabase,
-} = require('./rooms');
+} = require('./oldRooms');
 
 
 module.exports = {
