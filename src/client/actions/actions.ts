@@ -7,6 +7,6 @@ export const setSelectedRoom: ActionFunctionAny<Action<RoomType>> = createAction
 export const handleJoinRoom: ActionFunctionAny<Action<undefined>> = createAction(HANDLE_JOIN_ROOM);
 
 export const changePage: ActionFunctionAny<Action<any>> = createAction(CHANGE_PAGE);
-export const createRoom: ActionFunctionAny<Action<undefined>> = createAction(CREATE_ROOM);
+export const createRoom: ActionFunctionAny<Action<string>> = createAction(CREATE_ROOM);
 
 export const setSocket: ActionFunctionAny<Action<SocketIOClient.Socket>> = createAction(SET_SOCKET);

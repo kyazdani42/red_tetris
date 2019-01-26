@@ -28,6 +28,10 @@ const reducer = handleActions<any>(
     SET_SOCKET: (state: State, { payload }: Action<SocketIOClient.Socket>): State => ({
       ...state,
       socket: payload || null
+    }),
+    CREATE_ROOM: (state: State, { payload }: Action<any>): State => ({
+      ...state,
+      playerName: payload
     })
   },
   initialState

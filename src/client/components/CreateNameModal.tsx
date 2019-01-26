@@ -31,15 +31,42 @@ const ModalStyle = styled.div`
 `;
 
 const CreateRoomStyle = styled.div`
-  padding: 5px;
-  width: 120px;
+  font-family: ${props => props.theme.fonts.title};
+  background-color: ${props => props.theme.colors.primary.normal};
+  font-weight: bold;
+  border-radius: 24px;
+  color: #fff;
+  line-height: 40px;
   height: 40px;
-  background-color: #fff;
-  border-radius: 4px;
-  border: 1px solid rgba(255,255,255,0.3);
+  width: 120px;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  cursor: pointer;
+  :hover {
+    opacity: 0.94;
+  }
+`;
+
+const InputWrapper = styled.div`
+  width: 300px;
+  height: 65px;
+`;
+
+const LabelStyle = styled.label`
+  font-family: ${props => props.theme.fonts.title};
+  width: 50px;
+  margin: auto;
+  font-size: 14px;
+  color: #fff;
 `;
 
 const NameInputStyle = styled.input`
+  margin: auto;
+  padding: 5px 10px 5px 10px;
+  box-sizing: border-box;
   border: 1px solid #eee;
   border-radius: 4px;
   width: 300px;
@@ -57,18 +84,41 @@ const handleRemoveModal = (setDisplayModal: any) => (e: any) => {
   }
 };
 
-const handleCreateRoom = (dispatchCreateRoom: (username: string) => void) => (e: any) => {
-  dispatchCreateRoom(e.target.previousSibling.value);
-}
+const handleCreateRoom = (dispatchCreateRoom: (username: string) => void, setError: any) => (e: any) => {
+    const value = e.target.previousSibling.firstChild.nextElementSibling.value;
+    if (!value.length) {
+      setError('please enter something');
+    } else {
+      dispatchCreateRoom(value);
+    }
+};
 
-export const CreateNameModal: React.SFC<Props> = ({ dispatchCreateRoom, setDisplayModal }) => (
-  <ModalWrapper onClick={handleRemoveModal(setDisplayModal)} id="modal-name">
-    <ModalStyle>
-      <NameInputStyle />
-      <CreateRoomStyle onClick={handleCreateRoom(dispatchCreateRoom)} />
-    </ModalStyle>
-  </ModalWrapper>
-);
+const handleKeyDown = (dispatchCreateRoom: (username: string) => void, setError: any) => (e: any) => {
+  setError(null);
+  if (e.key === 'Enter') {
+    if (!e.target.value.length) {
+      setError('please enter something');
+    } else {
+      dispatchCreateRoom(e.target.value);
+    }
+  }
+};
+
+export const CreateNameModal: React.SFC<Props> = ({ dispatchCreateRoom, setDisplayModal }) => {
+  const [error, setError] = React.useState(null);
+  return (
+    <ModalWrapper onClick={handleRemoveModal(setDisplayModal)} id="modal-name">
+      <ModalStyle>
+        <InputWrapper>
+          <LabelStyle>Pick a username</LabelStyle>
+          <NameInputStyle onKeyDown={handleKeyDown(dispatchCreateRoom, setError)} autoFocus={true} />
+          {error ? <span style={{ color: 'red', fontSize: '14px' }}>{error}</span> : null}
+        </InputWrapper>
+        <CreateRoomStyle onClick={handleCreateRoom(dispatchCreateRoom, setError)}>Launch Game</CreateRoomStyle>
+      </ModalStyle>
+    </ModalWrapper>
+  );
+};
 
 const mapDispatchToProps = (dispatch: any) => ({
   dispatchCreateRoom: (username: string) => dispatch(createRoom(username))
