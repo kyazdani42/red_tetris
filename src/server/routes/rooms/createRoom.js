@@ -1,7 +1,8 @@
-const Joi = require('joi');
+// const Joi = require('joi');
+const uniqid = require('uniqid');
 
 // const { createRoomDatabase } = require('../../services');
-const { newRoom } = require('../../client/socket.io');
+const { newRoom } = require('../../services/rooms');
 
 // const SCHEMA = Joi.object().keys({
 //   player: Joi.object().keys({
@@ -24,8 +25,9 @@ const { newRoom } = require('../../client/socket.io');
 const createRoom = async (req, res) => {
   // const { error, name, id } = validate(req.body);
   // if ( error ) res.status(500).json({error});
-
-  const newRoomName = newRoom();
+  // const name = uniqid();
+  const newRoomName = '123';
+  newRoom(newRoomName);
   // const result = await createRoomDatabase({id, name });
   res.json({ newRoomName });
 };

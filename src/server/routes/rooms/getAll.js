@@ -1,7 +1,7 @@
 // const Joi = require('joi');
 // const _ = require('lodash');
 // const { searchRoomsDatabase } = require('../../services');
-const { getRooms } = require('../../client/socket.io');
+const { getRooms } = require('../../services/rooms');
 // const SCHEMA = Joi.object().keys({
 //   running: Joi.boolean(),
 // });

@@ -1,8 +1,7 @@
 const	socket = require('socket.io');
-const uniqid = require('uniqid');
+const { getRooms } = require('../services/rooms');
 
 let io;
-const rooms = [];
 
 const initServer = (server) => {
   return new Promise(async (resolve, reject) => {
@@ -15,101 +14,45 @@ const initServer = (server) => {
   });
 };
 
-timeout = () => {
-    return new Promise(resolve => setTimeout(resolve, 1000));
-};
+io.on('connection', async (socket) => {
+  const allRooms = getRooms();
+  socket.emit('getRooms', allRooms);
+});
 
-const getRooms = () => rooms.reduce((accu, room, index) => {
-    if (!room.data.running) {
-        return accu.push(index);
-    }
-    return accu;
-}, []);
+const getIo = () => io;
 
-const getSocket = () => socket;
-
-const updateGrids = async (name) => {
-    rooms[name].data.playeurs.map((playeur) => {
-        playeur.grid = [];
-        return playeur;
-    })
-};
-
-const game = async (name) => {
-    await timeout();
-    rooms[name].socket.emit('updateData', {gameStatus: '3'});
-    await timeout();
-    rooms[name].socket.emit('updateData', {gameStatus: '2'});
-    await timeout();
-    rooms[name].socket.emit('updateData', {gameStatus: '1'});
-    while (rooms[name].data.running) {
-        await timeout();
-        await updateGrids();
-        rooms[name].socket.emit('updateData', { data: rooms[name].data });
-    }
-};
-
-const newRoom = () => {
-  // const name = uniqid();
-  const name = '123';
-  rooms[name] = {
-    data: {
-      running: false,
-      playeurs: [],
-      owner: null,
-    },
-  };
-  rooms[name].socket = io
-    .of(`/${name}`)
-    .on('connection', (socket) => {
-      if (rooms[name].data.running) {
-        socket.disconnect();
-      }
-      socket.emit('id', socket.id);
-      rooms[name].data.playeurs.push({id: socket.id, playing: true});
-      if (!rooms[name].data.owner) {
-        rooms[name].data.owner = socket.id;
-      }
-      console.log(socket.id);
-
-      socket.on('disconnect', () => {
-        const playeurIndex = rooms[name].data.playeurs.findIndex((playeur) => {
-          return playeur.id === socket.id;
-        });
-        rooms[name].data.playeurs.splice(playeurIndex, 1);
-        if (rooms[name].data.playeurs !== {}) {
-          if (rooms[name].data.owner === socket.id) {
-            rooms[name].data.owner = rooms[name].data.playeurs[0].id;
-            rooms[name].socket.emit('updateData', { data: rooms[name].data });
-          }
-        } else {
-          rooms[name] = undefined;
-        }
-      });
-        socket.on('start', () => {
-            if (socket.id === rooms[name].data.owner) {
-                // map playeur playing: true
-                console.log('start');
-                rooms[name].data.running = true;
-                game(name);
+const initSocket = (game, name) => {
+  io.emit('newRoom', name);
+    return io
+        .of(`/${name}`)
+        .on('connection', (socket) => {
+            if (game.running) {
+                socket.disconnect();
             }
-        });
-        socket.on('stop', () => {
-            console.log('stop');
-            rooms[name].data.running = false;
-        });
+            socket.emit('id', socket.id);
+            game.addPlayeur(id);
+            console.log(socket.id);
 
-      socket.on('update', (data) => {
-        console.log('update');
-        socket.emit('update2', data);
-      });
-    });
-  return name;
+            socket.on('disconnect', () => {
+                game.removePlayer(socket.id);
+            });
+            socket.on('start', () => {
+                game.start();
+            });
+            socket.on('stop', () => {
+                console.log('stop');
+                game.stop();
+            });
+
+            socket.on('update', (data) => {
+                console.log('update');
+                socket.emit('update2', data);
+            });
+        });
 };
 
 module.exports = {
-  newRoom,
-  getRooms,
+  initSocket,
   initServer,
-  getSocket,
+  getIo,
 };
