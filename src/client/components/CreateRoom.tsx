@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { createRoom } from '../actions/actions';
-import { CreateNameModal } from './CreateNameModal';
+import CreateNameModal from './CreateNameModal';
 
 const Button = styled.div`
   font-family: ${props => props.theme.fonts.title};
@@ -31,12 +29,14 @@ const Wrapper = styled.div`
   align-items: flex-end;
 `;
 
-interface Props {
-  dispatchCreateRoom: () => void;
-}
-
-export const CreateRoomButton: React.SFC<Props> = ({ dispatchCreateRoom }) => {
+export const CreateRoomButton: React.SFC<{}> = () => {
   const [displayModal, setDisplayModal] = React.useState(false);
+  let modal;
+  if (displayModal) {
+    modal = <CreateNameModal setDisplayModal={setDisplayModal} />;
+  } else {
+    modal = null;
+  }
   return (
     <React.Fragment>
     <Wrapper>
@@ -44,7 +44,7 @@ export const CreateRoomButton: React.SFC<Props> = ({ dispatchCreateRoom }) => {
         New Game
       </Button>
     </Wrapper>
-    {displayModal ? <CreateNameModal dispatchCreateRoom={dispatchCreateRoom} /> : null}
+    {modal}
     </React.Fragment>
   );
 };
@@ -55,9 +55,3 @@ const handleClick = (setDisplayModal: any) => (e: any) => {
   setTimeout(() => { target.style.opacity = '1'; }, 100);
   setDisplayModal(true);
 };
-
-const mapDispatchToProps = (dispatch: any) => ({
-  dispatchCreateRoom: (username: string) => dispatch(createRoom(username))
-});
-
-export default connect(undefined, mapDispatchToProps)(CreateRoomButton);

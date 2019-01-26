@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+
+import { createRoom } from '../actions/actions';
 
 const ModalWrapper = styled.div`
   position: absolute;
@@ -13,8 +16,12 @@ const ModalWrapper = styled.div`
 `;
 
 const ModalStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   width: 400px;
-  height: 200px;
+  height: 150px;
   margin: auto;
   margin-top: 50%;
   transform: translateY(-200px);
@@ -23,14 +30,48 @@ const ModalStyle = styled.div`
   border: 1px solid rgba(255,255,255,0.2);
 `;
 
+const CreateRoomStyle = styled.div`
+  padding: 5px;
+  width: 120px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.3);
+`;
+
+const NameInputStyle = styled.input`
+  border: 1px solid #eee;
+  border-radius: 4px;
+  width: 300px;
+  height: 30px;
+`;
+
 interface Props {
-  dispatchCreateRoom: () => any;
+  dispatchCreateRoom: (username: string) => void;
+  setDisplayModal: (d: boolean) => void;
 }
 
-export const CreateNameModal: React.SFC<Props> = ({ dispatchCreateRoom }) => (
-  <ModalWrapper>
+const handleRemoveModal = (setDisplayModal: any) => (e: any) => {
+  if (e.target.id === 'modal-name') {
+    setDisplayModal(false);
+  }
+};
+
+const handleCreateRoom = (dispatchCreateRoom: (username: string) => void) => (e: any) => {
+  dispatchCreateRoom(e.target.previousSibling.value);
+}
+
+export const CreateNameModal: React.SFC<Props> = ({ dispatchCreateRoom, setDisplayModal }) => (
+  <ModalWrapper onClick={handleRemoveModal(setDisplayModal)} id="modal-name">
     <ModalStyle>
-      <div onClick={dispatchCreateRoom} />
+      <NameInputStyle />
+      <CreateRoomStyle onClick={handleCreateRoom(dispatchCreateRoom)} />
     </ModalStyle>
   </ModalWrapper>
 );
+
+const mapDispatchToProps = (dispatch: any) => ({
+  dispatchCreateRoom: (username: string) => dispatch(createRoom(username))
+});
+
+export default connect(undefined, mapDispatchToProps)(CreateNameModal);
