@@ -4,7 +4,7 @@ class Piece {
     this.patterns = patterns;
     this.color = color;
     this.patternIndex = 0;
-    this.x = 4;
+    this.x = 4 - (Math.floor(this.pattern[0].length / 2));
     this.y = 0;
   }
 
@@ -22,13 +22,12 @@ class Piece {
 
  moveDown() {
     this.y++;
-    return this.y > 19;
   };
 
   rotate() {
     this.patternIndex = (this.patternIndex + 1) % 4;
     this.pattern = this.patterns[this.patternIndex];
   };
-};
+}
 
 module.exports = Piece;

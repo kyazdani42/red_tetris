@@ -40,7 +40,8 @@ class Game {
     while (this.data.running) {
       await timeout();
       this.data.players.map((player) => {
-        player.updateGrid();
+        player.tryMoveDown();
+        player.updateStack();
         if (!player.piece) {
           player.setNextPiece(this.allPieces[player.pieceIndex]);
         }

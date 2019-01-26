@@ -33,7 +33,7 @@ const initSocket = (game, name) => {
               io.emit('exitRoom', name);
               game.start();
             });
-            socket.on('updatePlayeurName', (playeurName) => {
+            socket.on('updatePlayerName', (playerName) => {
                 game.start();
             });
             socket.on('stop', () => {
