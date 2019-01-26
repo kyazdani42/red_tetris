@@ -74,7 +74,7 @@ const NameInputStyle = styled.input`
 `;
 
 interface Props {
-  dispatchCreateRoom: (username: string) => void;
+  dispatch: (username: string) => void;
   setDisplayModal: (d: boolean) => void;
 }
 
@@ -84,44 +84,38 @@ const handleRemoveModal = (setDisplayModal: any) => (e: any) => {
   }
 };
 
-const handleCreateRoom = (dispatchCreateRoom: (username: string) => void, setError: any) => (e: any) => {
+const handleCreateRoom = (dispatch: (username: string) => void, setError: any) => (e: any) => {
     const value = e.target.previousSibling.firstChild.nextElementSibling.value;
     if (!value.length) {
       setError('please enter something');
     } else {
-      dispatchCreateRoom(value);
+      dispatch(value);
     }
 };
 
-const handleKeyDown = (dispatchCreateRoom: (username: string) => void, setError: any) => (e: any) => {
+const handleKeyDown = (dispatch: (username: string) => void, setError: any) => (e: any) => {
   setError(null);
   if (e.key === 'Enter') {
     if (!e.target.value.length) {
       setError('please enter something');
     } else {
-      dispatchCreateRoom(e.target.value);
+      dispatch(e.target.value);
     }
   }
 };
 
-export const CreateNameModal: React.SFC<Props> = ({ dispatchCreateRoom, setDisplayModal }) => {
+export const CreateNameModal: React.SFC<Props> = ({ dispatch, setDisplayModal }) => {
   const [error, setError] = React.useState(null);
   return (
     <ModalWrapper onClick={handleRemoveModal(setDisplayModal)} id="modal-name">
       <ModalStyle>
         <InputWrapper>
           <LabelStyle>Pick a username</LabelStyle>
-          <NameInputStyle onKeyDown={handleKeyDown(dispatchCreateRoom, setError)} autoFocus={true} />
+          <NameInputStyle onKeyDown={handleKeyDown(dispatch, setError)} autoFocus={true} />
           {error ? <span style={{ color: 'red', fontSize: '14px' }}>{error}</span> : null}
         </InputWrapper>
-        <CreateRoomStyle onClick={handleCreateRoom(dispatchCreateRoom, setError)}>Launch Game</CreateRoomStyle>
+        <CreateRoomStyle onClick={handleCreateRoom(dispatch, setError)}>Launch Game</CreateRoomStyle>
       </ModalStyle>
     </ModalWrapper>
   );
 };
-
-const mapDispatchToProps = (dispatch: any) => ({
-  dispatchCreateRoom: (username: string) => dispatch(createRoom(username))
-});
-
-export default connect(undefined, mapDispatchToProps)(CreateNameModal);

@@ -2,10 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
 
-import { handleJoinRoom } from '../actions/actions';
+import { joinRoom } from '../actions/actions';
+import { CreateNameModal } from './CreateNameModal';
 
 interface Props {
-  joinRoom: (id: string) => void;
+  dispatchJoinRoom: (id: string) => () => void;
   roomId: string;
 }
 
@@ -32,15 +33,24 @@ const Button = styled.div`
   };
 `;
 
-export const JoinButton: React.SFC<Props> = ({ joinRoom, roomId }) => (
-  <Button onClick={handleClick(joinRoom, roomId)}><span>Join</span><Svg /></Button>
-);
+export const JoinButton: React.SFC<Props> = ({ dispatchJoinRoom, roomId }) => {
+  const [displayModal, setDisplayModal] = React.useState(false);
+  let modal;
+  if (displayModal) {
+    modal = <CreateNameModal setDisplayModal={setDisplayModal} dispatch={dispatchJoinRoom(roomId)} />;
+  } else {
+    modal = null;
+  }
+  return (
+    <Button onClick={handleClick(setDisplayModal)}><span>Join</span><Svg /></Button>
+  );
+};
 
-const handleClick = (joinRoom: (id: string) => void, roomId: string) => (e: any) => {
+const handleClick = (setDisplayModal: any) => (e: any) => {
   const target = e.currentTarget;
   target.style.opacity = '0.9';
   setTimeout(() => { target.style.opacity = '1'; }, 100);
-  joinRoom(roomId);
+  setDisplayModal(true);
 };
 
 const Svg = () => (
@@ -55,7 +65,7 @@ const mapStateToProps = (_: any, { roomId }: { roomId: string }) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  joinRoom: (id: string) => dispatch(handleJoinRoom(id))
+  dispatchJoinRoom: (id: string) => () => dispatch(joinRoom(id))
 });
 
 export default connect(

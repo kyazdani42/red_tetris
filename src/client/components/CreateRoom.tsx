@@ -1,7 +1,13 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import CreateNameModal from './CreateNameModal';
+import { createRoom } from '../actions/actions';
+import { CreateNameModal } from './CreateNameModal';
+
+interface Props {
+  dispatchCreateRoom: (username: string) => void;
+}
 
 const Button = styled.div`
   font-family: ${props => props.theme.fonts.title};
@@ -29,11 +35,11 @@ const Wrapper = styled.div`
   align-items: flex-end;
 `;
 
-export const CreateRoomButton: React.SFC<{}> = () => {
+export const CreateRoomButton: React.SFC<Props> = ({ dispatchCreateRoom }) => {
   const [displayModal, setDisplayModal] = React.useState(false);
   let modal;
   if (displayModal) {
-    modal = <CreateNameModal setDisplayModal={setDisplayModal} />;
+    modal = <CreateNameModal setDisplayModal={setDisplayModal} dispatch={dispatchCreateRoom} />;
   } else {
     modal = null;
   }
@@ -55,3 +61,9 @@ const handleClick = (setDisplayModal: any) => (e: any) => {
   setTimeout(() => { target.style.opacity = '1'; }, 100);
   setDisplayModal(true);
 };
+
+const mapDispatchToProps = (dispatch: any) => ({
+  dispatchCreateRoom: (username: string) => dispatch(createRoom(username))
+});
+
+export default connect(undefined, mapDispatchToProps)(CreateRoomButton);

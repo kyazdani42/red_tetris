@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { CreateRoomButton } from '../components/CreateRoom';
+import CreateRoomButton from '../components/CreateRoom';
 import { RoomRow } from '../components/RoomRow';
 import { State } from '../reducers/rooms';
 import { RoomType } from '../types';
