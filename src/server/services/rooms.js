@@ -7,10 +7,8 @@ const newRoom = (name) => {
 };
 
 const getRooms = () => rooms.reduce((accu, room, index) => {
-    if (!room.data.running) {
-        return accu.push(index);
-    }
-    return accu;
+    if (room.data.running) { return accu; }
+    return accu.push(index);
 }, []);
 
 module.exports = {

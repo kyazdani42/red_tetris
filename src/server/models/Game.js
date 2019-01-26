@@ -6,17 +6,14 @@ timeout = () => {
 };
 
 class Game {
-
-    socket;
-    allPieces = [];
-    data = {
-        owner: null,
-        players: [],
-        running: false,
-    };
-
     constructor(name) {
-        socket = initSocket(name);
+        this.socket = initSocket(name);
+        this.allPieces = [];
+        this.data = {
+          owner: null,
+          players: [],
+          running: false,
+        };
     }
 
     async run() {
@@ -36,6 +33,9 @@ class Game {
     };
 
     generate() {
+        for (let i = 0; i < 200; i++) {
+            this.allPices.push(new Piece());
+        }
         this.allPices = [];
     }
 
