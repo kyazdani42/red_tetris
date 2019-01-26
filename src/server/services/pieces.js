@@ -160,13 +160,13 @@ const RED = [
 ];
 
 const pieces = [
-  { color: 'skyBlue', patern: SKYBLUE },
-  { color: 'blue', patern: BLUE },
-  { color: 'orange', patern: ORANGE },
-  { color: 'yellow', patern: YELLOW },
-  { color: 'green', patern: GREEN },
-  { color: 'purple', patern: PURPLE },
-  { color: 'red', patern: RED },
+  { color: 'skyBlue', patterns: SKYBLUE },
+  { color: 'blue', patterns: BLUE },
+  { color: 'orange', patterns: ORANGE },
+  { color: 'yellow', patterns: YELLOW },
+  { color: 'green', patterns: GREEN },
+  { color: 'purple', patterns: PURPLE },
+  { color: 'red', patterns: RED },
 ];
 
 const getRandomPiece = () => {
