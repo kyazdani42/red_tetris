@@ -1,46 +1,54 @@
 const { initSocket, getIo } = require('../client/socket.io');
+const { getRandomPiece } = require('../services/pieces');
 const Player = require('./Player');
-// const Piece = require('./Piece')
+const Piece = require('./Piece')
 
 timeout = () => {
     return new Promise(resolve => setTimeout(resolve, 1000));
 };
 
-const generate = () => {
-    const allPieces = [];
-  // for (let i = 0; i < 200; i++) {
-  //   allPieces.push(new Piece());
-  // }
+const generate = (length) => {
+  const allPieces = [];
+  for (let i = length; i < length + 200; i++) {
+    allPieces[i] = new Piece(getRandomPiece());
+  }
   return allPieces;
 };
 
 class Game {
-    constructor(name) {
-        this.name = name;
-        this.socket = initSocket(this, name);
-        this.allPieces = generate();
-        this.data = {
-          owner: null,
-          players: [],
-          running: false,
-        };
-    }
-
-    async run() {
-        await timeout();
-        this.socket.emit('updateData', {gameStatus: '3'});
-        await timeout();
-        this.socket.emit('updateData', {gameStatus: '2'});
-        await timeout();
-        this.socket.emit('updateData', {gameStatus: '1'});
-        while (this.data.running) {
-            await timeout();
-            await this.data.players.map((player) => {
-                player.updateGrid()
-            });
-            this.socket.emit('updateData', { data: this.data });
-        }
+  constructor(name) {
+    this.name = name;
+    this.socket = initSocket(this, name);
+    this.allPieces = generate(0);
+    this.data = {
+      owner: null,
+      players: [],
+      running: false,
     };
+  }
+
+  async run() {
+    // await timeout();
+    // this.socket.emit('updateData', {gameStatus: '3'});
+    // await timeout();
+    // this.socket.emit('updateData', {gameStatus: '2'});
+    // await timeout();
+    // this.socket.emit('updateData', {gameStatus: '1'});
+    this.data.players.map((player) => {
+      player.setNextPiece(this.allPieces[0]);
+    });
+    while (this.data.running) {
+      await timeout();
+      this.data.players.map((player) => {
+        player.tryMoveDown();
+        player.updateStack();
+        if (!player.piece) {
+          player.setNextPiece(this.allPieces[player.pieceIndex]);
+        }
+      });
+      this.socket.emit('updateData', { data: this.data });
+    }
+  };
 
     start(id) {
         if (id === this.owner && !this.data.running) {
@@ -71,7 +79,7 @@ class Game {
     removePlayer(id) {
         this.players.splice(playerIndex, 1);
         if (this.owner === id && this.players !== {}) {
-            this.owner = this.players[0].id;
+            this.owner = this.data.players[0].id;
             rooms[name].socket.emit('updateData', { data: this });
         }
     };

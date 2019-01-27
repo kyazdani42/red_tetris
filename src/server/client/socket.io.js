@@ -30,6 +30,10 @@ const initSocket = (game, name) => {
                 game.removePlayer(socket.id);
             });
             socket.on('start', () => {
+              io.emit('exitRoom', name);
+              game.start();
+            });
+            socket.on('updatePlayerName', (playerName) => {
                 game.start();
             });
             socket.on('stop', () => {
