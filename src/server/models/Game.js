@@ -1,4 +1,3 @@
-const { initSocket, getIo } = require('../client/socket.io');
 const { getRandomPiece } = require('../services/pieces');
 const Player = require('./Player');
 const Piece = require('./Piece')
@@ -15,19 +14,52 @@ const generate = (length) => {
   return allPieces;
 };
 
-class Game {
-  constructor(name) {
+module.exports = class Game {
+  constructor({ name, io }) {
     this.name = name;
-    this.socket = initSocket(this, name);
     this.allPieces = generate(0);
     this.data = {
       owner: null,
       players: [],
       running: false,
     };
+    this.socket = this.initSocket(name, io);
   }
 
-  async run() {
+    initSocket(name, io) {
+        // io.emit('newRoom', name);
+        const { data, game } = this;
+        return io
+            .of(`/${name}`)
+            .on('connection', (socket) => {
+                if (data.running) {
+                    socket.disconnect();
+                }
+                // socket.emit('id', socket.id);
+                this.addPlayer(socket.id);
+                // console.log(socket.id);
+                socket.on('disconnect', () => {
+                    this.removePlayer(socket.id);
+                });
+                socket.on('start', () => {
+                    io.emit('exitRoom', name);
+                    this.start();
+                });
+                socket.on('updatePlayerName', (playerName) => {
+                    this.start();
+                });
+                socket.on('stop', () => {
+                    console.log('stop');
+                    this.stop();
+                });
+                socket.on('update', (data) => {
+                    console.log('update');
+                    socket.emit('update2', data);
+                });
+            });
+    }
+
+    async run() {
     // await timeout();
     // this.socket.emit('updateData', {gameStatus: '3'});
     // await timeout();
@@ -77,12 +109,10 @@ class Game {
     };
 
     removePlayer(id) {
-        this.players.splice(playerIndex, 1);
-        if (this.owner === id && this.players !== {}) {
-            this.owner = this.data.players[0].id;
-            rooms[name].socket.emit('updateData', { data: this });
+        this.data.players.splice(id, 1);
+        if (this.data.owner === id && this.data.players.length) {
+            this.data.owner = this.data.players[0].id;
+            this.socket.emit('updateData', { data: this });
         }
     };
 }
-
-module.exports = Game;

@@ -1,53 +1,33 @@
-const http = require('http');
 const bodyParser = require('body-parser');
-const express = require('express');
-
-// const mongoClient = require('./client/mongodb');
-const socketServer = require('./client/socket.io');
+const app = require('express')();
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+const uniqId = require('uniqid');
 
 const corsConfig = require('./middlewares/cors');
 
-// require('./models');
-
-const routes = require('./routes');
-const app = express();
-
-// Configure application
-// disable express powered by header (user dont need to know that the api is powered by ExpressJs)
 app.disable('x-powered-by');
 app.set('port', (process.env.PORT || 3000));
 app.use(bodyParser.urlencoded({ limit: '15mb', extended: true }));
 app.use(bodyParser.json({ limit: '15mb' }));
-
-// Router config
 app.use(corsConfig);
-app.use('/', routes);
 
-// Server configuration
-const server = http.createServer(app);
+// application initialisation
+const SocketClass = require('./services/Socket');
+const Socket = new SocketClass({ io })
 
-const listen = function () {
-    const port = app.get('port');
-        const httpServer = server.listen(port, (error) => {
-            if (error) {
-                console.log(error);
-            } else {
-                console.log('Server started');
-            }
-        });
-};
+app.post('/createRoom', async (_, res) => {
+    const name = uniqId();
+    Socket.createNewRoom(name);
+    res.json({ roomName: name });
+});
 
-const { newRoom } = require('./services/rooms');
-
-async function initServer() {
-//    await mongoClient.initClient();
-    await socketServer.initServer(server);
-//    await socketServer.newRoom();
-}
-
-async function startServer() {
-    await initServer();
-    listen();
-}
-
-startServer();
+// application listener
+const port = app.get('port');
+server.listen(port, (error) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Server started');
+    }
+});
