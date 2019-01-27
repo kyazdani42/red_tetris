@@ -14,40 +14,38 @@ interface RoomsProps {
   socket: SocketIOClient.Socket | null;
 }
 
+const RoomWrapper = styled.div`
+  position: relative;
+`;
+
 const StyledContainer = styled.div`
   font-family: ${props => props.theme.fonts.text};
   font-size: 18px;
   font-weight: 300;
-  background-color: #232323;
+  background-color: #000;
   color: #000;
 
   z-index: 100;
-  height: 70%;
-  padding: 35px;
-  width: 70%;
+  height: 80vh;
+  width: 70vw;
+  margin: 10vh auto auto;
   max-width: 500px;
-  margin: auto;
-  margin-top: 50px;
-
-  border-radius: 20px;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,69,100,0.4);
   box-shadow: 0 10px 10px rgba(255,44,55,0.20), 0 5px 5px rgba(255,55,55,0.20);
-  @media only screen and (max-height: 980px) {
-    height: 55%;
-  }
   transition: all 1s;
+  align-self: flex-end;
 `;
 
-const StyledWrapper = styled.div`
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #000;
-  position: relative;
+const RowWrapper = styled.div`
+  height: 88%;
+  width: 94%;
+  margin: 3% auto auto;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   overflow-y: scroll;
-  height: 90%;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
-  border-radius: 15px;
+  overflow: -moz-hidden-unscrollable;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName }) => {
@@ -56,12 +54,14 @@ export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName
     return <Redirect to={redirectUrl} />;
   } else {
     return (
-      <StyledContainer>
-        <StyledWrapper>
-          {getRoomRows(rooms)}
-        </StyledWrapper>
-        <CreateRoomButton />
-      </StyledContainer>
+      <RoomWrapper>
+        <StyledContainer>
+          <RowWrapper>
+            {getRoomRows(rooms)}
+          </RowWrapper>
+          <CreateRoomButton />
+        </StyledContainer>
+      </RoomWrapper>
     );
   }
 };

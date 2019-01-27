@@ -12,11 +12,10 @@ interface Props {
 const Button = styled.div`
   font-family: ${props => props.theme.fonts.title};
   background-color: ${props => props.theme.colors.primary.dark};
-  border-radius: 24px;
+  border-radius: 4px;
   color: #fff;
-  line-height: 50px;
-  height: 50px;
-  width: 150px;
+  width: 35%;
+  padding: 5px;
   font-size: 22px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -25,6 +24,9 @@ const Button = styled.div`
   cursor: pointer;
   :hover {
     opacity: 0.94;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 18px;
   }
 `;
 
