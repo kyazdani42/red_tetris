@@ -61,12 +61,12 @@ export const Background = () => {
   React.useEffect(() => {
       const newPieces = piece.map(d => {
         let newSpeedX, newSpeedY;
-        if (d.x + d.speedX > window.innerWidth - 100 || d.x + d.speedX < 1) {
+        if (d.x + d.speedX > window.innerWidth - 100 || d.x + d.speedX < 10) {
           newSpeedX = d.speedX * -1;
         } else {
           newSpeedX = d.speedX;
         }
-        if (d.y + d.speedY > window.innerHeight - 100 || d.y + d.speedY < 1) {
+        if (d.y + d.speedY > window.innerHeight - 100 || d.y + d.speedY < 10) {
           newSpeedY = d.speedY * -1;
         } else {
           newSpeedY = d.speedY;
