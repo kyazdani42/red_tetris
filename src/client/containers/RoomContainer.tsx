@@ -34,18 +34,22 @@ const StyledContainer = styled.div`
   box-shadow: 0 10px 10px rgba(255,44,55,0.20), 0 5px 5px rgba(255,55,55,0.20);
   transition: all 1s;
   align-self: flex-end;
+  overflow: hidden;
+`;
+
+const RowWrapperHideOverflow = styled.div`
+  height: 88%;
+  width: 90%;
+  margin: 3% auto auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
 const RowWrapper = styled.div`
-  height: 88%;
-  width: 94%;
-  margin: 3% auto auto;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: 100%;
+  width: 100%;
+  padding-right: 17px;
   overflow-y: scroll;
-  overflow: -moz-hidden-unscrollable;
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName }) => {
@@ -56,9 +60,11 @@ export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName
     return (
       <RoomWrapper>
         <StyledContainer>
-          <RowWrapper>
-            {getRoomRows(rooms)}
-          </RowWrapper>
+          <RowWrapperHideOverflow>
+            <RowWrapper>
+              {getRoomRows(rooms)}
+            </RowWrapper>
+          </RowWrapperHideOverflow>
           <CreateRoomButton />
         </StyledContainer>
       </RoomWrapper>
