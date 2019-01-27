@@ -12,7 +12,7 @@ const ModalWrapper = styled.div`
   bottom: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(10,0,0,0.7);
 `;
 
 const ModalStyle = styled.div`
@@ -23,8 +23,7 @@ const ModalStyle = styled.div`
   width: 400px;
   height: 150px;
   margin: auto;
-  margin-top: 50%;
-  transform: translateY(-200px);
+  margin-top: 20vh;
   background-color: #000;
   border-radius: 5px;
   border: 1px solid rgba(255,255,255,0.2);
