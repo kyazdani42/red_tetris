@@ -1,19 +1,6 @@
 const { initSocket, getIo } = require('../client/socket.io');
-const { getRandomPiece } = require('../services/pieces');
 const Player = require('./Player');
-const Piece = require('./Piece')
-
-timeout = () => {
-    return new Promise(resolve => setTimeout(resolve, 1000));
-};
-
-const generate = (length) => {
-  const allPieces = [];
-  for (let i = length; i < length + 200; i++) {
-    allPieces[i] = new Piece(getRandomPiece());
-  }
-  return allPieces;
-};
+const { timeout, generate } = require('../utils/game');
 
 class Game {
   constructor(name) {
@@ -40,11 +27,11 @@ class Game {
     while (this.data.running) {
       await timeout();
       this.data.players.map((player) => {
-        player.tryMoveDown();
         player.updateStack();
-        if (!player.piece) {
+        if (player.piece.fixed) {
           player.setNextPiece(this.allPieces[player.pieceIndex]);
         }
+        player.tryMoveDown();
       });
       this.socket.emit('updateData', { data: this.data });
     }
@@ -77,11 +64,11 @@ class Game {
     };
 
     removePlayer(id) {
-        this.players.splice(playerIndex, 1);
-        if (this.owner === id && this.players !== {}) {
-            this.owner = this.data.players[0].id;
-            rooms[name].socket.emit('updateData', { data: this });
-        }
+        // this.players.splice(playerIndex, 1);
+        // if (this.owner === id && this.players !== {}) {
+        //     this.owner = this.data.players[0].id;
+        //     //rooms[name].socket.emit('updateData', { data: this });
+        // }
     };
 }
 

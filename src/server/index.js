@@ -43,6 +43,7 @@ async function initServer() {
 //    await mongoClient.initClient();
     await socketServer.initServer(server);
 //    await socketServer.newRoom();
+  newRoom('123');
 }
 
 async function startServer() {
