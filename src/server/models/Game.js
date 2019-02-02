@@ -1,7 +1,7 @@
 const { getRandomPiece } = require('../utils/pieces');
 const { timeout, generate } = require('../utils/game');
 const Player = require('./Player');
-const { deleteGame, getGames } = require('../services/games');
+const { removeGame, getGames } = require('../services/games');
 
 module.exports = class Game {
   constructor({ name, io }) {
@@ -106,11 +106,11 @@ module.exports = class Game {
   }
 
   removePlayer(id) {
-    this.players.splice(playerIndex, 1);
-    if (this.owner === id && this.players.length) {
+    this.data.players = this.data.players.filter(d => d.id !== id);
+    if (this.owner === id && this.data.players.length) {
       this.owner = this.data.players[0].id;
     } else {
-      deleteGame(name);
+      removeGame(this.name);
     }
     this.io.emit('games', getGames());
   }
