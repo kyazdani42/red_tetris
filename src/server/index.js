@@ -3,6 +3,8 @@ const app = require('express')();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const uniqId = require('uniqid');
+const { getGames, setGame } = require('./services/games');
+const Game = require('./models/Game');
 
 const corsConfig = require('./middlewares/cors');
 
@@ -12,14 +14,15 @@ app.use(bodyParser.urlencoded({ limit: '15mb', extended: true }));
 app.use(bodyParser.json({ limit: '15mb' }));
 app.use(corsConfig);
 
-// application initialisation
-const SocketClass = require('./services/Socket');
-const Socket = new SocketClass({ io })
+io.on('connection', socket =>
+  socket.emit('games', getGames())
+);
 
 app.post('/createRoom', async (_, res) => {
     const name = uniqId();
-    Socket.createNewRoom(name);
-    res.json({ roomName: name });
+    const game = new Game({ io, name });
+    setGame(game, name);
+    res.json({ gameName: name });
 });
 
 // application listener

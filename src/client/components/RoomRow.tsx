@@ -19,18 +19,19 @@ const StyledRow = styled.div`
   border-bottom: 1px solid rgba(255,255,255,0.1);
 `;
 
-export const RoomRow: React.SFC<RoomType> = ({ id, running, players }) => {
+export const RoomRow: React.SFC<RoomType> = (props: any) => {
+  const { owner, running, players } = props;
   const numPlayers: string = String(players.length);
-  const roomName: string = `Room ${id}`;
-  const join = running ? null : <JoinButton roomId={id} />;
+  const ownerName: string = `owner: ${owner.slice(0, 2)}`;
+  const join = running ? null : <JoinButton roomId={name} />;
 
   return (
     <StyledRow>
       <h3 style={{  margin: 0 }}>
-        <span>{roomName}</span>
+        <span>{ownerName}</span>
       </h3>
       <div>
-        <span>Number Of Players: </span>
+        <span>players: </span>
         <span>{numPlayers}</span>
       </div>
       {join}
