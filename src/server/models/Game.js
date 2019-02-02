@@ -1,6 +1,6 @@
-const { getRandomPiece } = require('../services/pieces');
-const Player = require('./Player');
+const { getRandomPiece } = require('../utils/pieces');
 const { timeout, generate } = require('../utils/game');
+const Player = require('./Player');
 
 module.exports = class Game {
   constructor({ name, io }) {
