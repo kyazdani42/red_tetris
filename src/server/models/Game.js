@@ -107,8 +107,8 @@ module.exports = class Game {
 
   removePlayer(id) {
     this.data.players = this.data.players.filter(d => d.id !== id);
-    if (this.owner === id && this.data.players.length) {
-      this.owner = this.data.players[0].id;
+    if (this.data.owner === id && this.data.players.length) {
+      this.data.owner = this.data.players[0].id;
     } else {
       removeGame(this.name);
     }

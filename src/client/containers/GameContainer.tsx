@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
+import GameController from '../components/GameController';
 import LeaveRoomButton from '../components/LeaveRoomButton';
 
 const SpectreContainer = styled.div`
@@ -16,7 +17,9 @@ const SpectreContainer = styled.div`
 const GameWrapper = styled.div`
   height: 70vh;
   max-height: 1000px;
-  width: 60%;
+  width: 30%;
+  min-width: 300px;
+  max-width: 500px;
   margin: auto;
   margin-top: 30px;
   border: 1px solid #fff;
@@ -46,13 +49,15 @@ const GameContainer: React.SFC<Props> = ({ socket }) => {
     <React.Fragment>
       <SpectreContainer><LeaveRoomButton /></SpectreContainer>
       <GameWrapper />
-      <ControlContainer />
+      <ControlContainer>
+        <GameController />
+      </ControlContainer>
     </React.Fragment>
   );
 };
 
 const mapStateToProps = (state: any) => ({
-  socket: state.room.socket
+  socket: state.app.socket
 });
 
 export default connect(mapStateToProps)(GameContainer);

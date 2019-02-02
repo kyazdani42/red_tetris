@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { State } from '../store';
+import { RoomType } from '../types';
+
 import CreateRoomButton from '../components/CreateRoom';
 import { RoomRow } from '../components/RoomRow';
-import { State } from '../reducers/rooms';
-import { RoomType } from '../types';
 
 interface RoomsProps {
   playerName: string;
@@ -75,6 +76,6 @@ export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName
 const getRoomRows = (rooms: RoomType[]): JSX.Element[] =>
   rooms.map((d, i) => <RoomRow {...d} key={`room-_${d.id}_${i}`} />);
 
-const mapStateToProps = ({ room: { rooms, socket, playerName } }: { room: State }) => ({ rooms, socket, playerName });
+const mapStateToProps = ({ app: { rooms, socket, playerName } }: State) => ({ rooms, socket, playerName });
 
 export default connect(mapStateToProps)(RoomContainer);

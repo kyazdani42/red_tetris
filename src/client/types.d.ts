@@ -10,3 +10,9 @@ export interface RoomType {
   owner: Player;
   running: boolean;
 }
+
+export interface GameProps {
+  name: string;
+  running: boolean;
+  isOwner: boolean;
+}

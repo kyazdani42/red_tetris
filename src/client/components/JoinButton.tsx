@@ -42,7 +42,10 @@ export const JoinButton: React.SFC<Props> = ({ dispatchJoinRoom, roomId }) => {
     modal = null;
   }
   return (
-    <Button onClick={handleClick(setDisplayModal)}><span>Join</span><Svg /></Button>
+    <React.Fragment>
+      <Button onClick={handleClick(setDisplayModal)}><span>Join</span><Svg /></Button>
+      {modal}
+    </React.Fragment>
   );
 };
 

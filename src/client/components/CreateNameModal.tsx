@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
-
-import { createRoom } from '../actions/actions';
 
 const ModalWrapper = styled.div`
   position: absolute;
