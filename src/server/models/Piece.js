@@ -4,9 +4,14 @@ class Piece {
     this.patterns = patterns;
     this.color = color;
     this.patternIndex = 0;
+    this.fixed = false;
     this.x = 4 - (Math.floor(this.pattern[0].length / 2));
     this.y = 0;
   }
+
+  fixPiece() {
+    this.fixed = true;
+  };
 
   moveRight() {
     if (this.x < 9) {
