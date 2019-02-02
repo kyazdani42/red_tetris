@@ -12,33 +12,42 @@ const checkPosition = (x, y, pattern, stack) => {
   return true
 };
 
-const checkCase = () => {
-  if (patternCase === 1) {
-    if (patternY + y + 1 > 19) { return true; }
-    if (stack[patternY + y + 1][patternX + x].value === 1) { return true; }
+const checkCase = (stack, y) => {
+  return (patternCase, x) => {
+    if (patternCase === 1) {
+      if (y > 19) { return true; }
+      if (stack[y][x].value === 1) { return true; }
+    }
   }
 };
 
-const checkLine = ({ x, y, pattern }, stack) => {
-  return line.forEach((patternCase, patternX) => {
-    checkCase()
-  })
+const checkLine = (line, stack, x, y) => {
+  let result = false;
+  const check = checkCase(stack, y);
+  line.forEach((patternCase, patternX) => {
+    if (check(patternCase, x + patternX)) {
+      result = true;
+    }
+  });
+  return result;
 };
 
 const isInContactWithStack = (piece, stack) => {
-  pattern.forEach((line, patternY) => {
-    checkLine(piece, stack);
-
+  let result = false;
+  piece.pattern.forEach((line, patternY) => {
+    if (checkLine(line, stack,  piece.x, patternY + piece.y + 1)) {
+      result = true;
+    }
   });
-  return false;
+  return result;
 };
 
 const fusionPieceAndStack = ({ x, y, pattern, color }, stack) => {
-  const newStack = Object.assign({}, stack);
+  const newStack = [...stack];
   pattern.forEach((line, patternY) => {
     line.forEach((patternCase, patternX) => {
       if (patternCase === 1 ) {
-        newStack[patternY + y][patternX + x].value = { color,  value: 1, fix: false };
+        newStack[patternY + y][patternX + x] = { color,  value: 1, fix: false };
       }
     })
   });

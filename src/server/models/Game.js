@@ -8,51 +8,68 @@ module.exports = class Game {
     this.io = io;
     this.name = name;
     this.allPieces = generate(0);
-    this.data = {
-      owner: null,
-      players: [],
-      running: false
-    };
+    this.owner = undefined;
+    this.players = [];
+    this.running = false;
     this.socket = this.initSocket(name, io);
   }
 
   initSocket(name, io) {
-    // io.emit('newRoom', name);
-    const { data, game } = this;
+    const game = this;
     return io.of(`/${name}`).on('connection', socket => {
-      if (data.running) {
+      if (game.running) {
         socket.disconnect();
       }
-      // socket.emit('id', socket.id);
-      this.addPlayer(socket.id);
-      // console.log(socket.id);
+      game.addPlayer(socket);
       socket.on('disconnect', () => {
-        this.removePlayer(socket.id);
+        game.removePlayer(socket.id);
+      });
+      socket.on('rotate', () => {
+        console.log('rotate');
+      });
+      socket.on('moveDown', () => {
+        console.log('moveDown');
+      });
+      socket.on('moveLeft', () => {
+        console.log('moveLeft');
+      });
+      socket.on('moveRight', () => {
+        console.log('moveRight');
+      });
+      socket.on('goDown', () => {
+        console.log('goDown');
       });
       socket.on('start', () => {
-        io.emit('exitRoom', name);
-        this.start();
-      });
-      socket.on('updatePlayerName', playerName => {
-        this.start();
+        game.start(socket.id);
       });
       socket.on('stop', () => {
         console.log('stop');
-        this.stop();
-      });
-      socket.on('update', data => {
-        console.log('update');
-        socket.emit('update2', data);
+        game.stop();
       });
     });
   }
 
-  getInfo() {
+  getPublicInfo() {
     return {
       name: this.name,
       running: this.running,
-      ...this.data
     };
+  }
+
+  privateInfo(player) {
+    return {
+      name: this.name,
+      running: this.running,
+      isOwner: player.id === this.owner,
+      stack: player.tmpStack(),
+    }
+  }
+
+  updateGame() {
+    this.players.forEach((player) => {
+      player.socket.emit('updateGame', this.privateInfo(player));
+      console.log(player.stack)
+    });
   }
 
   async run() {
@@ -62,53 +79,47 @@ module.exports = class Game {
     // this.socket.emit('updateData', {gameStatus: '2'});
     // await timeout();
     // this.socket.emit('updateData', {gameStatus: '1'});
-    this.data.players.map(player => {
+    this.players.map(player => {
       player.setNextPiece(this.allPieces[0]);
     });
-    while (this.data.running) {
+    while (this.running) {
       await timeout();
-      this.data.players.map(player => {
+      this.players.map(player => {
         player.updateStack();
         if (player.piece.fixed) {
           player.setNextPiece(this.allPieces[player.pieceIndex]);
         }
         player.tryMoveDown();
       });
-      this.socket.emit('updateData', { data: this.data });
+      this.updateGame();
     }
   }
 
   start(id) {
-    if (id === this.owner && !this.data.running) {
+    if (id === this.owner && !this.running) {
       // map player playing: true
       console.log('start');
-      this.data.running = true;
+      this.running = true;
       this.run();
     }
   }
 
   stop() {
-    this.data.running = false;
+    this.running = false;
   }
 
-  getPlayerIndex(id) {
-    return this.data.players.findIndex(player => {
-      return player.id === id;
-    });
-  }
-
-  addPlayer(id) {
-    if (!this.data.owner) {
-      this.data.owner = id;
+  addPlayer(socket) {
+    if (!this.owner) {
+      this.owner = socket.id;
     }
-    this.data.players.push(new Player(id));
+    this.players.push(new Player(socket));
     this.io.emit('games', getGames());
   }
 
   removePlayer(id) {
-    this.data.players = this.data.players.filter(d => d.id !== id);
-    if (this.data.owner === id && this.data.players.length) {
-      this.data.owner = this.data.players[0].id;
+    this.players = this.players.filter(d => d.id !== id);
+    if (this.owner === id && this.players.length) {
+      this.owner = this.players[0].id;
     } else {
       removeGame(this.name);
     }
