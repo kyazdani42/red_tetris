@@ -18,6 +18,8 @@ io.on('connection', socket =>
   socket.emit('games', getGames())
 );
 
+setGame(new Game({ io, name: '123' }), '123');
+
 app.post('/createRoom', async (_, res) => {
     const name = uniqId();
     const game = new Game({ io, name });
