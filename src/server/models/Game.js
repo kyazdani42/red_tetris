@@ -52,6 +52,9 @@ module.exports = class Game {
     return {
       name: this.name,
       running: this.running,
+      // need the following 
+      // players: this.players, // or .length,
+      // owner: this.owner // owner name as we discussed, otherwise i might event don't need that
     };
   }
 
@@ -66,10 +69,10 @@ module.exports = class Game {
   }
 
   updateGame() {
-    this.players.forEach((player) => {
+    for (const player of this.players) {
       player.socket.emit('updateGame', this.privateInfo(player));
       console.log('updateGame')
-    });
+    }
   }
 
   async run() {
@@ -79,14 +82,26 @@ module.exports = class Game {
     // this.socket.emit('updateData', {gameStatus: '2'});
     // await timeout();
     // this.socket.emit('updateData', {gameStatus: '1'});
+
+    // si tu modifie l'etat d'un objet directement,
+    // map ne sert a rien, utilise une boucle for of
+    /*
+    for (const player of players) {
+      player.setNextPiece(this.allPieces[0]);
+      player.isPlaying = true;
+    }
+    */ 
     this.players.map(player => {
       player.setNextPiece(this.allPieces[0]);
       player.isPlaying = true;
     });
     while (this.running) {
       await timeout();
+      // pareil ici, si tu utilise for of tu n'a pas besoin de return
+      // et du coup ton code exprimerai mieux la logique du jeu
+      // car tu dirai: si player.isPlaying, exprime la logique
       this.players.map(player => {
-        if (!player.isPlaying) { return; }
+        if (!player.isPlaying) return;
         const nbLine = player.updateStack();
         console.log('nbLine: ', nbLine);
         this.players.forEach((looserPlayer) => {
