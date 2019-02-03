@@ -5,7 +5,7 @@ class Piece {
     this.color = color;
     this.patternIndex = 0;
     this.fixed = false;
-    this.x = 4 - (Math.floor(this.pattern[0].length / 2));
+    this.x = 5 - (Math.floor(this.pattern[0].length / 2));
     this.y = 0;
   }
 
@@ -14,15 +14,11 @@ class Piece {
   };
 
   moveRight() {
-    if (this.x < 9) {
-      this.x++;
-    }
+    this.x++;
   };
 
   moveLeft() {
-    if (this.x > 0) {
-      this.x--;
-    }
+    this.x--;
   };
 
  moveDown() {

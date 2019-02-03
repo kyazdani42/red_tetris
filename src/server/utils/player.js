@@ -1,49 +1,31 @@
 const stackCase = { color: 'black', value: 0, fix: false };
-
-const checkPosition = (x, y, pattern, stack) => {
-  pattern.forEach((line, patternY) => {
-    line.forEach((patternCase, patternX) => {
-      if (patternCase === 1) {
-        if (patternY + y > 19 || patternY + y < 0 || patternX + x > 9 || patternX + x < 0) { return false; }
-        if (stack[patternY + y][patternX + x].value === 1) { return false; }
-      }
-    })
-  });
-  return true
-};
+const fixStackCase = { color: 'grey', value: 1, fix: true };
 
 const checkCase = (stack, y) => {
   return (patternCase, x) => {
     if (patternCase === 1) {
-      if (y > 19) { return true; }
+      if (y > 19 || x < 0 || x > 9) { return true; }
       if (stack[y][x].value === 1) { return true; }
     }
+    return false;
   }
 };
 
 const checkLine = (line, stack, x, y) => {
-  let result = false;
   const check = checkCase(stack, y);
-  line.forEach((patternCase, patternX) => {
-    if (check(patternCase, x + patternX)) {
-      result = true;
-    }
+  return line.some((patternCase, patternX) => {
+    return check(patternCase, x + patternX);
   });
-  return result;
 };
 
-const isInContactWithStack = (piece, stack) => {
-  let result = false;
-  piece.pattern.forEach((line, patternY) => {
-    if (checkLine(line, stack,  piece.x, patternY + piece.y + 1)) {
-      result = true;
-    }
+const checkPosition = (x, y, pattern, stack) => {
+  return pattern.some((line, patternY) => {
+    return checkLine(line, stack,  x, patternY + y);
   });
-  return result;
 };
 
 const fusionPieceAndStack = ({ x, y, pattern, color }, stack) => {
-  const newStack = [...stack];
+  const newStack = JSON.parse(JSON.stringify( stack ));
   pattern.forEach((line, patternY) => {
     line.forEach((patternCase, patternX) => {
       if (patternCase === 1 ) {
@@ -54,20 +36,51 @@ const fusionPieceAndStack = ({ x, y, pattern, color }, stack) => {
   return newStack;
 };
 
+const isFullLine = (y, stack, value) => {
+  return !stack[y].some((aCase) => {
+    return aCase.value === value;
+  })
+};
+
+const updateFullLine = (y, stack) => {
+  if (!stack[y][0].fix && isFullLine(y, stack, 0)) {
+    console.log('fullLine')
+    stack.splice(y, 1);
+    stack.unshift(initLine(stackCase));
+    return true;
+  }
+  return false;
+};
+
+const addFixLine = (stack) => {
+  if (isFullLine(0, stack, 1)) {
+    stack.splice(0, 1);
+    stack.push(initLine(fixStackCase));
+    return true;
+  }
+  return false;
+};
+
+const initLine = (newCase) => {
+  const line = [];
+  for (let x = 0; x < 10; x++) {
+    line.push(newCase);
+  }
+  return line;
+};
+
 const initStack = () => {
   const stack = [];
   for (let y = 0; y < 20; y++) {
-    stack[y] = [];
-    for (let x = 0; x < 10; x++) {
-      stack[y].push(stackCase);
-    }
+    stack[y] = initLine(stackCase);
   }
   return stack;
 };
 
 module.exports = {
   checkPosition,
-  isInContactWithStack,
   fusionPieceAndStack,
   initStack,
+  updateFullLine,
+  addFixLine,
 };
