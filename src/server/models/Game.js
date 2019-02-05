@@ -6,7 +6,7 @@ module.exports = class Game {
   constructor({ name, io }) {
     this.io = io;
     this.name = name;
-    this.allPieces = generate(0);
+    this.allPieces = generate();
     this.owner = undefined;
     this.players = [];
     this.running = false;
@@ -82,38 +82,27 @@ module.exports = class Game {
     // this.socket.emit('updateData', {gameStatus: '2'});
     // await timeout();
     // this.socket.emit('updateData', {gameStatus: '1'});
-
-    // si tu modifie l'etat d'un objet directement,
-    // map ne sert a rien, utilise une boucle for of
-    /*
-    for (const player of players) {
+    for (const player of this.players) {
       player.setNextPiece(this.allPieces[0]);
       player.isPlaying = true;
     }
-    */ 
-    this.players.map(player => {
-      player.setNextPiece(this.allPieces[0]);
-      player.isPlaying = true;
-    });
     while (this.running) {
       await timeout();
-      // pareil ici, si tu utilise for of tu n'a pas besoin de return
-      // et du coup ton code exprimerai mieux la logique du jeu
-      // car tu dirai: si player.isPlaying, exprime la logique
-      this.players.map(player => {
-        if (!player.isPlaying) return;
-        const nbLine = player.updateStack();
-        console.log('nbLine: ', nbLine);
-        this.players.forEach((looserPlayer) => {
-          if (looserPlayer.id !== player.id) {
+      for (const player of this.players) {
+        if (player.isPlaying) {
+          const nbLine = player.updateStack();
+          for (const looserPlayer of this.players) {
+            if (looserPlayer.id !== player.id) {
               looserPlayer.addLine(nbLine);
             }
-        });
-        if (player.piece.fixed) {
-          player.setNextPiece(this.allPieces[player.pieceIndex]);
+          }
+          if (player.piece.fixed) {
+            // allPieces peut etre vide, check et generer de nouvelle.
+            player.setNextPiece(this.allPieces[player.pieceIndex]);
+          }
+          player.tryMoveDown();
         }
-        player.tryMoveDown();
-      });
+      }
       this.updateGame();
     }
   }
