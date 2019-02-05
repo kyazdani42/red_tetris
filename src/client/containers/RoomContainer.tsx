@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { State } from '../store';
-import { RoomType } from '../types';
 
 import CreateRoomButton from '../components/CreateRoom';
 import { RoomRow } from '../components/RoomRow';

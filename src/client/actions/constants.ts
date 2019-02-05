@@ -14,3 +14,5 @@ export const KEY_RIGHT = 'KEY_RIGHT';
 export const KEY_LEFT = 'KEY_LEFT';
 export const KEY_SPACE = 'KEY_SPACE';
 export const RESET_KEY = 'RESET_KEY';
+
+export const START_GAME = 'START_GAME';

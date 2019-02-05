@@ -14,7 +14,8 @@ import {
   KEY_RIGHT,
   KEY_SPACE,
   KEY_UP,
-  LEAVE_ROOM
+  LEAVE_ROOM,
+  START_GAME
 } from '../actions/constants';
 import { initGameSocket, initHomeSocket } from './socketListeners';
 import { request } from './utils';
@@ -26,7 +27,8 @@ export default function* rootSaga() {
     call(createRoomSaga),
     call(leaveRoomSaga),
     call(joinRoomSaga),
-    call(emitSocketSaga)
+    call(emitSocketSaga),
+    call(emitStartGame)
   ]);
 }
 
@@ -56,6 +58,13 @@ function* createRoomSaga() {
     const socket: SocketIOClient.Socket = io(`http://localhost:3000/${data.gameName}`);
     initGameSocket(socket);
     yield put(setSocket(socket));
+  }
+}
+
+function* emitStartGame() {
+  while (yield take(START_GAME)) {
+    const socket = yield select((state: State) => state.app.socket);
+    socket.emit('start');
   }
 }
 

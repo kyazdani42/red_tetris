@@ -1,5 +1,4 @@
 import { Action, handleActions } from 'redux-actions';
-import { GameProps, RoomType } from '../types';
 
 export interface AppState {
   playerName: string;

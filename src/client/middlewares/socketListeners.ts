@@ -1,5 +1,3 @@
-import { GameProps } from '../types';
-
 import { setGameData, setRooms } from '../actions/actions';
 import store from '../store';
 

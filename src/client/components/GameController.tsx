@@ -2,8 +2,9 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import Key from './Key';
+import { StartButton } from './StartButton';
 
-import { keyDown, keyLeft, keyRight, keySpace, keyUp } from '../actions/actions';
+import { keyDown, keyLeft, keyRight, keySpace, keyUp, startGame } from '../actions/actions';
 
 interface Props {
   dispatchKeySpace: () => void;
@@ -11,6 +12,7 @@ interface Props {
   dispatchKeyDown: () => void;
   dispatchKeyLeft: () => void;
   dispatchKeyRight: () => void;
+  dispatchStartGame: () => void;
 }
 
 const handleKeyPress = (props: Props) => (e: any) => {
@@ -48,6 +50,7 @@ const GameController = (props: Props) => {
       <Key type="down" dispatcher={props.dispatchKeyDown} />
       <Key type="up" dispatcher={props.dispatchKeyUp} />
       <Key type=" " dispatcher={props.dispatchKeySpace} />
+      <StartButton dispatchStartGame={props.dispatchStartGame} />
     </div>
   );
 };
@@ -58,6 +61,7 @@ const mapDispatchToProps = (dispatch: any) => ({
   dispatchKeyDown: () => dispatch(keyDown()),
   dispatchKeyLeft: () => dispatch(keyLeft()),
   dispatchKeyRight: () => dispatch(keyRight()),
+  dispatchStartGame: () => dispatch(startGame())
 });
 
 export default connect(undefined, mapDispatchToProps)(GameController);

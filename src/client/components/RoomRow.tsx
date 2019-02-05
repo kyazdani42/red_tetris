@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { RoomType } from '../types';
 import JoinButton from './JoinButton';
 
 const StyledRow = styled.div`
@@ -20,19 +19,19 @@ const StyledRow = styled.div`
 `;
 
 export const RoomRow: React.SFC<RoomType> = (props: any) => {
-  const { owner, running, name, players } = props;
-  const numPlayers: string = String(players.length);
-  const ownerName: string = `owner: ${owner.slice(0, 2)}`;
+  const { running, name } = props;
+  // const numPlayers: string = String(players.length);
+  // const ownerName: string = `owner: ${owner.slice(0, 2)}`;
   const join = running ? null : <JoinButton roomId={name} />;
 
   return (
     <StyledRow>
-      <h3 style={{  margin: 0 }}>
-        <span>{ownerName}</span>
+      <h3 style={{ margin: 0 }}>
+        <span>{'whatever'}</span>
       </h3>
       <div>
         <span>players: </span>
-        <span>{numPlayers}</span>
+        <span>{'guess motherfucker'}</span>
       </div>
       {join}
     </StyledRow>

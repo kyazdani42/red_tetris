@@ -1,6 +1,5 @@
 import { Action, ActionFunctionAny, createAction } from 'redux-actions';
 
-import { GameProps, RoomType } from '../types';
 import {
   CREATE_ROOM,
   JOIN_ROOM,
@@ -13,7 +12,8 @@ import {
   RESET_KEY,
   SET_GAME_DATA,
   SET_ROOMS,
-  SET_SOCKET
+  SET_SOCKET,
+  START_GAME
 } from './constants';
 
 export const setRooms: ActionFunctionAny<Action<RoomType[]>> = createAction(SET_ROOMS);
@@ -32,3 +32,4 @@ export const keyLeft: ActionFunctionAny<Action<undefined>> = createAction(KEY_LE
 export const keyRight: ActionFunctionAny<Action<undefined>> = createAction(KEY_RIGHT);
 export const keySpace: ActionFunctionAny<Action<undefined>> = createAction(KEY_SPACE);
 export const resetKey: ActionFunctionAny<Action<undefined>> = createAction(RESET_KEY);
+export const startGame: ActionFunctionAny<Action<undefined>> = createAction(START_GAME);
