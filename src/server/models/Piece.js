@@ -1,5 +1,5 @@
 class Piece {
-  constructor({color, patterns}) {
+  constructor({ color, patterns }) {
     this.pattern = patterns[0];
     this.patterns = patterns;
     this.color = color;

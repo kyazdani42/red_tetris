@@ -3,17 +3,10 @@ import { Action, ActionFunctionAny, createAction } from 'redux-actions';
 import {
   CREATE_ROOM,
   JOIN_ROOM,
-  KEY_DOWN,
-  KEY_LEFT,
-  KEY_RIGHT,
-  KEY_SPACE,
-  KEY_UP,
   LEAVE_ROOM,
-  RESET_KEY,
   SET_GAME_DATA,
   SET_ROOMS,
   SET_SOCKET,
-  START_GAME
 } from './constants';
 
 export const setRooms: ActionFunctionAny<Action<RoomType[]>> = createAction(SET_ROOMS);
@@ -25,11 +18,3 @@ export const leaveRoom: ActionFunctionAny<Action<undefined>> = createAction(LEAV
 export const setSocket: ActionFunctionAny<Action<SocketIOClient.Socket>> = createAction(SET_SOCKET);
 
 export const setGameData: ActionFunctionAny<Action<GameProps>> = createAction(SET_GAME_DATA);
-
-export const keyUp: ActionFunctionAny<Action<undefined>> = createAction(KEY_UP);
-export const keyDown: ActionFunctionAny<Action<undefined>> = createAction(KEY_DOWN);
-export const keyLeft: ActionFunctionAny<Action<undefined>> = createAction(KEY_LEFT);
-export const keyRight: ActionFunctionAny<Action<undefined>> = createAction(KEY_RIGHT);
-export const keySpace: ActionFunctionAny<Action<undefined>> = createAction(KEY_SPACE);
-export const resetKey: ActionFunctionAny<Action<undefined>> = createAction(RESET_KEY);
-export const startGame: ActionFunctionAny<Action<undefined>> = createAction(START_GAME);

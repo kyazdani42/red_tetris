@@ -13,5 +13,5 @@ const removeGame = (name) => {
 module.exports = {
   getGames,
   setGame,
-  removeGame
+  removeGame,
 };

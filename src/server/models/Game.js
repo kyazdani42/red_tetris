@@ -56,9 +56,8 @@ module.exports = class Game {
     return {
       name: this.name,
       running: this.running,
-      // need the following 
-      // players: this.players, // or .length,
-      // owner: this.owner // owner name as we discussed, otherwise i might event don't need that
+      players: this.players.length,
+      owner: this.owner,
     };
   }
 
@@ -69,13 +68,13 @@ module.exports = class Game {
       isOwner: player.id === this.owner,
       stack: player.tmpStack(),
       isPlaying: player.isPlaying,
-    }
+    };
   }
 
   updateGame() {
     for (const player of this.players) {
       player.socket.emit('updateGame', this.privateInfo(player));
-      console.log('updateGame')
+      console.log('updateGame');
     }
   }
 
@@ -94,17 +93,23 @@ module.exports = class Game {
       await timeout();
       for (const player of this.players) {
         if (player.isPlaying) {
-          const nbLine = player.updateStack();
-          for (const looserPlayer of this.players) {
-            if (looserPlayer.id !== player.id) {
-              looserPlayer.addLine(nbLine);
-            }
-          }
+          player.updateStack();
           if (player.piece.fixed) {
-            // allPieces peut etre vide, check et generer de nouvelle.
+            if (player.pieceIndex >= this.allPieces.length) {
+              const newPieces = generate();
+              this.allPieces = this.allPieces.concat(newPieces);
+            }
             player.setNextPiece(this.allPieces[player.pieceIndex]);
           }
           player.tryMoveDown();
+        }
+      }
+      for (const player of this.players) {
+        for (const looserPlayer of this.players) {
+          if (looserPlayer.id !== player.id) {
+            looserPlayer.addLine(player.nbLine);
+            player.nbLine = 0;
+          }
         }
       }
       this.updateGame();
@@ -153,7 +158,7 @@ module.exports = class Game {
         break;
     }
     this.updateGame();
-  };
+  }
 
   removePlayer(id) {
     this.players = this.players.filter(d => d.id !== id);

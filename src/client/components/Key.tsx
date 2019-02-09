@@ -1,17 +1,14 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-
-import { State } from '../store';
 
 interface Props {
-  dispatcher: () => void;
-  keyPressed: State['app']['key'];
-  type: State['app']['key'];
+  emitter: () => void;
+  type: keyType;
+  keyPressed: keyType | null;
 }
 
-const Key = ({ dispatcher, keyPressed, type }: Props) => (
+const Key = ({ keyPressed, emitter, type }: Props) => (
   <div
-    onClick={dispatcher}
+    onClick={emitter}
     style={{
       width: '50px',
       height: '50px',
@@ -23,13 +20,4 @@ const Key = ({ dispatcher, keyPressed, type }: Props) => (
   </div>
 );
 
-const mapStateToProps = (
-  state: State,
-  { dispatcher, type }: { dispatcher: () => void; type: State['app']['key'] }
-) => ({
-  keyPressed: state.app.key,
-  type,
-  dispatcher
-});
-
-export default connect(mapStateToProps)(Key);
+export default Key;
