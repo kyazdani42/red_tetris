@@ -22,3 +22,6 @@ interface GameProps {
     fix: boolean;
   }]>
 }
+
+type keyType = 'up' | 'down' | 'left' | 'right' | ' ';
+type colorType = 'skyBlue' | 'blue' | 'orange' | 'yellow' | 'green' | 'purple' | 'red' | 'black' | 'grey';
