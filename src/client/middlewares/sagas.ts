@@ -36,7 +36,7 @@ function* leaveRoomSaga() {
   while (yield take(LEAVE_ROOM)) {
     const socket: AppState['socket'] = yield select((state: State) => state.app.socket);
     if (socket) {
-      socket.emit('disconnect');
+      socket.emit('leaveRoom');
       yield put(setSocket(null));
       yield put(setGameData(null));
     }
