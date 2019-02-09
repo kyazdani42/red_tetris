@@ -1,4 +1,11 @@
-const { fusionPieceAndStack, checkPosition, initStack, updateFullLine, addFixLine } = require('../utils/player');
+const {
+  fusionPieceAndStack,
+  checkPosition,
+  initStack,
+  updateFullLine,
+  addFixLine,
+  getSpectre,
+} = require('../utils/player');
 const Piece = require('./Piece');
 
 class Player {
@@ -8,14 +15,16 @@ class Player {
     this.pieceIndex = 0;
     this.stack = initStack();
     this.piece = null;
+    this.nextPiece = null;
     this.isPlaying = false;
     this.spectre = null;
     this.nbLine = 0;
   }
 
-  setNextPiece(pieceData) {
+  setNextPiece(pieceData, nextPieceData) {
     console.log('nextPiece');
     this.piece = new Piece(pieceData);
+    this.nextPiece = nextPieceData;
     this.pieceIndex += 1;
   }
 
@@ -81,8 +90,13 @@ class Player {
 
   addLine(nbLine) {
     for (let add = 0; add < nbLine; add += 1) {
-      if (!addFixLine(this.stack)) {
+      const { x, y, pattern } = this.piece;
+        if (!addFixLine(this.stack)) {
         this.isPlaying = false;
+      }
+      if (checkPosition(x, y, pattern, this.stack)) {
+        this.piece.moveUp();
+        console.log(this.piece.y);
       }
     }
   }
