@@ -15,7 +15,7 @@ module.exports = class Game {
 
   initSocket(name, io) {
     const game = this;
-    return io.of(`/${name}`).on('connection', socket => {
+    return io.of(`/${name}`).on('connection', (socket) => {
       if (game.running) {
         socket.leave(name);
       }
@@ -62,12 +62,20 @@ module.exports = class Game {
   }
 
   privateInfo(player) {
+    const spectres = [];
+    for (const otherPlayer of this.players) {
+      if (otherPlayer.id !== player.id && otherPlayer.spectre !== null) {
+        spectres.push(otherPlayer.spectre);
+      }
+    };
     return {
       name: this.name,
       running: this.running,
       isOwner: player.id === this.owner,
       stack: player.tmpStack(),
       isPlaying: player.isPlaying,
+      nextPiece: player.nextPiece,
+      spectres,
     };
   }
 
@@ -86,7 +94,7 @@ module.exports = class Game {
     // await timeout();
     // this.socket.emit('updateData', {gameStatus: '1'});
     for (const player of this.players) {
-      player.setNextPiece(this.allPieces[0]);
+      player.setNextPiece(this.allPieces[0], this.allPieces[1]);
       player.isPlaying = true;
     }
     while (this.running) {
@@ -95,18 +103,18 @@ module.exports = class Game {
         if (player.isPlaying) {
           player.updateStack();
           if (player.piece.fixed) {
-            if (player.pieceIndex >= this.allPieces.length) {
+            if (player.pieceIndex >= this.allPieces.length - 2) {
               const newPieces = generate();
               this.allPieces = this.allPieces.concat(newPieces);
             }
-            player.setNextPiece(this.allPieces[player.pieceIndex]);
+            player.setNextPiece(this.allPieces[player.pieceIndex], this.allPieces[player.pieceIndex + 1]);
           }
           player.tryMoveDown();
         }
       }
       for (const player of this.players) {
         for (const looserPlayer of this.players) {
-          if (looserPlayer.id !== player.id) {
+          if (looserPlayer.id !== player.id && looserPlayer.isPlaying) {
             looserPlayer.addLine(player.nbLine);
             player.nbLine = 0;
           }
@@ -139,7 +147,7 @@ module.exports = class Game {
 
   actions(id, action) {
     const player = this.players.find(d => d.id === id);
-    if (!player.isPlaying) { return; }
+    if (player && !player.isPlaying) { return; }
     switch (action) {
       case 'moveDown':
         player.tryMoveDown();

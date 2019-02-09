@@ -7,7 +7,8 @@
     "build-client": "webpack --env.mode=production",
     "test": "jest",
     "lint": "tslint -c ./tslint.json './src/client/**/*.ts*'",
-    "dev-server": "nodemon ./src/server/index.js"
+    "dev-server": "nodemon ./src/server/index.js",
+    "eslint": "./node_modules/.bin/eslint src/server"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -44,6 +45,11 @@
     "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",

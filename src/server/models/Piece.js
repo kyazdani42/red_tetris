@@ -11,24 +11,28 @@ class Piece {
 
   fixPiece() {
     this.fixed = true;
-  };
+  }
 
   moveRight() {
     this.x++;
-  };
+  }
 
   moveLeft() {
     this.x--;
-  };
+  }
 
- moveDown() {
+  moveDown() {
     this.y++;
-  };
+  }
 
   rotate() {
     this.patternIndex = (this.patternIndex + 1) % 4;
     this.pattern = this.patterns[this.patternIndex];
-  };
+  }
+
+  moveUp() {
+    this.y--;
+  }
 }
 
 module.exports = Piece;
