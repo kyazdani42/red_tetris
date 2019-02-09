@@ -29,7 +29,7 @@ const getColor = (color: colorType) => {
     case 'yellow':
       return '#661B14';
   }
-}
+};
 
 const Container = styled.div`
   width: 100%;
@@ -50,11 +50,7 @@ const Piece = styled.div`
 export const Game: React.SFC<Props> = ({ gameData }) => {
   if (!gameData) return null;
   const divs = getDivsFromStack(gameData.stack);
-  return (
-    <Container>
-      {divs}
-    </Container>
-  );
+  return <Container>{divs}</Container>;
 };
 
 const getDivsFromStack = (stack: GameProps['stack']) => {
@@ -62,7 +58,9 @@ const getDivsFromStack = (stack: GameProps['stack']) => {
   for (let i = 0; i < 20; i++) {
     for (let j = 0; j < 10; j++) {
       const containerIndex = +`${i}${j}`;
-      container[containerIndex] = <Piece color={stack[i][j].color} key={'block' + containerIndex} />;
+      container[containerIndex] = (
+        <Piece color={stack[i][j].color} key={'block' + containerIndex} />
+      );
     }
   }
   return container;
