@@ -17,11 +17,15 @@ module.exports = class Game {
     const game = this;
     return io.of(`/${name}`).on('connection', socket => {
       if (game.running) {
-        socket.disconnect();
+        socket.leave(name);
       }
       game.addPlayer(socket);
       socket.on('disconnect', () => {
         game.removePlayer(socket.id);
+      });
+      socket.on('leaveRoom', () => {
+        game.removePlayer(socket.id);
+        socket.leave(name);
       });
       socket.on('rotate', () => {
         game.actions(socket.id, 'rotate');
