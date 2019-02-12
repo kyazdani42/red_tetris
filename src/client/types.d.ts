@@ -1,9 +1,9 @@
-export interface Player {
+interface Player {
   id: string;
   username: string;
 }
 
-export interface RoomType {
+interface RoomType {
   id: string;
   players: Player[];
   activePlayers: Player[];
@@ -11,8 +11,17 @@ export interface RoomType {
   running: boolean;
 }
 
-export interface GameProps {
+interface GameProps {
   name: string;
   running: boolean;
   isOwner: boolean;
+  isPlaying: boolean;
+  stack: Array<[{
+    color: string;
+    value: number;
+    fix: boolean;
+  }]>
 }
+
+type keyType = 'up' | 'down' | 'left' | 'right' | ' ';
+type colorType = 'skyBlue' | 'blue' | 'orange' | 'yellow' | 'green' | 'purple' | 'red' | 'black' | 'grey';

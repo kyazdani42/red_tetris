@@ -1,20 +1,17 @@
 import { Action, handleActions } from 'redux-actions';
-import { GameProps, RoomType } from '../types';
 
 export interface AppState {
   playerName: string;
-  socket: SocketIOClient.Socket | null;
+  socket: SocketIOClient.Socket;
   rooms: RoomType[];
   gameData: GameProps | null;
-  key: 'up' | 'down' | 'left' | 'right' | ' ' | null;
 }
 
 const initialState: AppState = {
   playerName: 'whatever',
-  socket: null,
+  socket: null as any,
   rooms: [],
   gameData: null,
-  key: null
 };
 
 const reducer = handleActions<any>(
@@ -29,36 +26,12 @@ const reducer = handleActions<any>(
     }),
     SET_SOCKET: (state: AppState, { payload }: Action<SocketIOClient.Socket>): AppState => ({
       ...state,
-      socket: payload || null
+      socket: payload || null as any
     }),
     CREATE_ROOM: (state: AppState, { payload }: Action<any>): AppState => ({
       ...state,
       playerName: payload
     }),
-    KEY_UP: (state: AppState): AppState => ({
-      ...state,
-      key: 'up'
-    }),
-    KEY_DOWN: (state: AppState): AppState => ({
-      ...state,
-      key: 'down'
-    }),
-    KEY_LEFT: (state: AppState): AppState => ({
-      ...state,
-      key: 'left'
-    }),
-    KEY_RIGHT: (state: AppState): AppState => ({
-      ...state,
-      key: 'right'
-    }),
-    KEY_SPACE: (state: AppState): AppState => ({
-      ...state,
-      key: ' '
-    }),
-    RESET_KEY: (state: AppState): AppState => ({
-      ...state,
-      key: null
-    })
   },
   initialState
 );

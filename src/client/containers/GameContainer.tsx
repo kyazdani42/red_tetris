@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
+import Game from '../components/Game';
 import GameController from '../components/GameController';
 import LeaveRoomButton from '../components/LeaveRoomButton';
 
@@ -48,7 +49,9 @@ const GameContainer: React.SFC<Props> = ({ socket }) => {
   return (
     <React.Fragment>
       <SpectreContainer><LeaveRoomButton /></SpectreContainer>
-      <GameWrapper />
+      <GameWrapper>
+        <Game />
+      </GameWrapper>
       <ControlContainer>
         <GameController />
       </ControlContainer>

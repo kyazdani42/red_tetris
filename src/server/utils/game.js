@@ -1,8 +1,6 @@
 const { getRandomPiece } = require('./pieces');
 
-const timeout = () => {
-  return new Promise(resolve => setTimeout(resolve, 1000));
-};
+const timeout = () => new Promise(resolve => setTimeout(resolve, 500));
 
 const generate = () => [...Array(200)].map(() => getRandomPiece());
 

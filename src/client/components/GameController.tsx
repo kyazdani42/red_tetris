@@ -2,62 +2,75 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import Key from './Key';
+import { StartButton } from './StartButton';
 
-import { keyDown, keyLeft, keyRight, keySpace, keyUp } from '../actions/actions';
+import { State } from '../store';
 
 interface Props {
-  dispatchKeySpace: () => void;
-  dispatchKeyUp: () => void;
-  dispatchKeyDown: () => void;
-  dispatchKeyLeft: () => void;
-  dispatchKeyRight: () => void;
+  socket: SocketIOClient.Socket;
 }
 
-const handleKeyPress = (props: Props) => (e: any) => {
+const dispatchSpace = (socket: SocketIOClient.Socket) => () => socket.emit('goDown');
+const dispatchUp = (socket: SocketIOClient.Socket) => () => socket.emit('rotate');
+const dispatchDown = (socket: SocketIOClient.Socket) => () => socket.emit('moveDown');
+const dispatchLeft = (socket: SocketIOClient.Socket) => () => socket.emit('moveLeft');
+const dispatchRight = (socket: SocketIOClient.Socket) => () => socket.emit('moveRight');
+
+const handleKeyPress = (
+  socket: SocketIOClient.Socket,
+  setClick: React.Dispatch<React.SetStateAction<keyType | null>>
+) => (e: any) => {
   switch (e.key) {
     case ' ':
-      props.dispatchKeySpace();
+      setClick(' ');
+      dispatchSpace(socket)();
       break;
     case 'ArrowUp':
-      props.dispatchKeyUp();
+      setClick('up');
+      dispatchUp(socket)();
       break;
     case 'ArrowDown':
-      props.dispatchKeyDown();
+      setClick('down');
+      dispatchDown(socket)();
       break;
     case 'ArrowLeft':
-      props.dispatchKeyLeft();
+      setClick('left');
+      dispatchLeft(socket)();
       break;
     case 'ArrowRight':
-      props.dispatchKeyRight();
+      setClick('right');
+      dispatchRight(socket)();
       break;
   }
+  setTimeout(() => setClick(null), 60);
 };
 
-const setWindowEvents = (props: Props) => {
-  const listener = handleKeyPress(props);
+const setWindowEvents = (
+  socket: SocketIOClient.Socket,
+  setClick: React.Dispatch<React.SetStateAction<keyType | null>>
+) => {
+  const listener = handleKeyPress(socket, setClick);
   window.removeEventListener('keydown', listener);
   window.addEventListener('keydown', listener);
 };
 
-const GameController = (props: Props) => {
-  setWindowEvents(props);
+const GameController: React.SFC<Props> = ({ socket }) => {
+  const [click, setClick] = React.useState<keyType | null>(null);
+  React.useEffect(() => setWindowEvents(socket, setClick), []);
   return (
     <div style={{ display: 'flex', flexDirection: 'row' }}>
-      <Key type="left" dispatcher={props.dispatchKeyLeft} />
-      <Key type="right" dispatcher={props.dispatchKeyRight} />
-      <Key type="down" dispatcher={props.dispatchKeyDown} />
-      <Key type="up" dispatcher={props.dispatchKeyUp} />
-      <Key type=" " dispatcher={props.dispatchKeySpace} />
+      <Key type="left" keyPressed={click} emitter={dispatchLeft(socket)} />
+      <Key type="right" keyPressed={click} emitter={dispatchRight(socket)} />
+      <Key type="down" keyPressed={click} emitter={dispatchDown(socket)} />
+      <Key type="up" keyPressed={click} emitter={dispatchUp(socket)} />
+      <Key type=" " keyPressed={click} emitter={dispatchSpace(socket)} />
+      <StartButton socket={socket} />
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch: any) => ({
-  dispatchKeySpace: () => dispatch(keySpace()),
-  dispatchKeyUp: () => dispatch(keyUp()),
-  dispatchKeyDown: () => dispatch(keyDown()),
-  dispatchKeyLeft: () => dispatch(keyLeft()),
-  dispatchKeyRight: () => dispatch(keyRight()),
+const mapStateToProps = (state: State) => ({
+  socket: state.app.socket
 });
 
-export default connect(undefined, mapDispatchToProps)(GameController);
+export default connect(mapStateToProps)(GameController);

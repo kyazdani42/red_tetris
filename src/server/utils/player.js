@@ -1,28 +1,37 @@
 const stackCase = { color: 'black', value: 0, fix: false };
 const fixStackCase = { color: 'grey', value: 1, fix: true };
 
-const isOutOfBoundsOrOccupied = (x, y, stack) => y > 19 || x < 0 || x > 9 || stack[y][x].value === 1;
+const getSpectre = (stack) => {
+  const result = [];
+  for (let x = 0; x < 10; x += 1) {
+    for (let y = 0; y < 20; y += 1) {
+      if (stack[y][x].value === 1) {
+        result[x] = y;
+        break;
+      }
+    }
+  }
+  return result;
+};
+
+const isOutOfBoundsOrOccupied = (x, y, stack) => y < 0 || y > 19 || x < 0 || x > 9 || stack[y][x].value === 1;
 const checkCase = (stack, y) => (patternCase, x) => patternCase === 1 && isOutOfBoundsOrOccupied(x, y, stack);
 
 const checkLine = (line, stack, x, y) => {
   const check = checkCase(stack, y);
-  return line.some((patternCase, patternX) => {
-    return check(patternCase, x + patternX);
-  });
+  return line.some((patternCase, patternX) => check(patternCase, x + patternX));
 };
 
-const checkPosition = (x, y, pattern, stack) => {
-  return pattern.some((line, patternY) => {
-    return checkLine(line, stack,  x, patternY + y);
-  });
-};
+const checkPosition = (x, y, pattern, stack) => pattern.some((line, patternY) => checkLine(line, stack, x, patternY + y));
 
-const fusionPieceAndStack = ({ x, y, pattern, color }, stack) => {
+const fusionPieceAndStack = ({
+  x, y, pattern, color,
+}, stack) => {
   const newStack = stack.map(d => [...d]);
   for (let patternY = 0; patternY < pattern.length; patternY++) {
     for (let patternX = 0; patternX < pattern[patternY].length; patternX++) {
-      if (pattern[patternY][patternX] === 1) {
-        newStack[patternY + y][patternX + x] = { color,  value: 1, fix: false };
+      if (pattern[patternY][patternX] === 1 && patternY + y > -1 && patternX + x > -1) {
+        newStack[patternY + y][patternX + x] = { color, value: 1, fix: false };
       }
     }
   }
@@ -33,7 +42,6 @@ const isFullLine = (y, stack, value) => !stack[y].some(aCase => aCase.value === 
 
 const updateFullLine = (y, stack) => {
   if (!stack[y][0].fix && isFullLine(y, stack, 0)) {
-    console.log('fullLine')
     stack.splice(y, 1);
     stack.unshift(initLine(stackCase));
     return true;
@@ -74,4 +82,5 @@ module.exports = {
   initStack,
   updateFullLine,
   addFixLine,
+  getSpectre,
 };

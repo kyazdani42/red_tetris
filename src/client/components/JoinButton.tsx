@@ -34,7 +34,7 @@ const Button = styled.div`
 `;
 
 export const JoinButton: React.SFC<Props> = ({ dispatchJoinRoom, roomId }) => {
-  const [displayModal, setDisplayModal] = React.useState(false);
+  const [displayModal, setDisplayModal] = React.useState<boolean>(false);
   let modal;
   if (displayModal) {
     modal = <CreateNameModal setDisplayModal={setDisplayModal} dispatch={dispatchJoinRoom(roomId)} />;
