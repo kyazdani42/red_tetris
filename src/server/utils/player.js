@@ -14,7 +14,7 @@ const getSpectre = (stack) => {
   return result;
 };
 
-const isOutOfBoundsOrOccupied = (x, y, stack) => y > 19 || x < 0 || x > 9 || stack[y][x].value === 1;
+const isOutOfBoundsOrOccupied = (x, y, stack) => y < 0 || y > 19 || x < 0 || x > 9 || stack[y][x].value === 1;
 const checkCase = (stack, y) => (patternCase, x) => patternCase === 1 && isOutOfBoundsOrOccupied(x, y, stack);
 
 const checkLine = (line, stack, x, y) => {
@@ -42,7 +42,6 @@ const isFullLine = (y, stack, value) => !stack[y].some(aCase => aCase.value === 
 
 const updateFullLine = (y, stack) => {
   if (!stack[y][0].fix && isFullLine(y, stack, 0)) {
-    console.log('fullLine');
     stack.splice(y, 1);
     stack.unshift(initLine(stackCase));
     return true;

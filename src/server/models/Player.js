@@ -8,41 +8,62 @@ const {
 } = require('../utils/player');
 const Piece = require('./Piece');
 
-class Player {
+module.exports = class Player {
   constructor(socket) {
     this.id = socket.id;
     this.socket = socket;
     this.pieceIndex = 0;
-    this.stack = initStack();
+    this.stack = [];
     this.piece = null;
     this.nextPiece = null;
     this.isPlaying = false;
     this.spectre = null;
     this.nbLine = 0;
+    this.winner = false;
+    this.score = 0;
+  }
+
+  initPlayer(piece, nextPiece) {
+    this.pieceIndex = 0;
+    this.stack = initStack();
+    this.isPlaying = true;
+    this.spectre = null;
+    this.nbLine = 0;
+    this.winner = false;
+    this.setNextPiece(piece, nextPiece);
   }
 
   setNextPiece(pieceData, nextPieceData) {
-    console.log('nextPiece');
     this.piece = new Piece(pieceData);
     this.nextPiece = nextPieceData;
     this.pieceIndex += 1;
   }
 
-  tmpStack() {
-    return fusionPieceAndStack(this.piece, this.stack);
+  tmpStack(mirror) {
+    const stack = fusionPieceAndStack(this.piece, this.stack);
+    return mirror ? this.mirrorStack(stack) : stack;
+  }
+
+  mirrorStack(stack) {
+    const mirrorStack = [];
+    for (let y = 0; y < 20; y += 1) {
+      mirrorStack[y] = [];
+      for (let x = 0; x < 10; x += 1) {
+        mirrorStack[y][x] = stack[19 - y][9 - x];
+      }
+    }
+    return mirrorStack;
   }
 
   updateStack() {
     const { x, y, pattern } = this.piece;
     if (checkPosition(x, y + 1, pattern, this.stack)) {
-      console.log('pose');
       this.isPlaying = !checkPosition(x, y, pattern, this.stack);
       console.log(this.isPlaying);
+      if (!this.isPlaying) {return;}
       this.stack = fusionPieceAndStack(this.piece, this.stack);
-      console.log('fusion');
       pattern.forEach((line, patternY) => {
-        if (y + patternY < 20 && updateFullLine(y + patternY, this.stack)) {
-          console.log('line !');
+        if (y + patternY > -1 && y + patternY < 20 && updateFullLine(y + patternY, this.stack)) {
           this.nbLine += 1;
         }
       });
@@ -96,10 +117,27 @@ class Player {
       }
       if (checkPosition(x, y, pattern, this.stack)) {
         this.piece.moveUp();
-        console.log(this.piece.y);
       }
     }
   }
-}
 
-module.exports = Player;
+  updateScore() {
+    switch (this.nbLine) {
+      case 4:
+        this.score += 120;
+        break;
+      case 3:
+        this.score += 30;
+        break;
+      case 2:
+        this.score += 10;
+        break;
+      case 1:
+        this.score += 4;
+        break;
+      default:
+        break;
+    }
+    this.nbLine = 0;
+  }
+}
