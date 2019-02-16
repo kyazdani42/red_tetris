@@ -1,4 +1,4 @@
-class Piece {
+module.exports = class Piece {
   constructor({ color, patterns }) {
     this.pattern = patterns[0];
     this.patterns = patterns;
@@ -6,7 +6,7 @@ class Piece {
     this.patternIndex = 0;
     this.fixed = false;
     this.x = 5 - (Math.floor(this.pattern[0].length / 2));
-    this.y = 0;
+    this.y = -1;
   }
 
   fixPiece() {
@@ -34,5 +34,3 @@ class Piece {
     this.y--;
   }
 }
-
-module.exports = Piece;
