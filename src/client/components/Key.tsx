@@ -1,12 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import '../../../assets/icon-down.png';
-import '../../../assets/icon-left.png';
-import '../../../assets/icon-right.png';
-import '../../../assets/icon-space.png';
-import '../../../assets/icon-up.png';
-
 interface Props {
   emitter: () => void;
   type: keyType;
@@ -14,18 +8,22 @@ interface Props {
 }
 
 const KeyStyle: any = styled.div`
-  width: 10%;
-  height: 10%;
+  width: 40px;
+  height: 40px;
   color: #000;
+`;
+
+const Img: any = styled.img`
   background-color: ${(props: any) => props.isPressed ? '#555' : '#fff'};
+  filter: invert(1);
+  width: 40px;
 `;
 
 const Key = ({ keyPressed, emitter, type }: Props) => (
   <KeyStyle
     onClick={emitter}
-    isPressed={keyPressed === type}
   >
-    <img src={`/assets/icon-${type === ' ' ? 'space' : type}.png`} />
+    <Img src={`/assets/icon${type === ' ' ? 'space' : type}.png`} isPressed={keyPressed === type} />
   </KeyStyle>
 );
 

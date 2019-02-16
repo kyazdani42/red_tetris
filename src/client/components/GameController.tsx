@@ -3,11 +3,24 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Key from './Key';
-import { StartButton } from './StartButton';
 
 import { State } from '../store';
 
 const ControllerWrapper = styled.div`
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const KeyWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const BottomWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -26,12 +39,15 @@ const GameController: React.SFC<Props> = ({ socket }) => {
   }, []);
   return (
     <ControllerWrapper>
-      <Key type="left" keyPressed={click} emitter={emitAction('left')} />
-      <Key type="right" keyPressed={click} emitter={emitAction('right')} />
-      <Key type="down" keyPressed={click} emitter={emitAction('down')} />
-      <Key type="up" keyPressed={click} emitter={emitAction('up')} />
+      <KeyWrapper>
+        <Key type="up" keyPressed={click} emitter={emitAction('up')} />
+        <BottomWrapper>
+          <Key type="left" keyPressed={click} emitter={emitAction('left')} />
+          <Key type="down" keyPressed={click} emitter={emitAction('down')} />
+          <Key type="right" keyPressed={click} emitter={emitAction('right')} />
+        </BottomWrapper>
+      </KeyWrapper>
       <Key type=" " keyPressed={click} emitter={emitAction(' ')} />
-      <StartButton socket={socket} />
     </ControllerWrapper>
   );
 };
