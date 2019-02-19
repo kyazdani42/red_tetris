@@ -14,6 +14,7 @@ module.exports = class Game {
     this.options = {
       reverse: false,
       mirror: false,
+      invisible: false,
     }
   }
 
@@ -47,10 +48,6 @@ module.exports = class Game {
         socket.on('start', (options) => {
           game.start(socket.id, options);
         });
-        socket.on('stop', () => {
-          console.log('stop');
-          game.stop();
-        });
       }
     });
   }
@@ -71,12 +68,11 @@ module.exports = class Game {
         spectres.push(otherPlayer.spectre);
       }
     }
-    console.log(player.score);
     return {
       name: this.name,
       running: this.running,
       isOwner: player.id === this.owner,
-      stack: player.tmpStack(this.options.mirror),
+      stack: this.options.invisible ? player.stack : player.tmpStack(this.options.mirror),
       isPlaying: player.isPlaying,
       nextPiece: player.nextPiece,
       winner: player.winner,
@@ -125,7 +121,7 @@ module.exports = class Game {
           nbPlayerPlaying += 1;
         }
       }
-      if (nbPlayerPlaying === 0 || (this.players.length > 1 && nbPlayerPlaying === 1)) {
+      if (nbPlayerPlaying === 0 || (this.players.length > 1 && nbPlayerPlaying < 2)) {
         this.running = false;
         for (const player of this.players) {
           if (player.isPlaying) {
@@ -142,6 +138,7 @@ module.exports = class Game {
     if (options) {
       this.options.reverse = options.reverse;
       this.options.mirror = options.mirror;
+      this.options.invisible = options.invisible;
     }
   }
 
@@ -156,10 +153,6 @@ module.exports = class Game {
       this.running = true;
       this.run();
     }
-  }
-
-  stop() {
-    this.running = false;
   }
 
   addPlayer(socket) {
