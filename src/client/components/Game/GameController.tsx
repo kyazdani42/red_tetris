@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Key from './Key';
 
-import { State } from '../store';
+import { State } from '../../store';
 
 const ControllerWrapper = styled.div`
   display: flex;

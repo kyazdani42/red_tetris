@@ -5,8 +5,9 @@ import styled from 'styled-components';
 
 import { State } from '../store';
 
-import CreateRoomButton from '../components/CreateRoom';
-import { RoomRow } from '../components/RoomRow';
+import { Background } from '../components/Background/Background';
+import CreateRoomButton from '../components/Home/CreateRoom';
+import { RoomRow } from '../components/Home/RoomRow';
 
 interface RoomsProps {
   playerName: string;
@@ -58,16 +59,19 @@ export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName
     return <Redirect to={redirectUrl} />;
   } else {
     return (
-      <RoomWrapper>
-        <StyledContainer>
-          <RowWrapperHideOverflow>
-            <RowWrapper>
-              {getRoomRows(rooms)}
-            </RowWrapper>
-          </RowWrapperHideOverflow>
-          <CreateRoomButton />
-        </StyledContainer>
-      </RoomWrapper>
+      <React.Fragment>
+        <Background />
+        <RoomWrapper>
+          <StyledContainer>
+            <RowWrapperHideOverflow>
+              <RowWrapper>
+                {getRoomRows(rooms)}
+              </RowWrapper>
+            </RowWrapperHideOverflow>
+            <CreateRoomButton />
+          </StyledContainer>
+        </RoomWrapper>
+      </React.Fragment>
     );
   }
 };

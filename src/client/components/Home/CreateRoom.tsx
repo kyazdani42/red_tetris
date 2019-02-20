@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { createRoom } from '../actions/actions';
+import { createRoom } from '../../actions/actions';
 import { CreateNameModal } from './CreateNameModal';
 
 interface Props {

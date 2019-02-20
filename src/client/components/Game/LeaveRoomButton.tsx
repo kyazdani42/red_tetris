@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { leaveRoom } from '../actions/actions';
+import { leaveRoom } from '../../actions/actions';
 
 interface Props {
   dispatchLeaveRoom: () => void;

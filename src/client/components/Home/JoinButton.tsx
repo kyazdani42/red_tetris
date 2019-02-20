@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import styled, { withTheme } from 'styled-components';
 
-import { joinRoom } from '../actions/actions';
+import { joinRoom } from '../../actions/actions';
 import { CreateNameModal } from './CreateNameModal';
 
 interface Props {

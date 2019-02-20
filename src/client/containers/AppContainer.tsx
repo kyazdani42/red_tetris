@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import { Background } from '../components/Background';
 import GameContainer from './GameContainer';
 import RoomContainer from './RoomContainer';
 
@@ -33,7 +32,6 @@ const GlobalStyle = createGlobalStyle`
 
 export const App = () => (
   <React.Fragment>
-    <Background />
     <Route exact path="/" component={RoomContainer} />
     <Route path="/:room[:player_name]" component={GameContainer} />
     <GlobalStyle />

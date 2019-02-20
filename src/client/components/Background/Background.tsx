@@ -69,86 +69,45 @@ const pieces = [
   randomizePiece(),
   randomizePiece(),
   randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
-  randomizePiece(),
 ];
 
 export const Background = () => {
-  // const [piece, setPieces] = React.useState(pieces);
-  // React.useEffect(() => {
-  //   const newPieces = piece.map(d => {
-  //     let newSpeedX, newSpeedY;
-  //     if (d.x + d.speedX > window.innerWidth - 100 || d.x + d.speedX < 10) {
-  //       newSpeedX = d.speedX * -1;
-  //     } else {
-  //       newSpeedX = d.speedX;
-  //     }
-  //     if (d.y + d.speedY > window.innerHeight - 100 || d.y + d.speedY < 10) {
-  //       newSpeedY = d.speedY * -1;
-  //     } else {
-  //       newSpeedY = d.speedY;
-  //     }
-  //     const newX = d.x + newSpeedX;
-  //     const newY = d.y + newSpeedY;
-  //     let rotate = d.rotate + d.changeRotate;
-  //     if (rotate > 360) {
-  //       rotate = 0;
-  //     }
-  //     return {
-  //       x: newX,
-  //       y: newY,
-  //       element: d.element,
-  //       speedX: newSpeedX,
-  //       speedY: newSpeedY,
-  //       rotate,
-  //       changeRotate: d.changeRotate
-  //     };
-  //   });
-  //   setPieces(newPieces);
-  // }, [piece]);
+  const [piece, setPieces] = React.useState(pieces);
+  React.useEffect(() => {
+    const newPieces = piece.map(d => {
+      let newSpeedX, newSpeedY;
+      if (d.x + d.speedX > window.innerWidth - 100 || d.x + d.speedX < 10) {
+        newSpeedX = d.speedX * -1;
+      } else {
+        newSpeedX = d.speedX;
+      }
+      if (d.y + d.speedY > window.innerHeight - 100 || d.y + d.speedY < 10) {
+        newSpeedY = d.speedY * -1;
+      } else {
+        newSpeedY = d.speedY;
+      }
+      const newX = d.x + newSpeedX;
+      const newY = d.y + newSpeedY;
+      let rotate = d.rotate + d.changeRotate;
+      if (rotate > 360) {
+        rotate = 0;
+      }
+      return {
+        x: newX,
+        y: newY,
+        element: d.element,
+        speedX: newSpeedX,
+        speedY: newSpeedY,
+        rotate,
+        changeRotate: d.changeRotate
+      };
+    });
+    setPieces(newPieces);
+  }, [piece]);
   return (
     <BackgroundContainer>
       <svg width="100%" height="100%" id="background">
-        {pieces.map((d, i) => (
+        {piece.map((d, i) => (
           <BackgroundPiece key={'piece-' + i} element={d.element} x={d.x} y={d.y} piece={i} rotate={d.rotate} />
         ))}
       </svg>
