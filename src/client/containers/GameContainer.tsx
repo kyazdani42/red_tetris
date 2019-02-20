@@ -8,6 +8,8 @@ import GameController from '../components/Game/GameController';
 import LeaveRoomButton from '../components/Game/LeaveRoomButton';
 import Spectres from '../components/Game/Spectres';
 
+const BackgroundStyle = styled.div` background-color: #000; height: 100vh `;
+
 const SpectreContainer = styled.div`
   height: 12vh;
   width: 100%;
@@ -51,7 +53,7 @@ const GameContainer: React.SFC<Props> = ({ socket }) => {
     return <Redirect to="/" />;
   }
   return (
-    <React.Fragment>
+    <BackgroundStyle>
       <SpectreContainer><LeaveRoomButton /><Spectres /></SpectreContainer>
       <GameWrapper>
         <Game />
@@ -59,7 +61,7 @@ const GameContainer: React.SFC<Props> = ({ socket }) => {
       <ControlContainer>
         <GameController />
       </ControlContainer>
-    </React.Fragment>
+    </BackgroundStyle>
   );
 };
 
