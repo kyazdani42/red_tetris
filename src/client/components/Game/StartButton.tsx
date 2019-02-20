@@ -7,8 +7,10 @@ interface Props {
 
 const Button = styled.h3`
   position: absolute;
-  top: 70px;
-  right: -102px;
+  top: 50%;
+  left: 50%;
+  margin-top: -40px;
+  margin-left: -50px;
   text-align: center;
   color: #fff;
   background-color: #000;

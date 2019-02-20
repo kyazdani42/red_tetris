@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 
-import { Background } from '../components/Background';
+import { Background } from '../components/Background/Background';
 import GameContainer from './GameContainer';
 import RoomContainer from './RoomContainer';
 

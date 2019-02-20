@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
-import Game from '../components/Game';
-import GameController from '../components/GameController';
-import LeaveRoomButton from '../components/LeaveRoomButton';
+import Game from '../components/Game/Game';
+import GameController from '../components/Game/GameController';
+import LeaveRoomButton from '../components/Game/LeaveRoomButton';
+import Spectres from '../components/Game/Spectres';
 
 const SpectreContainer = styled.div`
   height: 12vh;
@@ -51,7 +52,7 @@ const GameContainer: React.SFC<Props> = ({ socket }) => {
   }
   return (
     <React.Fragment>
-      <SpectreContainer><LeaveRoomButton /></SpectreContainer>
+      <SpectreContainer><LeaveRoomButton /><Spectres /></SpectreContainer>
       <GameWrapper>
         <Game />
       </GameWrapper>

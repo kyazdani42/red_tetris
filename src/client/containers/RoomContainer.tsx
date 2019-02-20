@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 import { State } from '../store';
 
-import CreateRoomButton from '../components/CreateRoom';
-import { RoomRow } from '../components/RoomRow';
+import CreateRoomButton from '../components/Home/CreateRoom';
+import { RoomRow } from '../components/Home/RoomRow';
 
 interface RoomsProps {
   playerName: string;
