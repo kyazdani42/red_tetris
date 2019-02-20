@@ -5,6 +5,8 @@ const {
   updateFullLine,
   addFixLine,
   getSpectre,
+  getMirrorStack,
+  calculNewScore,
 } = require('../utils/player');
 const Piece = require('./Piece');
 
@@ -41,26 +43,14 @@ module.exports = class Player {
 
   tmpStack(mirror) {
     const stack = fusionPieceAndStack(this.piece, this.stack);
-    return mirror ? this.mirrorStack(stack) : stack;
-  }
-
-  mirrorStack(stack) {
-    const mirrorStack = [];
-    for (let y = 0; y < 20; y += 1) {
-      mirrorStack[y] = [];
-      for (let x = 0; x < 10; x += 1) {
-        mirrorStack[y][x] = stack[19 - y][9 - x];
-      }
-    }
-    return mirrorStack;
+    return mirror ? getMirrorStack(stack) : stack;
   }
 
   updateStack() {
     const { x, y, pattern } = this.piece;
     if (checkPosition(x, y + 1, pattern, this.stack)) {
       this.isPlaying = !checkPosition(x, y, pattern, this.stack);
-      console.log(this.isPlaying);
-      if (!this.isPlaying) {return;}
+      if (!this.isPlaying) { return; }
       this.stack = fusionPieceAndStack(this.piece, this.stack);
       pattern.forEach((line, patternY) => {
         if (y + patternY > -1 && y + patternY < 20 && updateFullLine(y + patternY, this.stack)) {
@@ -112,7 +102,7 @@ module.exports = class Player {
   addLine(nbLine) {
     for (let add = 0; add < nbLine; add += 1) {
       const { x, y, pattern } = this.piece;
-        if (!addFixLine(this.stack)) {
+      if (!addFixLine(this.stack)) {
         this.isPlaying = false;
       }
       if (checkPosition(x, y, pattern, this.stack)) {
@@ -122,22 +112,7 @@ module.exports = class Player {
   }
 
   updateScore() {
-    switch (this.nbLine) {
-      case 4:
-        this.score += 120;
-        break;
-      case 3:
-        this.score += 30;
-        break;
-      case 2:
-        this.score += 10;
-        break;
-      case 1:
-        this.score += 4;
-        break;
-      default:
-        break;
-    }
+    this.score += calculNewScore(this.nbLine);
     this.nbLine = 0;
   }
-}
+};

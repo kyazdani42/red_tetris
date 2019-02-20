@@ -1,6 +1,6 @@
 module.exports = class Piece {
   constructor({ color, patterns }) {
-    this.pattern = patterns[0];
+    this.pattern = [...patterns[0]];
     this.patterns = patterns;
     this.color = color;
     this.patternIndex = 0;

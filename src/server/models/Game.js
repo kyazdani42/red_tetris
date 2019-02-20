@@ -1,4 +1,4 @@
-const { timeout, generate } = require('../utils/game');
+const { timeout, generate, counting, playersLoop, playersAddLine } = require('../utils/game');
 const Player = require('./Player');
 const { removeGame, getGames } = require('../services/games');
 
@@ -15,13 +15,13 @@ module.exports = class Game {
       reverse: false,
       mirror: false,
       invisible: false,
-    }
+    };
   }
 
   initSocket(name, io) {
     const game = this;
     return io.of(`/${name}`).on('connection', (socket) => {
-      if (!game.running) {
+      if (!game.running && game.players.length < 80) {
         game.addPlayer(socket);
         socket.on('disconnect', () => {
           game.removePlayer(socket.id);
@@ -88,50 +88,15 @@ module.exports = class Game {
   }
 
   async run() {
-    // await timeout();
-    // this.socket.emit('updateData', {gameStatus: '3'});
-    // await timeout();
-    // this.socket.emit('updateData', {gameStatus: '2'});
-    // await timeout();
-    // this.socket.emit('updateData', {gameStatus: '1'});
+    // await counting(this.socket);
     while (this.running) {
       await timeout();
-      for (const player of this.players) {
-        if (player.isPlaying) {
-          player.updateStack();
-          if (player.piece.fixed) {
-            if (player.pieceIndex >= this.allPieces.length - 2) {
-              const newPieces = generate();
-              this.allPieces = this.allPieces.concat(newPieces);
-            }
-            player.setNextPiece(this.allPieces[player.pieceIndex], this.allPieces[player.pieceIndex + 1]);
-          }
-          player.tryMoveDown();
-        }
-      }
-      let nbPlayerPlaying = 0;
-      for (const player of this.players) {
-        for (const looserPlayer of this.players) {
-          if (looserPlayer.id !== player.id && looserPlayer.isPlaying) {
-            looserPlayer.addLine(player.nbLine);
-          }
-        }
-        player.updateScore();
-        if (player.isPlaying) {
-          nbPlayerPlaying += 1;
-        }
-      }
-      if (nbPlayerPlaying === 0 || (this.players.length > 1 && nbPlayerPlaying < 2)) {
-        this.running = false;
-        for (const player of this.players) {
-          if (player.isPlaying) {
-            player.isPlaying = false;
-            player.winner = true;
-          }
-        }
-      }
+      const maxIndex = playersLoop(this.players, this.allPieces, this.addPiecesData);
+      this.addPiecesData(maxIndex);
+      this.running = playersAddLine(this.players);
       this.updateGame();
     }
+    this.io.emit('games', getGames());
   }
 
   setOptions(options) {
@@ -142,15 +107,21 @@ module.exports = class Game {
     }
   }
 
+  initPlayers() {
+    for (const player of this.players) {
+      player.initPlayer(this.allPieces[0], this.allPieces[1]);
+      player.isPlaying = true;
+    }
+  }
+
   start(id, options) {
     if (id === this.owner && !this.running) {
       this.setOptions(options);
       this.allPieces = generate();
-      for (const player of this.players) {
-        player.initPlayer(this.allPieces[0], this.allPieces[1]);
-      }
+      this.initPlayers();
       console.log('start');
       this.running = true;
+      this.io.emit('games', getGames());
       this.run();
     }
   }
@@ -161,6 +132,14 @@ module.exports = class Game {
     }
     this.players.push(new Player(socket));
     this.io.emit('games', getGames());
+    this.socket.emit('updateRoom', this.getPublicInfo());
+  }
+
+  addPiecesData(maxIndex) {
+    if (maxIndex > this.allPieces.length - 5) {
+      const newPieceData = generate();
+      this.allPieces.push(...newPieceData);
+    }
   }
 
   actions(id, action) {
@@ -192,7 +171,8 @@ module.exports = class Game {
       this.owner = this.players[0].id;
     } else {
       removeGame(this.name);
+      this.io.emit('games', getGames());
     }
-    this.io.emit('games', getGames());
+    this.socket.emit('updateRoom', this.getPublicInfo());
   }
 };

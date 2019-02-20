@@ -66,7 +66,16 @@ const initLine = (newCase) => {
   return line;
 };
 
-const initStackVersionKiyan = [...Array(20)].map(_ => [...Array(20)].map(() => stackCase));
+const getMirrorStack = (stack) => {
+  const mirrorStack = [];
+  for (let y = 0; y < 20; y += 1) {
+    mirrorStack[y] = [];
+    for (let x = 0; x < 10; x += 1) {
+      mirrorStack[y][x] = stack[19 - y][9 - x];
+    }
+  }
+  return mirrorStack;
+}
 
 const initStack = () => {
   const stack = [];
@@ -76,6 +85,21 @@ const initStack = () => {
   return stack;
 };
 
+const calculNewScore = (nbLine) => {
+  switch (nbLine) {
+    case 4:
+      return 120;
+    case 3:
+      return 30;
+    case 2:
+      return 10;
+    case 1:
+      return 4;
+    default:
+      return 0;
+  }
+}
+
 module.exports = {
   checkPosition,
   fusionPieceAndStack,
@@ -83,4 +107,6 @@ module.exports = {
   updateFullLine,
   addFixLine,
   getSpectre,
+  getMirrorStack,
+  calculNewScore,
 };
