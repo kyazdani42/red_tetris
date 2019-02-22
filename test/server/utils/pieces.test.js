@@ -1,10 +1,11 @@
-const { generate, timeout } = require('../../../src/server/utils/pieces');
+const { getRandomPiece } = require('../../../src/server/utils/pieces');
 
 describe('utils/pieces', () => {
-  it('generate an array of pieces data', () => {
-    const newArray = generate();
-    expect(newArray.length).toBe(200);
-    expect(typeof newArray[0].color).toBe('string');
-    expect(typeof newArray[0].patterns).toBe('object');
+  it('get a random piece', () => {
+    const randomPiece = getRandomPiece();
+    expect(typeof randomPiece).toBe('object');
+    expect(typeof randomPiece.color).toBe('string');
+    expect(typeof randomPiece.patterns).toBe('object');
+    expect(randomPiece.patterns.length).toBe(4);
   });
 });

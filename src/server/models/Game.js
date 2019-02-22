@@ -110,7 +110,6 @@ module.exports = class Game {
   initPlayers() {
     for (const player of this.players) {
       player.initPlayer(this.allPieces[0], this.allPieces[1]);
-      player.isPlaying = true;
     }
   }
 

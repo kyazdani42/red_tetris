@@ -33,4 +33,4 @@ module.exports = class Piece {
   moveUp() {
     this.y--;
   }
-}
+};

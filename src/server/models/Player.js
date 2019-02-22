@@ -31,6 +31,7 @@ module.exports = class Player {
     this.isPlaying = true;
     this.spectre = null;
     this.nbLine = 0;
+    this.score = 0;
     this.winner = false;
     this.setNextPiece(piece, nextPiece);
   }

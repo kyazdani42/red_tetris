@@ -5,6 +5,7 @@ const getTwoPlayers = () => {
   const players = [new Player('aSocket'), new Player('aSocket')];
   const allPiece = generate();
   players.forEach((player) => player.initPlayer(allPiece[0], allPiece[1]));
+  return players;
 };
 
 
