@@ -8,7 +8,10 @@ import GameController from '../components/Game/GameController';
 import LeaveRoomButton from '../components/Game/LeaveRoomButton';
 import Spectres from '../components/Game/Spectres';
 
-const BackgroundStyle = styled.div` background-color: #000; height: 100vh `;
+const BackgroundStyle = styled.div`
+  background-color: #000;
+  height: 100vh;
+`;
 
 const SpectreContainer = styled.div`
   height: 12vh;
