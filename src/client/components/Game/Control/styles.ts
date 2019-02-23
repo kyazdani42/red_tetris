@@ -7,7 +7,7 @@ export const KeyStyle: any = styled.div`
 export const KeyImg: any = styled.img`
   background-color: ${(props: any) => props.isPressed ? '#555' : '#fff'};
   filter: invert(1);
-  width: 4vw;
+  width: 3vmax;
 `;
 
 export const ControllerWrapper = styled.div`

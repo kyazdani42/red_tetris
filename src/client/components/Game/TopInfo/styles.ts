@@ -1,25 +1,20 @@
 import styled from 'styled-components';
 
 export const LeaveButtonStyle = styled.div`
-  height: 50px;
-  width: 50px;
+  position: absolute;
+  right: 4%;
+  height: 30px;
+  width: 70px;
+  line-height: 30px;
+  text-align: center;
   background-color: ${props => props.theme.colors.primary.dark};
-  border: 1px solid rgba(0,0,0,0.2);
-  font-size: 17px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.13);
-  padding-top: 1px;
-  padding-left: 5px;
-  margin-left: 3px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  align-content: center;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 3px 6px rgba(255,255,255,0.05), 0 3px 6px rgba(255,255,255,0.13);
   transition: box-shadow 300ms;
   user-select: none;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 6px rgba(255,255,255,0.2), 0 3px 6px rgba(255,255,255,0.3);
   };
 `;
 
@@ -36,4 +31,13 @@ export const SpectreBlockStyle = styled.div`
   width: 5px;
   height: 5px;
   background-color: ${(props: { col: number | null }) => props.col ? 'red' : 'black'};
+`;
+
+export const SpectresContainer = styled.div`
+  width: 80%;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 `;

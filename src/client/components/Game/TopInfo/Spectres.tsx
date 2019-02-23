@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { State } from '../../../store';
-import { SpectreBlockStyle, SpectreStyle } from './styles';
+import { SpectreBlockStyle, SpectresContainer, SpectreStyle } from './styles';
 import { getSpectreArray } from './utils';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 const Spectres: React.SFC<Props> = ({ data }) => {
   if (!data) return null;
   const spectres = getSpectres(data.spectres);
-  return <div>{spectres}</div>;
+  return <SpectresContainer>{spectres}</SpectresContainer>;
 };
 
 const getSpectres = (spectres: GameProps['spectres']) =>

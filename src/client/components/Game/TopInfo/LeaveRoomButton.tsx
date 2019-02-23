@@ -9,7 +9,7 @@ interface Props {
 }
 
 const LeaveRoomButton: React.SFC<Props> = ({ dispatchLeaveRoom }) => (
-  <LeaveButtonStyle onClick={dispatchLeaveRoom}>X</LeaveButtonStyle>
+  <LeaveButtonStyle onClick={dispatchLeaveRoom}>Quit</LeaveButtonStyle>
 );
 
 const mapDispatchToProps = (dispatch: any) => ({
