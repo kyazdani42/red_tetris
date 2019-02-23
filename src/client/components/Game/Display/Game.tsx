@@ -38,6 +38,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
     </React.Fragment>
   );
 };
+
 const mapStateToProps = ({ app }: State) => ({
   gameData: app.gameData,
   socket: app.socket

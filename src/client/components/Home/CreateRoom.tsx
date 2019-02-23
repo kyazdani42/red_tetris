@@ -15,7 +15,7 @@ const Button = styled.div`
   border-radius: 4px;
   color: #fff;
   width: 35%;
-  padding: 5px;
+  padding: 4px;
   font-size: 22px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   text-align: center;
@@ -26,15 +26,8 @@ const Button = styled.div`
     opacity: 0.94;
   }
   @media screen and (max-width: 500px) {
-    font-size: 18px;
+    font-size: 15px;
   }
-`;
-
-const Wrapper = styled.div`
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
 `;
 
 export const CreateRoomButton: React.SFC<Props> = ({ dispatchCreateRoom }) => {
@@ -47,11 +40,9 @@ export const CreateRoomButton: React.SFC<Props> = ({ dispatchCreateRoom }) => {
   }
   return (
     <React.Fragment>
-    <Wrapper>
       <Button onClick={handleClick(setDisplayModal)}>
         New Game
       </Button>
-    </Wrapper>
     {modal}
     </React.Fragment>
   );

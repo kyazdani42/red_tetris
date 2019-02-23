@@ -48,7 +48,6 @@ export const ResultStyle: any = styled.h1`
   color: ${(props: any) => (props.winner ? '#0bff40' : '#7a00ff')};
   font-size: 5vw;
   margin: auto;
-  width: 500px;
   text-align: center;
   height: 50px;
   margin-top: 5%;

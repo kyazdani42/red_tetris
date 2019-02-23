@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Key from './Key';
 
 import { State } from '../../../store';
-import { BottomWrapper, ControllerWrapper, KeyWrapper } from './styles';
+import { ControlInfoStyle, ControllerWrapper, KeySubWrapper, KeyWrapper } from './styles';
 import { emitter, setWindowEvents } from './utils';
 
 interface Props {
@@ -21,14 +21,27 @@ const GameController: React.SFC<Props> = ({ socket }) => {
   return (
     <ControllerWrapper>
       <KeyWrapper>
-        <Key type="up" keyPressed={click} emitter={emitAction('up')} />
-        <BottomWrapper>
+        <KeySubWrapper>
           <Key type="left" keyPressed={click} emitter={emitAction('left')} />
-          <Key type="down" keyPressed={click} emitter={emitAction('down')} />
+          <ControlInfoStyle>left</ControlInfoStyle>
+        </KeySubWrapper>
+        <KeySubWrapper>
           <Key type="right" keyPressed={click} emitter={emitAction('right')} />
-        </BottomWrapper>
+          <ControlInfoStyle>right</ControlInfoStyle>
+        </KeySubWrapper>
+        <KeySubWrapper>
+          <Key type="down" keyPressed={click} emitter={emitAction('down')} />
+          <ControlInfoStyle>down</ControlInfoStyle>
+        </KeySubWrapper>
+        <KeySubWrapper>
+          <Key type="up" keyPressed={click} emitter={emitAction('up')} />
+          <ControlInfoStyle>rotate</ControlInfoStyle>
+        </KeySubWrapper>
+        <KeySubWrapper>
+          <Key type=" " keyPressed={click} emitter={emitAction(' ')} />
+          <ControlInfoStyle>all the way down</ControlInfoStyle>
+        </KeySubWrapper>
       </KeyWrapper>
-      <Key type=" " keyPressed={click} emitter={emitAction(' ')} />
     </ControllerWrapper>
   );
 };

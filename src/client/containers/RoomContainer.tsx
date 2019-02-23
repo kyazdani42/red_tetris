@@ -36,12 +36,15 @@ const StyledContainer = styled.div`
   transition: all 1s;
   align-self: flex-end;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 `;
 
 const RowWrapperHideOverflow = styled.div`
   height: 88%;
   width: 90%;
-  margin: 3% auto auto;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
 `;
