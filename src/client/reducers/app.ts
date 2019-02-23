@@ -5,6 +5,7 @@ export interface AppState {
   socket: SocketIOClient.Socket;
   rooms: RoomType[];
   gameData: GameProps | null;
+  key: keyType | null;
 }
 
 const initialState: AppState = {
@@ -12,6 +13,7 @@ const initialState: AppState = {
   socket: null as any,
   rooms: [],
   gameData: null,
+  key: null
 };
 
 const reducer = handleActions<any>(
@@ -32,6 +34,10 @@ const reducer = handleActions<any>(
       ...state,
       playerName: payload
     }),
+    SET_KEY: (state: AppState, { payload }: Action<keyType>): AppState => ({
+      ...state,
+      key: payload || null
+    })
   },
   initialState
 );

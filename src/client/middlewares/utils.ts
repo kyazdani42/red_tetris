@@ -8,3 +8,20 @@ export const request = (path: string, method: string): Promise<any> => {
   })
   .then(res => res.json());
 };
+
+export const getEmitStringFromType = (type: keyType | null = null) => {
+  switch (type) {
+    case ' ':
+      return 'goDown';
+    case 'down':
+      return 'moveDown';
+    case 'up':
+      return 'rotate';
+    case 'left':
+      return 'moveLeft';
+    case 'right':
+      return 'moveRight';
+    default:
+      return '';
+  }
+};

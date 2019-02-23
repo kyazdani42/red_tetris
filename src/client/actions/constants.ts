@@ -7,3 +7,6 @@ export const LEAVE_ROOM = 'LEAVE_ROOM';
 export const SET_SOCKET = 'SET_SOCKET';
 
 export const SET_GAME_DATA = 'SET_GAME_DATA';
+
+export const SET_KEY = 'SET_KEY';
+export const HANDLE_KEY_PRESS = 'HANDLE_KEY_PRESS';

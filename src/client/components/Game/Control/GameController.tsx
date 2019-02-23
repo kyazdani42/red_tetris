@@ -3,42 +3,42 @@ import { connect } from 'react-redux';
 
 import Key from './Key';
 
+import { handleKeyPress } from '../../../actions/actions';
 import { State } from '../../../store';
 import { ControlInfoStyle, ControllerWrapper, KeySubWrapper, KeyWrapper } from './styles';
-import { emitter, setWindowEvents } from './utils';
+import { setWindowEvents } from './utils';
 
 interface Props {
-  socket: SocketIOClient.Socket;
+  keyPressed: keyType | null;
+  dispatchHandleKey: (key: keyType) => void;
 }
 
-const GameController: React.SFC<Props> = ({ socket }) => {
-  const [click, setClick] = React.useState<keyType | null>(null);
-  const emitAction = emitter(socket, setClick);
+const GameController: React.SFC<Props> = ({ dispatchHandleKey, keyPressed }) => {
   React.useEffect(() => {
-    const listener = setWindowEvents(emitAction);
+    const listener = setWindowEvents(dispatchHandleKey);
     return () => window.removeEventListener('keydown', listener);
   }, []);
   return (
     <ControllerWrapper>
       <KeyWrapper>
         <KeySubWrapper>
-          <Key type="left" keyPressed={click} emitter={emitAction('left')} />
+          <Key type="left" keyPressed={keyPressed} emitter={() => dispatchHandleKey('left')} />
           <ControlInfoStyle>left</ControlInfoStyle>
         </KeySubWrapper>
         <KeySubWrapper>
-          <Key type="right" keyPressed={click} emitter={emitAction('right')} />
+          <Key type="right" keyPressed={keyPressed} emitter={() => dispatchHandleKey('right')} />
           <ControlInfoStyle>right</ControlInfoStyle>
         </KeySubWrapper>
         <KeySubWrapper>
-          <Key type="down" keyPressed={click} emitter={emitAction('down')} />
+          <Key type="down" keyPressed={keyPressed} emitter={() => dispatchHandleKey('down')} />
           <ControlInfoStyle>down</ControlInfoStyle>
         </KeySubWrapper>
         <KeySubWrapper>
-          <Key type="up" keyPressed={click} emitter={emitAction('up')} />
+          <Key type="up" keyPressed={keyPressed} emitter={() => dispatchHandleKey('up')} />
           <ControlInfoStyle>rotate</ControlInfoStyle>
         </KeySubWrapper>
         <KeySubWrapper>
-          <Key type=" " keyPressed={click} emitter={emitAction(' ')} />
+          <Key type=" " keyPressed={keyPressed} emitter={() => dispatchHandleKey(' ')} />
           <ControlInfoStyle>all the way down</ControlInfoStyle>
         </KeySubWrapper>
       </KeyWrapper>
@@ -47,7 +47,14 @@ const GameController: React.SFC<Props> = ({ socket }) => {
 };
 
 const mapStateToProps = (state: State) => ({
-  socket: state.app.socket
+  keyPressed: state.app.key
 });
 
-export default connect(mapStateToProps)(GameController);
+const mapDispatchToProps = (dispatch: any) => ({
+  dispatchHandleKey: (key: keyType) => dispatch(handleKeyPress(key))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GameController);
