@@ -1,17 +1,20 @@
-import { all, call, put, select, take } from 'redux-saga/effects';
+import { Action } from 'redux-actions';
+import { delay } from 'redux-saga';
+import { all, call, put, select, take, throttle } from 'redux-saga/effects';
 import * as io from 'socket.io-client';
 
 import { AppState } from '../reducers/app';
 import { State } from '../store';
 
-import { setGameData, setSocket } from '../actions/actions';
+import { setGameData, setKey, setSocket } from '../actions/actions';
 import {
   CREATE_ROOM,
+  HANDLE_KEY_PRESS,
   JOIN_ROOM,
   LEAVE_ROOM,
 } from '../actions/constants';
 import { initGameSocket, initHomeSocket } from './socketListeners';
-import { BACKEND_URL, request } from './utils';
+import { BACKEND_URL, getEmitStringFromType, request } from './utils';
 
 export default function* rootSaga() {
   const socket: SocketIOClient.Socket = io.connect(`${BACKEND_URL}/`);
@@ -20,6 +23,7 @@ export default function* rootSaga() {
     call(createRoomSaga),
     call(leaveRoomSaga),
     call(joinRoomSaga),
+    call(keyPressHandler)
   ]);
 }
 
@@ -50,4 +54,19 @@ function* createRoomSaga() {
     initGameSocket(socket);
     yield put(setSocket(socket));
   }
+}
+
+function* keyPressHandler() {
+  yield throttle(100, HANDLE_KEY_PRESS, performKeyPress);
+}
+
+function* performKeyPress(action: Action<keyType>) {
+  const { payload } = action;
+  const socket: AppState['socket'] = yield select((state: State) => state.app.socket);
+  if (socket) {
+    socket.emit(getEmitStringFromType(payload));
+  }
+  yield put(setKey(payload));
+  yield delay(80);
+  yield put(setKey(null));
 }

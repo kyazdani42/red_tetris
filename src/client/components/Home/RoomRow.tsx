@@ -19,8 +19,7 @@ const StyledRow = styled.div`
 `;
 
 export const RoomRow: React.SFC<RoomType> = (props: any) => {
-  const { running, name } = props;
-  // const numPlayers: string = String(players.length);
+  const { running, name, players } = props;
   // const ownerName: string = `owner: ${owner.slice(0, 2)}`;
   const join = running ? null : <JoinButton roomId={name} />;
 
@@ -30,8 +29,7 @@ export const RoomRow: React.SFC<RoomType> = (props: any) => {
         <span>{'whatever'}</span>
       </h3>
       <div>
-        <span>players: </span>
-        <span>{'guess motherfucker'}</span>
+        <span>{players} player{players > 1 ? 's' : ''} </span>
       </div>
       {join}
     </StyledRow>

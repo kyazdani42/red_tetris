@@ -3,19 +3,26 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
-import Game from '../components/Game/Game';
-import GameController from '../components/Game/GameController';
-import LeaveRoomButton from '../components/Game/LeaveRoomButton';
-import Spectres from '../components/Game/Spectres';
+import GameController from '../components/Game/Control/GameController';
+import Game from '../components/Game/Display/Game';
+import LeaveRoomButton from '../components/Game/TopInfo/LeaveRoomButton';
+import Spectres from '../components/Game/TopInfo/Spectres';
 
-const BackgroundStyle = styled.div` background-color: #000; height: 100vh `;
+const BackgroundStyle = styled.div`
+  background-color: #000;
+  height: 100vh;
+`;
 
-const SpectreContainer = styled.div`
-  height: 12vh;
+const TopInfoContainer = styled.div`
+  height: 10vh;
   width: 100%;
   border-bottom: 1px solid #fff;
   box-shadow: 0 10px 10px rgba(255,44,55,0.10), 0 5px 5px rgba(255,55,55,0.20);
   background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 const GameWrapper = styled.div`
@@ -52,17 +59,18 @@ const GameContainer: React.SFC<Props> = ({ socket }) => {
   if (!socket) {
     return <Redirect to="/" />;
   }
-  return (
-    <BackgroundStyle>
-      <SpectreContainer><LeaveRoomButton /><Spectres /></SpectreContainer>
+  return <BackgroundStyle>
+      <TopInfoContainer>
+        <Spectres />
+        <LeaveRoomButton />
+      </TopInfoContainer>
       <GameWrapper>
         <Game />
       </GameWrapper>
       <ControlContainer>
         <GameController />
       </ControlContainer>
-    </BackgroundStyle>
-  );
+    </BackgroundStyle>;
 };
 
 const mapStateToProps = (state: any) => ({

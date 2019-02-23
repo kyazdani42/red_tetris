@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { State } from '../../store';
+import { State } from '../../../store';
 import { GamePieces } from './GamePieces';
 import { NextPiece } from './NextPiece';
 import { Result } from './Result';
@@ -38,6 +38,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
     </React.Fragment>
   );
 };
+
 const mapStateToProps = ({ app }: State) => ({
   gameData: app.gameData,
   socket: app.socket
