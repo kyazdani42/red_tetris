@@ -1,14 +1,6 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import { leaveRoom } from '../../actions/actions';
-
-interface Props {
-  dispatchLeaveRoom: () => void;
-}
-
-const Button = styled.div`
+export const LeaveButtonStyle = styled.div`
   height: 50px;
   width: 50px;
   background-color: ${props => props.theme.colors.primary.dark};
@@ -31,12 +23,17 @@ const Button = styled.div`
   };
 `;
 
-const LeaveRoomButton: React.SFC<Props> = ({ dispatchLeaveRoom }) => (
-  <Button onClick={dispatchLeaveRoom}>X</Button>
-);
+export const SpectreStyle = styled.div`
+  border: 1px solid #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50px;
+  height: 100px;
+`;
 
-const mapDispatchToProps = (dispatch: any) => ({
-  dispatchLeaveRoom: () => dispatch(leaveRoom())
-});
-
-export default connect(undefined, mapDispatchToProps)(LeaveRoomButton);
+export const SpectreBlockStyle = styled.div`
+  width: 5px;
+  height: 5px;
+  background-color: ${(props: { col: number | null }) => props.col ? 'red' : 'black'};
+`;

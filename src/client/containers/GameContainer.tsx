@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router';
 import styled from 'styled-components';
 
-import Game from '../components/Game/Game';
-import GameController from '../components/Game/GameController';
-import LeaveRoomButton from '../components/Game/LeaveRoomButton';
-import Spectres from '../components/Game/Spectres';
+import GameController from '../components/Game/Control/GameController';
+import Game from '../components/Game/Display/Game';
+import LeaveRoomButton from '../components/Game/TopInfo/LeaveRoomButton';
+import Spectres from '../components/Game/TopInfo/Spectres';
 
 const BackgroundStyle = styled.div`
   background-color: #000;
