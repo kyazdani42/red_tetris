@@ -1,10 +1,17 @@
 // tslint:disable
-import { getEmitStringFromType, getUrl, BACKEND_URL } from '../../../src/client/middlewares/utils';
+import { getEmitStringFromType, getUrl } from '../../../src/client/middlewares/utils';
+import { BACKEND_URL } from '../../../src/client/constants';
 
 describe('testing getUrl', () => {
-  it('tests the concatenation', () => {
+  it('tests the concatenation when path starts with /', () => {
     const path = '/lala';
     const expected = BACKEND_URL + path;
+    const url = getUrl(path);
+    expect(url).toEqual(expected);
+  })
+  it('tests the concatenation when path doesn\'t start with /', () => {
+    const path = 'lala';
+    const expected = BACKEND_URL + '/' + path;
     const url = getUrl(path);
     expect(url).toEqual(expected);
   })

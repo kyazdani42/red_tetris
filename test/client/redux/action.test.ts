@@ -1,6 +1,6 @@
 // tslint:disable
 import * as actions from '../../../src/client/actions/actions';
-import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS } from '../../../src/client/actions/constants';
+import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS } from '../../../src/client/constants';
 
 describe('testing action creators', () => {
   it('tests setRooms', () => {

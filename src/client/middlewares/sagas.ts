@@ -12,7 +12,7 @@ import {
   HANDLE_KEY_PRESS,
   JOIN_ROOM,
   LEAVE_ROOM,
-} from '../actions/constants';
+} from '../constants';
 import { initGameSocket, initHomeSocket } from './socketListeners';
 import { getEmitStringFromType, getUrl, request } from './utils';
 

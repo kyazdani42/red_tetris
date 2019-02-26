@@ -1,3 +1,5 @@
+import { BACKEND_URL } from '../constants';
+
 export const request = async (path: string, method: string): Promise<any> => {
   const url = getUrl(path);
   const response = await fetch(url, {
@@ -7,9 +9,8 @@ export const request = async (path: string, method: string): Promise<any> => {
   return response.json();
 };
 
-export const BACKEND_URL = 'http://localhost:3000';
-
-export const getUrl = (path: string): string => `${BACKEND_URL}${path}`;
+export const getUrl = (path: string): string =>
+  path.startsWith('/') ? `${BACKEND_URL}${path}` : `${BACKEND_URL}/${path}`;
 
 export const getEmitStringFromType = (type: keyType | null = null) => {
   switch (type) {

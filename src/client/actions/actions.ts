@@ -9,7 +9,7 @@ import {
   SET_KEY,
   SET_ROOMS,
   SET_SOCKET,
-} from './constants';
+} from '../constants';
 
 export const setRooms: ActionFunctionAny<Action<RoomType[]>> = createAction(SET_ROOMS);
 
