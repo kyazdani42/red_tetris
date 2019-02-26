@@ -1,5 +1,14 @@
 // tslint:disable
-import { getEmitStringFromType } from '../../../src/client/middlewares/utils';
+import { getEmitStringFromType, getUrl, BACKEND_URL } from '../../../src/client/middlewares/utils';
+
+describe('testing getUrl', () => {
+  it('tests the concatenation', () => {
+    const path = '/lala';
+    const expected = BACKEND_URL + path;
+    const url = getUrl(path);
+    expect(url).toEqual(expected);
+  })
+});
 
 describe('testing getEmitStringFromType', () => {
   it('return goDown when key is space', () => {
