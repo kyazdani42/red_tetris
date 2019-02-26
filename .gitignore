@@ -3,3 +3,4 @@
 schema.app
 .idea
 .DS_STORE
+coverage

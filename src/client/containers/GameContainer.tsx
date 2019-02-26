@@ -55,23 +55,22 @@ interface Props {
   socket: SocketIOClient.Socket | null;
 }
 
-const GameContainer: React.SFC<Props> = ({ socket }) => {
-  if (!socket) {
-    return <Redirect to="/" />;
-  }
-  return <BackgroundStyle>
-      <TopInfoContainer>
-        <Spectres />
-        <LeaveRoomButton />
-      </TopInfoContainer>
-      <GameWrapper>
-        <Game />
-      </GameWrapper>
-      <ControlContainer>
-        <GameController />
-      </ControlContainer>
-    </BackgroundStyle>;
-};
+export const GameContainer: React.SFC<Props> = ({ socket }) => socket ? <GameComponent /> : <Redirect to="/" />;
+
+export const GameComponent = () => (
+  <BackgroundStyle>
+    <TopInfoContainer>
+      <Spectres />
+      <LeaveRoomButton />
+    </TopInfoContainer>
+    <GameWrapper>
+      <Game />
+    </GameWrapper>
+    <ControlContainer>
+      <GameController />
+    </ControlContainer>
+  </BackgroundStyle>
+);
 
 const mapStateToProps = (state: any) => ({
   socket: state.app.socket

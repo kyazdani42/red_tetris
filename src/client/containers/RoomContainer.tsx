@@ -61,25 +61,27 @@ export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName
     const redirectUrl = `${socket.nsp}[${playerName}]`;
     return <Redirect to={redirectUrl} />;
   } else {
-    return (
-      <React.Fragment>
-        <Background />
-        <RoomWrapper>
-          <StyledContainer>
-            <RowWrapperHideOverflow>
-              <RowWrapper>
-                {getRoomRows(rooms)}
-              </RowWrapper>
-            </RowWrapperHideOverflow>
-            <CreateRoomButton />
-          </StyledContainer>
-        </RoomWrapper>
-      </React.Fragment>
-    );
+    return <RoomComponent rooms={rooms} />;
   }
 };
 
-const getRoomRows = (rooms: RoomType[]): JSX.Element[] =>
+export const RoomComponent: React.SFC<{ rooms: RoomsProps['rooms'] }> = ({ rooms }) => (
+  <React.Fragment>
+    <Background />
+    <RoomWrapper>
+      <StyledContainer>
+        <RowWrapperHideOverflow>
+          <RowWrapper>
+            {getRoomRows(rooms)}
+          </RowWrapper>
+        </RowWrapperHideOverflow>
+        <CreateRoomButton />
+      </StyledContainer>
+    </RoomWrapper>
+  </React.Fragment>
+);
+
+export const getRoomRows = (rooms: RoomType[]): JSX.Element[] =>
   rooms.map((d, i) => <RoomRow {...d} key={`room-_${d.id}_${i}`} />);
 
 const mapStateToProps = ({ app: { rooms, socket, playerName } }: State) => ({ rooms, socket, playerName });

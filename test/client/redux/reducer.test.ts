@@ -7,7 +7,8 @@ describe('testing reducer', () => {
     playerName: 'tester',
     socket: null,
     rooms: [],
-    gameData: null
+    gameData: null,
+    key: null
   };
   it('returns the initialState with the new rooms', () => {
     const state = { ...initialState, rooms: ['test', 'test'] };
@@ -48,6 +49,12 @@ describe('testing reducer', () => {
     const state = { ...initialState, playerName: null };
     const nextState = reducer(state, actions.createRoom('test'))
     const expected = { ...state, playerName: 'test' };
+    expect(nextState).toEqual(expected);
+  })
+  it('returns the initialState with the key set', () => {
+    const state = { ...initialState, key: null };
+    const nextState = reducer(state, actions.setKey('up'))
+    const expected = { ...state, key: 'up' };
     expect(nextState).toEqual(expected);
   })
 });

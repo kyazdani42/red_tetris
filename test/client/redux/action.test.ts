@@ -1,6 +1,6 @@
 // tslint:disable
 import * as actions from '../../../src/client/actions/actions';
-import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET } from '../../../src/client/actions/constants';
+import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS } from '../../../src/client/actions/constants';
 
 describe('testing action creators', () => {
   it('tests setRooms', () => {
@@ -42,5 +42,19 @@ describe('testing action creators', () => {
       payload: {} 
     };
     expect(actions.setSocket({})).toEqual(expected);
+  });
+  it('tests setKey', () => {
+    const expected = {
+      type: SET_KEY,
+      payload: 'key'
+    };
+    expect(actions.setKey('key')).toEqual(expected);
+  });
+  it('tests handleKeyPress', () => {
+    const expected = {
+      type: HANDLE_KEY_PRESS,
+      payload: 'keyPress'
+    };
+    expect(actions.handleKeyPress('keyPress')).toEqual(expected);
   });
 })
