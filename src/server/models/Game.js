@@ -48,6 +48,9 @@ module.exports = class Game {
         socket.on('start', (options) => {
           game.start(socket.id, options);
         });
+        socket.on('playerName', (name) => {
+          game.updatePlayerName(socket.id, name);
+        });
       }
     });
   }
@@ -62,21 +65,22 @@ module.exports = class Game {
   }
 
   privateInfo(player) {
-    const spectres = [];
+    const otherPlayers = [];
     for (const otherPlayer of this.players) {
       if (otherPlayer.id !== player.id && otherPlayer.spectre !== null) {
-        spectres.push(otherPlayer.spectre);
+        otherPlayers.push({ name: otherPlayer.name, spectre: otherPlayer.spectre });
       }
     }
     return {
       name: this.name,
+      playerName: player.name,
       running: this.running,
       isOwner: player.id === this.owner,
       stack: this.options.invisible ? player.stack : player.tmpStack(this.options.mirror),
       isPlaying: player.isPlaying,
       nextPiece: player.nextPiece,
       winner: player.winner,
-      spectres,
+      otherPlayers,
       score: player.score,
     };
   }
@@ -162,6 +166,11 @@ module.exports = class Game {
         break;
     }
     this.updateGame();
+  }
+
+  updatePlayerName(id, name) {
+    const player = this.players.find(d => d.id === id);
+    player.name = name;
   }
 
   removePlayer(id) {

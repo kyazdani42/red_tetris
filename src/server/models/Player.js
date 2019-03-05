@@ -23,6 +23,7 @@ module.exports = class Player {
     this.nbLine = 0;
     this.winner = false;
     this.score = 0;
+    this.name = '';
   }
 
   initPlayer(piece, nextPiece) {
