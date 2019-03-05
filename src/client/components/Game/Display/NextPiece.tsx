@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styled from 'styled-components';
 
 import { NextBlock } from './Block';
+import { PieceContainer } from './styles';
 
 interface Props {
   nextPiece: {
@@ -9,19 +9,6 @@ interface Props {
     patterns: number[][][];
   } | null;
 }
-
-const PieceContainer = styled.div`
-  position: absolute;
-  top: 41px;
-  left: -173px;
-  height: 170px;
-  width: 170px;
-  border: 1px solid #fff;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #000;
-`;
 
 export const NextPiece: React.SFC<Props> = ({ nextPiece }) => (
   <PieceContainer>
