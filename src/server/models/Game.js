@@ -1,4 +1,10 @@
-const { timeout, generate, counting, playersLoop, playersAddLine } = require('../utils/game');
+const {
+  timeout,
+  generate,
+  playersLoop,
+  playersAddLine,
+  counting,
+} = require('../utils/game');
 const Player = require('./Player');
 const { removeGame, getGames } = require('../services/games');
 
@@ -12,6 +18,7 @@ module.exports = class Game {
     this.players = [];
     this.running = false;
     this.socket = this.initSocket(name, io);
+    this.timer = 500;
     this.options = {
       reverse: false,
       mirror: false,
@@ -68,7 +75,7 @@ module.exports = class Game {
   privateInfo(player) {
     const otherPlayers = [];
     for (const otherPlayer of this.players) {
-      if (otherPlayer.id !== player.id && otherPlayer.spectre !== null) {
+      if (otherPlayer.id !== player.id) {
         otherPlayers.push({ name: otherPlayer.name, spectre: otherPlayer.spectre });
       }
     }
@@ -95,7 +102,7 @@ module.exports = class Game {
   async run() {
     // await counting(this.socket);
     while (this.running) {
-      await timeout();
+      await timeout(this.timer);
       const maxIndex = playersLoop(this.players, this.allPieces, this.addPiecesData);
       this.addPiecesData(maxIndex);
       this.running = playersAddLine(this.players);
@@ -138,6 +145,7 @@ module.exports = class Game {
     this.players.push(new Player(socket));
     this.io.emit('games', getGames());
     this.socket.emit('updateRoom', this.getPublicInfo());
+    this.updateGame();
   }
 
   addPiecesData(maxIndex) {
@@ -185,5 +193,6 @@ module.exports = class Game {
       this.io.emit('games', getGames());
     }
     this.socket.emit('updateRoom', this.getPublicInfo());
+    this.updateGame();
   }
 };
