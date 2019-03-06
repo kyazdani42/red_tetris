@@ -112,6 +112,9 @@ module.exports = class Game {
       this.addPiecesData(maxIndex);
       this.running = playersAddLine(this.players);
       this.updateGame();
+      if (this.players.length === 1 && this.timer > 1) {
+        this.timer -= 1;
+      }
     }
     this.io.emit('games', getGames());
   }
@@ -149,7 +152,7 @@ module.exports = class Game {
     }
     this.players.push(new Player(socket));
     this.io.emit('games', getGames());
-    this.updateGame();
+    this.socket.emit('updateRoom', this.getPublicInfo());
   }
 
   addPiecesData(maxIndex) {
@@ -196,6 +199,6 @@ module.exports = class Game {
       removeGame(this.name);
       this.io.emit('games', getGames());
     }
-    this.updateGame();
+    this.socket.emit('updateRoom', this.getPublicInfo());
   }
 };

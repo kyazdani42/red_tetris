@@ -21,7 +21,7 @@ module.exports = class Player {
     this.isPlaying = false;
     this.spectre = null;
     this.nbLine = 0;
-    this.winner = false;
+    this.winner = undefined;
     this.score = 0;
     this.name = socket.handshake.query.playerName;
   }
@@ -33,7 +33,7 @@ module.exports = class Player {
     this.spectre = null;
     this.nbLine = 0;
     this.score = 0;
-    this.winner = false;
+    this.winner = undefined;
     this.setNextPiece(piece, nextPiece);
   }
 
@@ -52,7 +52,10 @@ module.exports = class Player {
     const { x, y, pattern } = this.piece;
     if (checkPosition(x, y + 1, pattern, this.stack)) {
       this.isPlaying = !checkPosition(x, y, pattern, this.stack);
-      if (!this.isPlaying) { return; }
+      if (!this.isPlaying) {
+        this.winner = false;
+        return;
+      }
       this.stack = fusionPieceAndStack(this.piece, this.stack);
       pattern.forEach((line, patternY) => {
         if (y + patternY > -1 && y + patternY < 20 && updateFullLine(y + patternY, this.stack)) {
