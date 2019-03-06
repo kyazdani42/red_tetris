@@ -6,7 +6,7 @@ import { joinRoom } from '../../actions/actions';
 import { CreateNameModal } from './CreateNameModal';
 
 interface Props {
-  dispatchJoinRoom: (id: string) => () => void;
+  dispatchJoinRoom: (id: string) => (name: string) => void;
   roomId: string;
 }
 
@@ -68,7 +68,7 @@ const mapStateToProps = (_: any, { roomId }: { roomId: string }) => ({
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  dispatchJoinRoom: (id: string) => () => dispatch(joinRoom(id))
+  dispatchJoinRoom: (id: string) => (name: string) => dispatch(joinRoom({ room: id, playerName: name })),
 });
 
 export default connect(

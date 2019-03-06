@@ -75,6 +75,22 @@ interface Props {
   setDisplayModal: (d: boolean) => void;
 }
 
+export const CreateNameModal: React.SFC<Props> = ({ dispatch, setDisplayModal }) => {
+  const [error, setError] = React.useState(null);
+  return (
+    <ModalWrapper onClick={handleRemoveModal(setDisplayModal)} id="modal-name">
+      <ModalStyle>
+        <InputWrapper>
+          <LabelStyle>Pick a username</LabelStyle>
+          <NameInputStyle onKeyDown={handleKeyDown(dispatch, setError)} autoFocus={true} />
+          {error ? <span style={{ color: 'red', fontSize: '14px' }}>{error}</span> : null}
+        </InputWrapper>
+        <CreateRoomStyle onClick={handleCreateRoom(dispatch, setError)}>Launch Game</CreateRoomStyle>
+      </ModalStyle>
+    </ModalWrapper>
+  );
+};
+
 const handleRemoveModal = (setDisplayModal: any) => (e: any) => {
   if (e.target.id === 'modal-name') {
     setDisplayModal(false);
@@ -99,20 +115,4 @@ const handleKeyDown = (dispatch: (username: string) => void, setError: any) => (
       dispatch(e.target.value);
     }
   }
-};
-
-export const CreateNameModal: React.SFC<Props> = ({ dispatch, setDisplayModal }) => {
-  const [error, setError] = React.useState(null);
-  return (
-    <ModalWrapper onClick={handleRemoveModal(setDisplayModal)} id="modal-name">
-      <ModalStyle>
-        <InputWrapper>
-          <LabelStyle>Pick a username</LabelStyle>
-          <NameInputStyle onKeyDown={handleKeyDown(dispatch, setError)} autoFocus={true} />
-          {error ? <span style={{ color: 'red', fontSize: '14px' }}>{error}</span> : null}
-        </InputWrapper>
-        <CreateRoomStyle onClick={handleCreateRoom(dispatch, setError)}>Launch Game</CreateRoomStyle>
-      </ModalStyle>
-    </ModalWrapper>
-  );
 };

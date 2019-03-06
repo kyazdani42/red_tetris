@@ -14,7 +14,7 @@ import {
   LEAVE_ROOM,
 } from '../constants';
 import { initGameSocket, initHomeSocket } from './socketListeners';
-import { getEmitStringFromType, getUrl, request } from './utils';
+import { getEmitStringFromType, getUrl, request, setWindowEvents } from './utils';
 
 export default function* rootSaga() {
   const url = getUrl('/');
@@ -24,7 +24,8 @@ export default function* rootSaga() {
     call(createRoomSaga),
     call(leaveRoomSaga),
     call(joinRoomSaga),
-    call(keyPressHandler)
+    call(keyPressHandler),
+    call(handleKeyDownListeners)
   ]);
 }
 
@@ -42,18 +43,23 @@ function* leaveRoomSaga() {
 function* joinRoomSaga() {
   let action;
   while (action = yield take(JOIN_ROOM)) {
-    const url = getUrl(action.payload);
-    const socket: SocketIOClient.Socket = io(url);
+    const { room, playerName } = action.payload;
+    const url = getUrl(room);
+    const socket: SocketIOClient.Socket = io(url, { query: { playerName } });
     initGameSocket(socket);
     yield put(setSocket(socket));
   }
 }
 
 function* createRoomSaga() {
-  while (yield take(CREATE_ROOM)) {
+  let action;
+  while (action = yield take(CREATE_ROOM)) {
+    const playerName = action.payload;
     const data = yield request('/createRoom', 'POST');
     const url = getUrl(data.gameName);
-    const socket: SocketIOClient.Socket = io(url);
+    const socket: SocketIOClient.Socket = io(url, {
+      query: { playerName }
+    });
     initGameSocket(socket);
     yield put(setSocket(socket));
   }
@@ -72,4 +78,12 @@ function* performKeyPress(action: Action<keyType>) {
   yield put(setKey(payload));
   yield delay(80);
   yield put(setKey(null));
+}
+
+function* handleKeyDownListeners() {
+  while (yield take([CREATE_ROOM, JOIN_ROOM])) {
+    const listener = setWindowEvents();
+    yield take(LEAVE_ROOM);
+    window.removeEventListener('keydown', listener);
+  }
 }

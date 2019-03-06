@@ -15,7 +15,7 @@ const Spectres: React.SFC<Props> = ({ data }) => {
   return <SpectresContainer>{spectres}</SpectresContainer>;
 };
 
-const getSpectres = (spectres: GameProps['spectres']) =>
+const getSpectres = (spectres: GameProps['spectres'] = []) =>
   spectres.map((spectre, i) => (
     <SpectreStyle
       key={`spectre-nb-${i}`}
