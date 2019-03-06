@@ -23,7 +23,7 @@ module.exports = class Player {
     this.nbLine = 0;
     this.winner = false;
     this.score = 0;
-    this.name = '';
+    this.name = socket.handshake.query.playerName;
   }
 
   initPlayer(piece, nextPiece) {

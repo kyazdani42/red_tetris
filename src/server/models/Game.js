@@ -8,6 +8,7 @@ module.exports = class Game {
     this.name = name;
     this.allPieces = [];
     this.owner = undefined;
+    this.ownerName = undefined;
     this.players = [];
     this.running = false;
     this.socket = this.initSocket(name, io);
@@ -48,8 +49,8 @@ module.exports = class Game {
         socket.on('start', (options) => {
           game.start(socket.id, options);
         });
-        socket.on('playerName', (name) => {
-          game.updatePlayerName(socket.id, name);
+        socket.on('playerName', (playerName) => {
+          game.updatePlayerName(socket.id, playerName);
         });
       }
     });
@@ -60,7 +61,7 @@ module.exports = class Game {
       name: this.name,
       running: this.running,
       players: this.players.length,
-      owner: this.owner,
+      ownerName: this.ownerName,
     };
   }
 
@@ -132,6 +133,7 @@ module.exports = class Game {
   addPlayer(socket) {
     if (!this.owner) {
       this.owner = socket.id;
+      this.ownerName = socket.handshake.query.playerName;
     }
     this.players.push(new Player(socket));
     this.io.emit('games', getGames());
@@ -168,15 +170,16 @@ module.exports = class Game {
     this.updateGame();
   }
 
-  updatePlayerName(id, name) {
+  updatePlayerName(id, playerName) {
     const player = this.players.find(d => d.id === id);
-    player.name = name;
+    player.name = playerName;
   }
 
   removePlayer(id) {
     this.players = this.players.filter(d => d.id !== id);
     if (this.owner === id && this.players.length) {
       this.owner = this.players[0].id;
+      this.ownerName = this.players[0].name;
     } else {
       removeGame(this.name);
       this.io.emit('games', getGames());
