@@ -11,22 +11,25 @@ interface Props {
 
 const Spectres: React.SFC<Props> = ({ data }) => {
   if (!data) return null;
-  const spectres = getSpectres(data.spectres);
+  const spectres = getSpectres(data.otherPlayers);
   return <SpectresContainer>{spectres}</SpectresContainer>;
 };
 
-const getSpectres = (spectres: GameProps['spectres'] = []) =>
-  spectres.map((spectre, i) => (
-    <SpectreStyle
-      key={`spectre-nb-${i}`}
-    >
-      {getSpectreArray(spectre).map((row, j) => row.map((col, k) => (
-        <SpectreBlockStyle
-          col={col}
-          key={`spectre-block-${j}-${k}`}
-        />
-      )))}
-    </SpectreStyle>
+const getSpectres = (otherPlayers: GameProps['otherPlayers'] = []) =>
+  otherPlayers.map((player, i) => (
+    <React.Fragment>
+      <SpectreStyle
+        key={`spectre-nb-${i}`}
+      >
+        {getSpectreArray(player.spectre).map((row, j) => row.map((col, k) => (
+          <SpectreBlockStyle
+            col={col}
+            key={`spectre-block-${j}-${k}`}
+          />
+        )))}
+      </SpectreStyle>
+      <span>{player.name}</span>
+    </React.Fragment>
   ));
 
 const mapStateToProps = (state: State): Props => ({

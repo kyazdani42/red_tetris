@@ -27,7 +27,10 @@ interface GameProps {
     color: string;
     patterns: number[][][];
   };
-  spectres: number[][];
+  otherPlayers: Array<{
+    name: string;
+    spectre: number[];
+  }>;
 }
 
 type keyType = 'up' | 'down' | 'left' | 'right' | ' ';

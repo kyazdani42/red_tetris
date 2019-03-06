@@ -7,6 +7,7 @@ import {
   LEAVE_ROOM,
   SET_GAME_DATA,
   SET_KEY,
+  SET_PLAYER_NAME,
   SET_ROOMS,
   SET_SOCKET,
 } from '../constants';
@@ -22,3 +23,5 @@ export const setSocket: ActionFunctionAny<Action<SocketIOClient.Socket>> = creat
 export const setGameData: ActionFunctionAny<Action<GameProps>> = createAction(SET_GAME_DATA);
 export const setKey: ActionFunctionAny<Action<keyType>> = createAction(SET_KEY);
 export const handleKeyPress: ActionFunctionAny<Action<keyType>> = createAction(HANDLE_KEY_PRESS);
+
+export const setPlayerName: ActionFunctionAny<Action<string>> = createAction(SET_PLAYER_NAME);

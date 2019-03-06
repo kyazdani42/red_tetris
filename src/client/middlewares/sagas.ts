@@ -6,7 +6,7 @@ import * as io from 'socket.io-client';
 import { AppState } from '../reducers/app';
 import { State } from '../store';
 
-import { setGameData, setKey, setSocket } from '../actions/actions';
+import { setGameData, setKey, setSocket, setPlayerName } from '../actions/actions';
 import {
   CREATE_ROOM,
   HANDLE_KEY_PRESS,
@@ -44,6 +44,7 @@ function* joinRoomSaga() {
   let action;
   while (action = yield take(JOIN_ROOM)) {
     const { room, playerName } = action.payload;
+    yield put(setPlayerName(playerName));
     const url = getUrl(room);
     const socket: SocketIOClient.Socket = io(url, { query: { playerName } });
     initGameSocket(socket);
@@ -56,6 +57,7 @@ function* createRoomSaga() {
   while (action = yield take(CREATE_ROOM)) {
     const playerName = action.payload;
     const data = yield request('/createRoom', 'POST');
+    yield put(setPlayerName(playerName));
     const url = getUrl(data.gameName);
     const socket: SocketIOClient.Socket = io(url, {
       query: { playerName }

@@ -1,7 +1,7 @@
 import { Action, handleActions } from 'redux-actions';
 
 export interface AppState {
-  playerName: string;
+  playerName: string | null;
   socket: SocketIOClient.Socket;
   rooms: RoomType[];
   gameData: GameProps | null;
@@ -9,7 +9,7 @@ export interface AppState {
 }
 
 const initialState: AppState = {
-  playerName: 'whatever',
+  playerName: null,
   socket: null as any,
   rooms: [],
   gameData: null,
@@ -37,7 +37,11 @@ const reducer = handleActions<any>(
     SET_KEY: (state: AppState, { payload }: Action<keyType>): AppState => ({
       ...state,
       key: payload || null
-    })
+    }),
+    SET_PLAYER_NAME: (state: AppState, { payload }: Action<string>): AppState => ({
+      ...state,
+      playerName: payload || null
+    }),
   },
   initialState
 );

@@ -10,7 +10,7 @@ import CreateRoomButton from '../components/Home/CreateRoom';
 import { RoomRow } from '../components/Home/RoomRow';
 
 interface RoomsProps {
-  playerName: string;
+  playerName: string | null;
   rooms: RoomType[];
   socket: SocketIOClient.Socket | null;
 }
