@@ -16,7 +16,7 @@ interface Props {
 export const Game: React.SFC<Props> = ({ gameData, socket }) => {
   let gamePieces, score, nextPiece, startButton, result;
   if (gameData) {
-    gamePieces = <GamePieces stack={gameData.stack} />;
+    gamePieces = gameData.stack.length ? <GamePieces stack={gameData.stack} /> : null;
     score = gameData.score;
     nextPiece = gameData.nextPiece;
     startButton = gameData.running ? null : <StartButton socket={socket} />;

@@ -152,7 +152,7 @@ module.exports = class Game {
     }
     this.players.push(new Player(socket));
     this.io.emit('games', getGames());
-    this.socket.emit('updateRoom', this.getPublicInfo());
+    this.updateGame();
   }
 
   addPiecesData(maxIndex) {
@@ -199,6 +199,6 @@ module.exports = class Game {
       removeGame(this.name);
       this.io.emit('games', getGames());
     }
-    this.socket.emit('updateRoom', this.getPublicInfo());
+    this.updateGame();
   }
 };

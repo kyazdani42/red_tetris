@@ -18,24 +18,41 @@ export const LeaveButtonStyle = styled.div`
   };
 `;
 
+export const SpectreWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  width: 5%;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
 export const SpectreStyle = styled.div`
   border: 1px solid #fff;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 50px;
-  height: 100px;
+  width: 100%;
+  height: 70%;
+`;
+
+export const NameStyle = styled.span`
+  width: 100%;
+  text-align: center;
+  color: #fff;
 `;
 
 export const SpectreBlockStyle = styled.div`
-  width: 5px;
-  height: 5px;
+  width: 10%;
+  height: 5%;
   background-color: ${(props: { col: number | null }) => props.col ? 'red' : 'black'};
 `;
 
 export const SpectresContainer = styled.div`
   width: 80%;
+  height: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

@@ -21,7 +21,6 @@ const getDivsFromStack = (stack: GameProps['stack']) => {
   return container;
 };
 
-export const GamePieces: React.SFC<Props> = ({ stack }) => {
-  if (!stack.length) return null;
-  return <GamePiecesContainer>{getDivsFromStack(stack)}</GamePiecesContainer>;
-};
+export const GamePieces: React.SFC<Props> = ({ stack }) => (
+  <GamePiecesContainer>{getDivsFromStack(stack)}</GamePiecesContainer>
+);

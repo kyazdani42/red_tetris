@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { State } from '../../../store';
-import { SpectreBlockStyle, SpectresContainer, SpectreStyle } from './styles';
+import { SpectreBlockStyle, SpectresContainer, SpectreStyle, SpectreWrapper, NameStyle } from './styles';
 import { getSpectreArray } from './utils';
 
 interface Props {
@@ -17,10 +17,8 @@ const Spectres: React.SFC<Props> = ({ data }) => {
 
 const getSpectres = (otherPlayers: GameProps['otherPlayers'] = []) =>
   otherPlayers.map((player, i) => (
-    <React.Fragment>
-      <SpectreStyle
-        key={`spectre-nb-${i}`}
-      >
+    <SpectreWrapper key={`spectre-nb-${i}`}>
+      <SpectreStyle>
         {getSpectreArray(player.spectre).map((row, j) => row.map((col, k) => (
           <SpectreBlockStyle
             col={col}
@@ -28,8 +26,8 @@ const getSpectres = (otherPlayers: GameProps['otherPlayers'] = []) =>
           />
         )))}
       </SpectreStyle>
-      <span>{player.name}</span>
-    </React.Fragment>
+      <NameStyle>{player.name}</NameStyle>
+    </SpectreWrapper>
   ));
 
 const mapStateToProps = (state: State): Props => ({
