@@ -20,7 +20,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
     score = gameData.score;
     nextPiece = gameData.nextPiece;
     startButton = gameData.running ? null : <StartButton socket={socket} />;
-    result = gameData.isPlaying ? null : <Result winner={gameData.winner} />;
+    result = gameData.winner === undefined || gameData.isPlaying ? null : <Result winner={gameData.winner} />;
   } else {
     gamePieces = null;
     score = 0;

@@ -72,19 +72,24 @@ module.exports = class Game {
     };
   }
 
-  privateInfo(player) {
+  getSpectres(player) {
     const otherPlayers = [];
     for (const otherPlayer of this.players) {
       if (otherPlayer.id !== player.id) {
-        otherPlayers.push({ name: otherPlayer.name, spectre: otherPlayer.spectre });
+        otherPlayers.push({ name: otherPlayer.name, spectre: otherPlayer.spectre || [] });
       }
     }
+    return otherPlayers;
+  }
+
+  privateInfo(player) {
+    const otherPlayers = this.getSpectres(player);
     return {
       name: this.name,
       playerName: player.name,
       running: this.running,
       isOwner: player.id === this.owner,
-      stack: this.options.invisible ? player.stack : player.tmpStack(this.options.mirror),
+      stack: this.options.invisible || !this.running ? player.stack : player.tmpStack(this.options.mirror),
       isPlaying: player.isPlaying,
       nextPiece: player.nextPiece,
       winner: player.winner,
@@ -144,7 +149,6 @@ module.exports = class Game {
     }
     this.players.push(new Player(socket));
     this.io.emit('games', getGames());
-    this.socket.emit('updateRoom', this.getPublicInfo());
     this.updateGame();
   }
 
@@ -192,7 +196,6 @@ module.exports = class Game {
       removeGame(this.name);
       this.io.emit('games', getGames());
     }
-    this.socket.emit('updateRoom', this.getPublicInfo());
     this.updateGame();
   }
 };

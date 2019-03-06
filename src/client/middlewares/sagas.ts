@@ -6,7 +6,7 @@ import * as io from 'socket.io-client';
 import { AppState } from '../reducers/app';
 import { State } from '../store';
 
-import { setGameData, setKey, setSocket, setPlayerName } from '../actions/actions';
+import { setGameData, setKey, setPlayerName, setSocket } from '../actions/actions';
 import {
   CREATE_ROOM,
   HANDLE_KEY_PRESS,
