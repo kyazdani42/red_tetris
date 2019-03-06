@@ -1,14 +1,14 @@
 const { getRandomPiece } = require('./pieces');
 
-const timeout = () => new Promise(resolve => setTimeout(resolve, 500));
+const timeout = (time) => new Promise(resolve => setTimeout(resolve, time));
 
 const generate = () => [...Array(200)].map(() => getRandomPiece());
 
 const counting = async (socket) => {
   socket.emit('updateData', { gameStatus: '3' });
-  await timeout();
+  await timeout(500);
   socket.emit('updateData', { gameStatus: '2' });
-  await timeout();
+  await timeout(500);
   socket.emit('updateData', { gameStatus: '1' });
 };
 
