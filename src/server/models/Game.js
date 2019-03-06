@@ -133,6 +133,20 @@ module.exports = class Game {
     }
   }
 
+  updateTimer() {
+    if (this.timer > 15) {
+      this.timer -= 5;
+      console.log(this.timer);
+    }
+  }
+
+  reduceTimer() {
+    this.timer = 500;
+    if (this.players.length === 1) {
+      setInterval(this.updateTimer, 20000);
+    }
+  }
+
   start(id, options) {
     if (id === this.owner && !this.running) {
       this.setOptions(options);
@@ -140,6 +154,7 @@ module.exports = class Game {
       this.initPlayers();
       console.log('start');
       this.running = true;
+      this.reduceTimer();
       this.io.emit('games', getGames());
       this.run();
     }

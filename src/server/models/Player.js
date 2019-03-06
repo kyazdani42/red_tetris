@@ -109,6 +109,7 @@ module.exports = class Player {
       const { x, y, pattern } = this.piece;
       if (!addFixLine(this.stack)) {
         this.isPlaying = false;
+        this.winner = false;
       }
       if (checkPosition(x, y, pattern, this.stack)) {
         this.piece.moveUp();
