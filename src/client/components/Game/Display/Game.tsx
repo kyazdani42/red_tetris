@@ -16,16 +16,18 @@ interface Props {
 export const Game: React.SFC<Props> = ({ gameData, socket }) => {
   let gamePieces, score, nextPiece, startButton, result;
   if (gameData) {
-    gamePieces = gameData.stack.length ? <GamePieces stack={gameData.stack} /> : null;
     score = gameData.score;
     nextPiece = gameData.nextPiece;
-    startButton = gameData.running ? null : <StartButton socket={socket} />;
-    result = gameData.winner === undefined || gameData.isPlaying ? null : <Result winner={gameData.winner} />;
+
+    const { stack, running, isOwner, isPlaying, winner } = gameData;
+    gamePieces = stack.length ? <GamePieces stack={stack} /> : null;
+    startButton = running || !isOwner ? null : <StartButton socket={socket} />;
+    result = winner === undefined || isPlaying ? null : <Result winner={winner} />;
   } else {
-    gamePieces = null;
     score = 0;
     nextPiece = null;
-    startButton = <StartButton socket={socket} />;
+    gamePieces = null;
+    startButton = null;
     result = null;
   }
   return (
