@@ -37,6 +37,7 @@ interface Options {
   invisible: boolean;
   reverse: boolean;
   mirror: boolean;
+  speed: boolean;
 }
 
 type keyType = 'up' | 'down' | 'left' | 'right' | ' ';

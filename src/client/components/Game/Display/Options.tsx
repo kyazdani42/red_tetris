@@ -20,6 +20,7 @@ export const Options: React.SFC<Props> = ({ options, dispatchSetOptions }) => {
       {checkbox(options.invisible, 'invisible', dispatch)}
       {checkbox(options.mirror, 'mirror', dispatch)}
       {checkbox(options.reverse, 'reverse', dispatch)}
+      {checkbox(options.speed, 'speed', dispatch)}
     </OptionsWrapper>
   );
 };

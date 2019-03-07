@@ -18,7 +18,8 @@ const initialState: AppState = {
   options: {
     reverse: false,
     mirror: false,
-    invisible: false
+    invisible: false,
+    speed: false
   }
 };
 
