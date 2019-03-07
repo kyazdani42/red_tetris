@@ -15,10 +15,10 @@ export const ModalWrapper = styled.div`
 export const ModalStyle = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  width: 400px;
-  height: 150px;
+  width: 300px;
+  height: 130px;
   margin: auto;
   margin-top: 40vh;
   background-color: #000;
@@ -47,7 +47,7 @@ export const CreateRoomStyle = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-  width: 300px;
+  width: 250px;
   height: 65px;
 `;
 
@@ -65,7 +65,7 @@ export const NameInputStyle = styled.input`
   box-sizing: border-box;
   border: 1px solid #eee;
   border-radius: 4px;
-  width: 300px;
+  width: 250px;
   height: 30px;
 `;
 

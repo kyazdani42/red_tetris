@@ -20,7 +20,7 @@ export const Options: React.SFC<Props> = ({ options, dispatchSetOptions }) => {
       {checkbox(options.invisible, 'invisible', dispatch)}
       {checkbox(options.mirror, 'mirror', dispatch)}
       {checkbox(options.reverse, 'reverse', dispatch)}
-      {checkbox(options.speed, 'speed', dispatch)}
+      {checkbox(options.speed, 'speed', dispatch, 'disable speed')}
     </OptionsWrapper>
   );
 };
@@ -28,10 +28,11 @@ export const Options: React.SFC<Props> = ({ options, dispatchSetOptions }) => {
 const checkbox = (
   checked: boolean,
   name: string,
-  dispatch: (option: { name: string; on: boolean }) => void
+  dispatch: (option: { name: string; on: boolean }) => void,
+  displayName: string = name
 ) => (
   <OptionLabelWrapper>
-    <label>{name}</label>
+    <label>{displayName}</label>
     <input type="checkbox" checked={checked} onChange={() => dispatch({ name, on: !checked })} />
   </OptionLabelWrapper>
 );

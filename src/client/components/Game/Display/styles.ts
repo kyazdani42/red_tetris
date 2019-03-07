@@ -81,11 +81,11 @@ export const OptionsWrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   height: 130px;
-  width: 100px;
+  width: 140px;
   position: absolute;
   top: 63%;
   left: 50%;
-  margin-left: -50px;
+  margin-left: -70px;
   margin-top: -50px;
 `;
 
@@ -116,5 +116,5 @@ export const GameStartInfoWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.75);
 `;
