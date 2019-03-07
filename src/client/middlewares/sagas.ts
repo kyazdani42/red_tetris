@@ -14,14 +14,14 @@ import {
   LEAVE_ROOM,
 } from '../constants';
 import { initGameSocket, initHomeSocket } from './socketListeners';
-import { getEmitStringFromType, getUrl, request, setWindowEvents } from './utils';
+import { getEmitStringFromType, getUrl, setWindowEvents } from './utils';
 
 export default function* rootSaga() {
   const url = getUrl('/');
   const socket: SocketIOClient.Socket = io.connect(url);
   initHomeSocket(socket);
   yield all([
-    call(createRoomSaga),
+    call(createRoomSaga, socket),
     call(leaveRoomSaga),
     call(joinRoomSaga),
     call(keyPressHandler),
@@ -52,18 +52,12 @@ function* joinRoomSaga() {
   }
 }
 
-function* createRoomSaga() {
+function* createRoomSaga(homeSocket: SocketIOClient.Socket) {
   let action;
   while (action = yield take(CREATE_ROOM)) {
     const playerName = action.payload;
-    const data = yield request('/createRoom', 'POST');
+    homeSocket.emit('createRoom', playerName);
     yield put(setPlayerName(playerName));
-    const url = getUrl(data.gameName);
-    const socket: SocketIOClient.Socket = io(url, {
-      query: { playerName }
-    });
-    initGameSocket(socket);
-    yield put(setSocket(socket));
   }
 }
 

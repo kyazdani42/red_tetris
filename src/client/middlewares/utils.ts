@@ -3,15 +3,6 @@ import store from '../store';
 
 import { handleKeyPress } from '../actions/actions';
 
-export const request = async (path: string, method: string): Promise<any> => {
-  const url = getUrl(path);
-  const response = await fetch(url, {
-    method,
-    mode: 'cors'
-  });
-  return response.json();
-};
-
 export const getUrl = (path: string): string =>
   path.startsWith('/') ? `${BACKEND_URL}${path}` : `${BACKEND_URL}/${path}`;
 
