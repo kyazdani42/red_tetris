@@ -28,10 +28,14 @@ export const GlobalStyle = createGlobalStyle`
 export const BackgroundStyle = styled.div`
   background-color: #000;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const TopInfoContainer = styled.div`
-  height: 10vh;
+  height: 10%;
   width: 100%;
   border-bottom: 1px solid #fff;
   box-shadow: 0 10px 10px rgba(255,44,55,0.10), 0 5px 5px rgba(255,55,55,0.20);
@@ -44,23 +48,20 @@ export const TopInfoContainer = styled.div`
 
 export const GameWrapper = styled.div`
   position: relative;
-  height: 70vh;
-  max-height: 1000px;
-  width: 30%;
-  min-width: 300px;
-  max-width: 500px;
-  margin: auto;
-  margin-top: 30px;
+  z-index: 11;
+  width: 35vmin;
+  height: 70vmin;
+  min-width: 200px;
+  min-height: 400px;
   border: 1px solid #fff;
   box-shadow: 0 10px 10px rgba(255, 44, 55, 0.1), 0 5px 5px rgba(255, 55, 55, 0.2);
   background-color: #000;
 `;
 
 export const ControlContainer = styled.div`
-  height: 7vh;
-  margin: auto;
-  margin-top: 30px;
+  height: 7%;
   width: 30%;
+  margin-bottom: 20px;
   min-width: 300px;
   max-width: 500px;
   box-shadow: 0 10px 10px rgba(255,44,55,0.10), 0 5px 5px rgba(255,55,55,0.20);

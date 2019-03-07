@@ -1,12 +1,10 @@
 import * as React from 'react';
 
-import { ResultStyle, ResultWrapper } from './styles';
+import { ResultStyle } from './styles';
 
 interface Props {
   winner: boolean;
 }
 export const Result: React.SFC<Props> = ({ winner }) => (
-  <ResultWrapper>
-    <ResultStyle winner={winner}>{winner ? 'You Win!' : 'Game Over!'}</ResultStyle>
-  </ResultWrapper>
+  <ResultStyle winner={winner}>{winner ? 'You Win!' : 'Game Over!'}</ResultStyle>
 );

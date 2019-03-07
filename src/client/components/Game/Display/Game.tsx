@@ -8,6 +8,7 @@ import Options from './Options';
 import { Result } from './Result';
 import { Score } from './Score';
 import StartButton from './StartButton';
+import { GameStartInfoWrapper } from './styles';
 
 interface Props {
   gameData: GameProps | null;
@@ -16,11 +17,12 @@ interface Props {
 
 export const Game: React.SFC<Props> = ({ gameData, socket }) => {
   let gamePieces, score, nextPiece, startButton, result, options;
+  const isPlaying = gameData && gameData.isPlaying || false;
   if (gameData) {
     score = gameData.score;
     nextPiece = gameData.nextPiece;
 
-    const { stack, running, isOwner, isPlaying, winner } = gameData;
+    const { stack, running, isOwner, winner } = gameData;
     gamePieces = stack.length ? <GamePieces stack={stack} /> : null;
     startButton = running || !isOwner ? null : <StartButton socket={socket} />;
     options = running || !isOwner ? null : <Options />;
@@ -38,9 +40,13 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
       {gamePieces}
       <Score score={score} />
       <NextPiece nextPiece={nextPiece} />
-      {startButton}
-      {options}
-      {result}
+      {!isPlaying &&
+      <GameStartInfoWrapper>
+        {startButton}
+        {options}
+        {result}
+      </GameStartInfoWrapper>
+      }
     </React.Fragment>
   );
 };

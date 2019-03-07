@@ -24,42 +24,27 @@ export const StartButtonStyle = styled.h3`
 
 export const ScoreStyle = styled.div`
   position: absolute;
-  top: -1px;
-  left: -102px;
+  top: -21px;
+  left: 50%;
+  margin-left: -25%;
   color: #fff;
   background-color: #000;
   border: 1px solid #fff;
-  height: 40px;
-  width: 100px;
-`;
-
-export const ResultWrapper: any = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.1);
-  user-select: none;
-  pointer-events: none;
-`;
-
-export const ResultStyle: any = styled.h1`
-  color: ${(props: any) => (props.winner ? '#0bff40' : '#7a00ff')};
-  font-size: 5vw;
-  margin: auto;
+  border-bottom: none;
+  height: 19px;
   text-align: center;
-  height: 50px;
-  margin-top: 5%;
+  width: 50%;
 `;
 
 export const PieceContainer = styled.div`
+  z-index: 10;
   position: absolute;
-  top: 41px;
-  left: -173px;
-  height: 170px;
-  width: 170px;
+  bottom: -1px;
+  left: calc(-17vmin - 3px);
+  height: 17vmin;
+  width: 17vmin;
   border: 1px solid #fff;
+  border-right: none;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -91,13 +76,14 @@ export const NextBlockStyle: any = styled.div`
 
 export const OptionsWrapper = styled.div`
   display: flex;
+  background-color: rgba(0,0,0,0.5);
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 100px;
+  height: 130px;
   width: 100px;
   position: absolute;
-  top: 60%;
+  top: 63%;
   left: 50%;
   margin-left: -50px;
   margin-top: -50px;
@@ -109,4 +95,26 @@ export const OptionLabelWrapper = styled.div`
   align-items: center;
   justify-content: center;
   color: #fff;
+`;
+
+export const ResultStyle: any = styled.h1`
+  position: absolute;
+  top: 40%;
+  margin-top: -50px;
+  left: 50%;
+  margin-left: -200px;
+  color: ${(props: any) => (props.winner ? '#0bff40' : '#7a00ff')};
+  font-size: 5vmin;
+  width: 400px;
+  height: 50px;
+  text-align: center;
+`;
+
+export const GameStartInfoWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
 `;
