@@ -43,8 +43,8 @@ module.exports = class Player {
     this.pieceIndex += 1;
   }
 
-  tmpStack(mirror) {
-    const stack = fusionPieceAndStack(this.piece, this.stack);
+  tmpStack({ mirror, invisible }) {
+    const stack = invisible ? this.stack : fusionPieceAndStack(this.piece, this.stack);
     return mirror ? getMirrorStack(stack) : stack;
   }
 
@@ -76,23 +76,23 @@ module.exports = class Player {
 
   tryRotate() {
     const {
-      x, y, patternIndex, patterns,
+      x, y, patternIndex, patterns, fixed,
     } = this.piece;
-    if (!checkPosition(x, y, patterns[(patternIndex + 1) % 4], this.stack)) {
+    if (!fixed && !checkPosition(x, y, patterns[(patternIndex + 1) % 4], this.stack)) {
       this.piece.rotate();
     }
   }
 
   tryMoveRight() {
-    const { x, y, pattern } = this.piece;
-    if (!checkPosition(x + 1, y, pattern, this.stack)) {
+    const { x, y, pattern, fixed } = this.piece;
+    if (!fixed && !checkPosition(x + 1, y, pattern, this.stack)) {
       this.piece.moveRight();
     }
   }
 
   tryMoveLeft() {
-    const { x, y, pattern } = this.piece;
-    if (!checkPosition(x - 1, y, pattern, this.stack)) {
+    const { x, y, pattern, fixed } = this.piece;
+    if (!fixed && !checkPosition(x - 1, y, pattern, this.stack)) {
       this.piece.moveLeft();
     }
   }
@@ -102,6 +102,7 @@ module.exports = class Player {
     while (!checkPosition(x, this.piece.y + 1, pattern, this.stack)) {
       this.piece.moveDown();
     }
+    this.piece.fixed = true;
   }
 
   addLine(nbLine) {

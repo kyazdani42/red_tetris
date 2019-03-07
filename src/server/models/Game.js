@@ -23,6 +23,7 @@ module.exports = class Game {
       reverse: false,
       mirror: false,
       invisible: false,
+      speed: true,
     };
   }
 
@@ -89,7 +90,7 @@ module.exports = class Game {
       playerName: player.name,
       running: this.running,
       isOwner: player.id === this.owner,
-      stack: this.options.invisible || !this.running ? player.stack : player.tmpStack(this.options.mirror),
+      stack: !this.running ? player.stack : player.tmpStack(this.options),
       isPlaying: player.isPlaying,
       nextPiece: player.nextPiece,
       winner: player.winner,
@@ -124,6 +125,7 @@ module.exports = class Game {
       this.options.reverse = options.reverse;
       this.options.mirror = options.mirror;
       this.options.invisible = options.invisible;
+      this.options.speed = options.speed;
     }
   }
 
@@ -142,7 +144,7 @@ module.exports = class Game {
 
   reduceTimer() {
     this.timer = 500;
-    if (this.players.length === 1) {
+    if (this.options.speed && this.players.length === 1) {
       setInterval(this.updateTimer, 20000);
     }
   }
