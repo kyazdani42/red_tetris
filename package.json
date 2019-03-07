@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev-client": "webpack-dev-server --env.mode=development --progress=on --open",
-    "build-client": "webpack --env.mode=production",
+    "build": "webpack --env.mode=production && mv dist src/server",
     "test": "jest",
     "lint": "tslint -c ./tslint.json './src/client/**/*.ts*'",
     "dev-server": "nodemon ./src/server/index.js",

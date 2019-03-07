@@ -1,3 +1,4 @@
+const path = require('path');
 const bodyParser = require('body-parser');
 const app = require('express')();
 const server = require('http').Server(app);
@@ -22,6 +23,13 @@ app.set('port', (process.env.PORT || 3000));
 app.use(bodyParser.urlencoded({ limit: '15mb', extended: true }));
 app.use(bodyParser.json({ limit: '15mb' }));
 app.use(corsConfig);
+
+app.get('/', (_, res) => {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
+app.get('/bundle.js', (_, res) => {
+  res.sendFile(path.join(__dirname + '/dist/bundle.js'));
+});
 
 // application listener
 const port = app.get('port');

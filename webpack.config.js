@@ -20,7 +20,6 @@ module.exports = env => {
     resolve: {
       extensions: ['.js', '.ts', '.tsx', '.json']
     },
-    devtool: 'source-map',
     mode: env.mode,
     module: {
       rules: [
