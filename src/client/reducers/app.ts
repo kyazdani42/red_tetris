@@ -6,6 +6,7 @@ export interface AppState {
   rooms: RoomType[];
   gameData: GameProps | null;
   key: keyType | null;
+  options: Options;
 }
 
 const initialState: AppState = {
@@ -13,7 +14,12 @@ const initialState: AppState = {
   socket: null as any,
   rooms: [],
   gameData: null,
-  key: null
+  key: null,
+  options: {
+    reverse: false,
+    mirror: false,
+    invisible: false
+  }
 };
 
 const reducer = handleActions<any>(
@@ -42,6 +48,10 @@ const reducer = handleActions<any>(
       ...state,
       playerName: payload || null
     }),
+    SET_OPTIONS: (state: AppState, { payload }: Action<Options>): AppState => ({
+      ...state,
+      options: payload || state.options
+    })
   },
   initialState
 );

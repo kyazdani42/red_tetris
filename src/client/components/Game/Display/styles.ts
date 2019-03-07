@@ -88,3 +88,25 @@ export const NextBlockStyle: any = styled.div`
   height: calc(25% - 2px);
   background-color: ${props => getColor(props.color as colorType)};
 `;
+
+export const OptionsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+`;
+
+export const OptionLabelWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+`;

@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { State } from '../../../store';
 import { GamePieces } from './GamePieces';
 import { NextPiece } from './NextPiece';
+import Options from './Options';
 import { Result } from './Result';
 import { Score } from './Score';
-import { StartButton } from './StartButton';
+import StartButton from './StartButton';
 
 interface Props {
   gameData: GameProps | null;
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export const Game: React.SFC<Props> = ({ gameData, socket }) => {
-  let gamePieces, score, nextPiece, startButton, result;
+  let gamePieces, score, nextPiece, startButton, result, options;
   if (gameData) {
     score = gameData.score;
     nextPiece = gameData.nextPiece;
@@ -22,6 +23,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
     const { stack, running, isOwner, isPlaying, winner } = gameData;
     gamePieces = stack.length ? <GamePieces stack={stack} /> : null;
     startButton = running || !isOwner ? null : <StartButton socket={socket} />;
+    options = running || !isOwner ? null : <Options />;
     result = winner === undefined || isPlaying ? null : <Result winner={winner} />;
   } else {
     score = 0;
@@ -29,6 +31,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
     gamePieces = null;
     startButton = null;
     result = null;
+    options = null;
   }
   return (
     <React.Fragment>
@@ -36,6 +39,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
       <Score score={score} />
       <NextPiece nextPiece={nextPiece} />
       {startButton}
+      {options}
       {result}
     </React.Fragment>
   );

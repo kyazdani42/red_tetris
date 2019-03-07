@@ -1,5 +1,7 @@
 import { Action, ActionFunctionAny, createAction } from 'redux-actions';
 
+import { AppState } from '../reducers/app';
+
 import {
   CREATE_ROOM,
   HANDLE_KEY_PRESS,
@@ -7,6 +9,7 @@ import {
   LEAVE_ROOM,
   SET_GAME_DATA,
   SET_KEY,
+  SET_OPTIONS,
   SET_PLAYER_NAME,
   SET_ROOMS,
   SET_SOCKET,
@@ -25,3 +28,4 @@ export const setKey: ActionFunctionAny<Action<keyType>> = createAction(SET_KEY);
 export const handleKeyPress: ActionFunctionAny<Action<keyType>> = createAction(HANDLE_KEY_PRESS);
 
 export const setPlayerName: ActionFunctionAny<Action<string>> = createAction(SET_PLAYER_NAME);
+export const setOptions: ActionFunctionAny<Action<AppState['options']>> = createAction(SET_OPTIONS);
