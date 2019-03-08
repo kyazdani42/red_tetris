@@ -62,8 +62,8 @@ export const ControlContainer = styled.div`
   height: 7%;
   width: 30%;
   margin-bottom: 20px;
-  min-width: 300px;
-  max-width: 500px;
+  min-width: 200px;
+  max-width: 400px;
   box-shadow: 0 10px 10px rgba(255,44,55,0.10), 0 5px 5px rgba(255,55,55,0.20);
   background-color: #000;
   border: 1px solid #fff;

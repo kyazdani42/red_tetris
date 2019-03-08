@@ -33,7 +33,7 @@ const GameController: React.SFC<Props> = ({ dispatchHandleKey, keyPressed }) => 
       </KeySubWrapper>
       <KeySubWrapper>
         <Key type=" " keyPressed={keyPressed} emitter={() => dispatchHandleKey(' ')} />
-        <ControlInfoStyle>all the way down</ControlInfoStyle>
+        <ControlInfoStyle>drop</ControlInfoStyle>
       </KeySubWrapper>
     </KeyWrapper>
   </ControllerWrapper>

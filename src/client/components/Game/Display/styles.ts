@@ -98,14 +98,13 @@ export const OptionLabelWrapper = styled.div`
 `;
 
 export const ResultStyle: any = styled.h1`
-  position: absolute;
+  position: relative;
   top: 40%;
+  margin: auto;
   margin-top: -50px;
-  left: 50%;
-  margin-left: -200px;
   color: ${(props: any) => (props.winner ? '#0bff40' : '#7a00ff')};
   font-size: 5vmin;
-  width: 400px;
+  width: 100%;
   height: 50px;
   text-align: center;
 `;
