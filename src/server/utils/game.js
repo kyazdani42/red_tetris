@@ -1,4 +1,7 @@
+const fs = require('fs');
+
 const { getRandomPiece } = require('./pieces');
+const { getStats } = require('./common');
 
 const timeout = (time) => new Promise(resolve => setTimeout(resolve, time));
 
@@ -56,10 +59,22 @@ const checkRunning = (players, nbPlayerPlaying) => {
   return true;
 };
 
+const saveData = (players) => {
+  const stats = getStats();
+  for (const player of players) {
+    player.updateHistory();
+    stats[player.token] = player.history;
+  }
+  fs.writeFile(`${__dirname}/../stats/stats.json`, JSON.stringify(stats), 'utf8', (err) => {
+    if (err) throw err;
+  });
+};
+
 module.exports = {
   timeout,
   generate,
   counting,
   playersLoop,
   playersAddLine,
+  saveData,
 };

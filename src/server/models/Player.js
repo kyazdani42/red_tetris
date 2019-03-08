@@ -1,3 +1,5 @@
+const uniqId = require('uniqid');
+
 const {
   fusionPieceAndStack,
   checkPosition,
@@ -7,12 +9,15 @@ const {
   getSpectre,
   getMirrorStack,
   calculNewScore,
+  initHistory,
 } = require('../utils/player');
 const Piece = require('./Piece');
 
 module.exports = class Player {
   constructor(socket) {
     this.id = socket.id;
+    this.token = socket.handshake.query.token || uniqId();
+    this.history = initHistory(this.token);
     this.socket = socket;
     this.pieceIndex = 0;
     this.stack = [];
@@ -24,6 +29,7 @@ module.exports = class Player {
     this.winner = undefined;
     this.score = 0;
     this.name = socket.handshake.query.playerName;
+    socket.emit('token', this.token);
   }
 
   initPlayer(piece, nextPiece) {
@@ -121,5 +127,13 @@ module.exports = class Player {
   updateScore() {
     this.score += calculNewScore(this.nbLine);
     this.nbLine = 0;
+  }
+
+  updateHistory() {
+    if (this.winner) {
+      this.history.multiPlayersWin += 1;
+    }
+    this.history.gamesPlay += 1;
+    this.history.bestScore = Math.max(this.history.bestScore, this.score);
   }
 };
