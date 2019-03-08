@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { leaveRoom } from '../../../actions/actions';
+import { leaveRoom } from '../../../redux/actions';
 import { LeaveButtonStyle } from './styles';
 
 interface Props {

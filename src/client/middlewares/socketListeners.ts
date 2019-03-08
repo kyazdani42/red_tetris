@@ -1,7 +1,7 @@
 import * as io from 'socket.io-client';
 
-import { setGameData, setRooms, setSocket, setToken } from '../actions/actions';
-import store from '../store';
+import { setGameData, setRooms, setSocket, setToken } from '../redux/actions';
+import store from '../redux/store';
 import { getUrl } from './utils';
 
 export const initHomeSocket = (socket: SocketIOClient.Socket) => {

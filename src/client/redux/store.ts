@@ -1,8 +1,8 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import rootSaga from './middlewares/sagas';
-import app, { AppState } from './reducers/app';
+import rootSaga from '../middlewares/sagas';
+import app, { AppState } from './reducer';
 
 export interface State {
   app: AppState;

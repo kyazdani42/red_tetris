@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { createRoom } from '../../actions/actions';
+import { createRoom } from '../../redux/actions';
 import CreateNameModal from './CreateNameModal';
 import { NewGameButton } from './styles';
 

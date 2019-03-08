@@ -3,16 +3,16 @@ import { delay } from 'redux-saga';
 import { all, call, put, select, take, throttle } from 'redux-saga/effects';
 import * as io from 'socket.io-client';
 
-import { AppState } from '../reducers/app';
-import { State } from '../store';
+import { AppState } from '../redux/reducer';
+import { State } from '../redux/store';
 
-import { setGameData, setKey, setPlayerName, setSocket } from '../actions/actions';
+import { setGameData, setKey, setPlayerName, setSocket } from '../redux/actions';
 import {
   CREATE_ROOM,
   HANDLE_KEY_PRESS,
   JOIN_ROOM,
   LEAVE_ROOM,
-} from '../constants';
+} from '../redux/constants';
 import { initHomeSocket, joinTheRoom } from './socketListeners';
 import { getEmitStringFromType, getUrl, setWindowEvents } from './utils';
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { State } from '../store';
+import { State } from '../redux/store';
 
 import CreateRoomButton from '../components/Home/CreateRoom';
 import { RoomRow } from '../components/Home/RoomRow';

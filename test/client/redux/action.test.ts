@@ -1,6 +1,6 @@
 // tslint:disable
-import * as actions from '../../../src/client/actions/actions';
-import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS } from '../../../src/client/constants';
+import * as actions from '../../../src/client/redux/actions';
+import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS, SET_PLAYER_NAME, SET_OPTIONS, SET_TOKEN } from '../../../src/client/redux/constants';
 
 describe('testing action creators', () => {
   it('tests setRooms', () => {
@@ -56,5 +56,26 @@ describe('testing action creators', () => {
       payload: 'keyPress'
     };
     expect(actions.handleKeyPress('keyPress')).toEqual(expected);
+  });
+  it('tests setPlayerName', () => {
+    const expected = {
+      type: SET_PLAYER_NAME,
+      payload: 'playername'
+    };
+    expect(actions.setPlayerName('playername')).toEqual(expected);
+  });
+  it('tests setOptions', () => {
+    const expected = {
+      type: SET_OPTIONS,
+      payload: {}
+    };
+    expect(actions.setOptions({})).toEqual(expected);
+  });
+  it('tests setToken', () => {
+    const expected = {
+      type: SET_TOKEN,
+      payload: 'token'
+    };
+    expect(actions.setToken('token')).toEqual(expected);
   });
 })

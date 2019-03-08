@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import { App } from './containers/AppContainer';
-import store from './store';
+import store from './redux/store';
 import theme from './theme';
 
 const Root = () => (

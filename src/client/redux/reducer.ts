@@ -1,5 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
-import { getDataFromCookie, setCookie } from '../cookieUtils';
+import { getDataFromCookie, setCookie } from './cookieUtils';
 
 export interface AppState {
   playerName: string | null;

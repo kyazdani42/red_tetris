@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import Key from './Key';
 
-import { handleKeyPress } from '../../../actions/actions';
-import { State } from '../../../store';
+import { handleKeyPress } from '../../../redux/actions';
+import { State } from '../../../redux/store';
 import { ControlInfoStyle, ControllerWrapper, KeySubWrapper, KeyWrapper } from './styles';
 
 interface Props {

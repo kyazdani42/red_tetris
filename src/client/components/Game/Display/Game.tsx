@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { State } from '../../../store';
+import { State } from '../../../redux/store';
 import { GamePieces } from './GamePieces';
 import { NextPiece } from './NextPiece';
 import Options from './Options';

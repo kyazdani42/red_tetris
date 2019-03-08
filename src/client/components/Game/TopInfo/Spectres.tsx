@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { State } from '../../../store';
+import { State } from '../../../redux/store';
 import { NameStyle, SpectreBlockStyle, SpectresContainer, SpectreStyle, SpectreWrapper } from './styles';
 import { getSpectreArray } from './utils';
 

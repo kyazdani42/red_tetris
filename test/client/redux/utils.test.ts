@@ -1,6 +1,6 @@
 // tslint:disable
 import { getEmitStringFromType, getUrl } from '../../../src/client/middlewares/utils';
-import { BACKEND_URL } from '../../../src/client/constants';
+import { BACKEND_URL } from '../../../src/client/redux/constants';
 
 describe('testing getUrl', () => {
   it('tests the concatenation when path starts with /', () => {

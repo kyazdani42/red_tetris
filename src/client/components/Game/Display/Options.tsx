@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { setOptions } from '../../../actions/actions';
-import { State } from '../../../store';
+import { setOptions } from '../../../redux/actions';
+import { State } from '../../../redux/store';
 import { OptionLabelWrapper, OptionsWrapper } from './styles';
 
 interface Props {

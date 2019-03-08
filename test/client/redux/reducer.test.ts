@@ -1,6 +1,6 @@
 // tslint:disable
-import * as actions from '../../../src/client/actions/actions';
-import reducer from '../../../src/client/reducers/app';
+import * as actions from '../../../src/client/redux/actions';
+import reducer from '../../../src/client/redux/app';
 
 describe('testing reducer', () => {
   const initialState = {
@@ -8,7 +8,14 @@ describe('testing reducer', () => {
     socket: null,
     rooms: [],
     gameData: null,
-    key: null
+    key: null,
+    options: {
+      reverse: false,
+      mirror: false,
+      invisible: false,
+      speed: false
+    },
+    token: null
   };
   it('returns the initialState with the new rooms', () => {
     const state = { ...initialState, rooms: ['test', 'test'] };
@@ -34,7 +41,7 @@ describe('testing reducer', () => {
     expect(nextState).toEqual(expected);
   })
   it('returns the initialState with the new socket', () => {
-    const state = { ...initialState, socket: null };
+    const state = initialState;
     const nextState = reducer(state, actions.setSocket('test'))
     const expected = { ...state, socket: 'test' };
     expect(nextState).toEqual(expected);
@@ -55,6 +62,24 @@ describe('testing reducer', () => {
     const state = { ...initialState, key: null };
     const nextState = reducer(state, actions.setKey('up'))
     const expected = { ...state, key: 'up' };
+    expect(nextState).toEqual(expected);
+  })
+  it('returns the initialState with the token', () => {
+    const state = initialState;
+    const nextState = reducer(state, actions.setToken('token'))
+    const expected = { ...state, token: 'token' };
+    expect(nextState).toEqual(expected);
+  })
+  it('returns the initialState with the options', () => {
+    const state = initialState;
+    const newOptions = {
+      reverse: true,
+      mirror: false,
+      invisible: true,
+      speed: false
+    };
+    const nextState = reducer(state, actions.setOptions(newOptions))
+    const expected = { ...state, options: newOptions };
     expect(nextState).toEqual(expected);
   })
 });

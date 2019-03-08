@@ -1,6 +1,6 @@
 import { Action, ActionFunctionAny, createAction } from 'redux-actions';
 
-import { AppState } from '../reducers/app';
+import { AppState } from './reducer';
 
 import {
   CREATE_ROOM,
@@ -14,7 +14,7 @@ import {
   SET_ROOMS,
   SET_SOCKET,
   SET_TOKEN,
-} from '../constants';
+} from './constants';
 
 export const setRooms: ActionFunctionAny<Action<RoomType[]>> = createAction(SET_ROOMS);
 

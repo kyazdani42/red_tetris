@@ -1,7 +1,7 @@
-import { BACKEND_URL } from '../constants';
-import store from '../store';
+import { BACKEND_URL } from '../redux/constants';
+import store from '../redux/store';
 
-import { handleKeyPress } from '../actions/actions';
+import { handleKeyPress } from '../redux/actions';
 
 export const getUrl = (path: string): string =>
   path.startsWith('/') ? `${BACKEND_URL}${path}` : `${BACKEND_URL}/${path}`;
