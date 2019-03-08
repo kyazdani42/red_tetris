@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { getColor } from './utils';
-
 export const StartButtonStyle = styled.h3`
   position: absolute;
   top: 50%;
@@ -64,14 +62,14 @@ export const BlockStyle = styled.div`
   width: calc(10% - 2px);
   border: solid 1px black;
   height: calc(5% - 2px);
-  background-color: ${props => getColor(props.color as colorType)};
+  background-color: ${props => props.color};
 `;
 
 export const NextBlockStyle: any = styled.div`
   width: calc(25% - 2px);
   border: solid 1px black;
   height: calc(25% - 2px);
-  background-color: ${props => getColor(props.color as colorType)};
+  background-color: ${props => props.color};
 `;
 
 export const OptionsWrapper = styled.div`
