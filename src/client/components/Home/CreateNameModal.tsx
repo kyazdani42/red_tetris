@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+
+import { State } from '../../store';
 import {
   CreateRoomStyle,
   ErrorStyle,
@@ -10,21 +13,26 @@ import {
 } from './styles';
 
 interface Props {
-  dispatch: (username: string) => void;
+  playerName: string | null;
+  handleDispatch: (username: string) => void;
   setDisplayModal: (d: boolean) => void;
 }
 
-export const CreateNameModal: React.SFC<Props> = ({ dispatch, setDisplayModal }) => {
+export const CreateNameModal: React.SFC<Props> = ({ handleDispatch, setDisplayModal, playerName }) => {
   const [error, setError] = React.useState(null);
+  if (playerName) {
+    handleDispatch(playerName);
+    return null;
+  }
   return (
     <ModalWrapper onClick={handleRemoveModal(setDisplayModal)} id="modal-name">
       <ModalStyle>
         <InputWrapper>
           <LabelStyle>Pick a username</LabelStyle>
-          <NameInputStyle onKeyDown={handleKeyDown(dispatch, setError)} autoFocus={true} />
+          <NameInputStyle onKeyDown={handleKeyDown(handleDispatch, setError)} autoFocus={true} />
           {error ? <ErrorStyle>{error}</ErrorStyle> : null}
         </InputWrapper>
-        <CreateRoomStyle onClick={handleCreateRoom(dispatch, setError)}>
+        <CreateRoomStyle onClick={handleCreateRoom(handleDispatch, setError)}>
           Launch Game
         </CreateRoomStyle>
       </ModalStyle>
@@ -57,3 +65,10 @@ const handleKeyDown = (dispatch: (username: string) => void, setError: any) => (
     }
   }
 };
+
+const mapStateToProps = (state: State, ownProps: any) => ({
+  playerName: state.app.playerName,
+  ...ownProps
+});
+
+export default connect(mapStateToProps)(CreateNameModal);

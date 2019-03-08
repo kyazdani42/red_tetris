@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withTheme } from 'styled-components';
 
 import { joinRoom } from '../../actions/actions';
-import { CreateNameModal } from './CreateNameModal';
+import CreateNameModal from './CreateNameModal';
 import { JoinButtonStyle } from './styles';
 
 interface Props {
@@ -14,7 +14,7 @@ export const JoinButton: React.SFC<Props> = ({ dispatchJoinRoom, roomId }) => {
   const [displayModal, setDisplayModal] = React.useState<boolean>(false);
   let modal;
   if (displayModal) {
-    modal = <CreateNameModal setDisplayModal={setDisplayModal} dispatch={dispatchJoinRoom(roomId)} />;
+    modal = <CreateNameModal setDisplayModal={setDisplayModal} handleDispatch={dispatchJoinRoom(roomId)} />;
   } else {
     modal = null;
   }

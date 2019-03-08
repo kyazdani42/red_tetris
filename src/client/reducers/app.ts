@@ -1,4 +1,5 @@
 import { Action, handleActions } from 'redux-actions';
+import { getDataFromCookie, setCookie } from '../cookieUtils';
 
 export interface AppState {
   playerName: string | null;
@@ -7,10 +8,14 @@ export interface AppState {
   gameData: GameProps | null;
   key: keyType | null;
   options: Options;
+  token: string | null;
 }
 
+const { playerName, token } = getDataFromCookie();
+
 const initialState: AppState = {
-  playerName: null,
+  playerName,
+  token,
   socket: null as any,
   rooms: [],
   gameData: null,
@@ -20,7 +25,7 @@ const initialState: AppState = {
     mirror: false,
     invisible: false,
     speed: false
-  }
+  },
 };
 
 const reducer = handleActions<any>(
@@ -52,7 +57,14 @@ const reducer = handleActions<any>(
     SET_OPTIONS: (state: AppState, { payload }: Action<Options>): AppState => ({
       ...state,
       options: payload || state.options
-    })
+    }),
+    SET_TOKEN: (state: AppState, { payload }: Action<string>): AppState => {
+      setCookie(state.playerName as string, payload as string);
+      return {
+        ...state,
+        token: payload as string
+      };
+    }
   },
   initialState
 );

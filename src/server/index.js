@@ -10,11 +10,11 @@ const corsConfig = require('./middlewares/cors');
 
 io.on('connection', socket => {
   socket.emit('games', getGames());
-  socket.on('createRoom', (playerName) => {
+  socket.on('createRoom', () => {
     const gameName = uniqId();
     const game = new Game({ io, name: gameName });
     setGame(game, gameName);
-    socket.emit('gameName', { gameName, playerName });
+    socket.emit('gameName', { gameName });
   })
 });
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { createRoom } from '../../actions/actions';
-import { CreateNameModal } from './CreateNameModal';
+import CreateNameModal from './CreateNameModal';
 import { NewGameButton } from './styles';
 
 interface Props {
@@ -13,7 +13,7 @@ export const CreateRoomButton: React.SFC<Props> = ({ dispatchCreateRoom }) => {
   const [displayModal, setDisplayModal] = React.useState(false);
   let modal;
   if (displayModal) {
-    modal = <CreateNameModal setDisplayModal={setDisplayModal} dispatch={dispatchCreateRoom} />;
+    modal = <CreateNameModal setDisplayModal={setDisplayModal} handleDispatch={dispatchCreateRoom} />;
   } else {
     modal = null;
   }

@@ -41,3 +41,8 @@ interface Options {
 }
 
 type keyType = 'up' | 'down' | 'left' | 'right' | ' ';
+
+interface PlayerType {
+  playerName: string;
+  token: string | null;
+}

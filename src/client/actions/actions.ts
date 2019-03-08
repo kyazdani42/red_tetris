@@ -13,6 +13,7 @@ import {
   SET_PLAYER_NAME,
   SET_ROOMS,
   SET_SOCKET,
+  SET_TOKEN,
 } from '../constants';
 
 export const setRooms: ActionFunctionAny<Action<RoomType[]>> = createAction(SET_ROOMS);
@@ -29,3 +30,4 @@ export const handleKeyPress: ActionFunctionAny<Action<keyType>> = createAction(H
 
 export const setPlayerName: ActionFunctionAny<Action<string>> = createAction(SET_PLAYER_NAME);
 export const setOptions: ActionFunctionAny<Action<AppState['options']>> = createAction(SET_OPTIONS);
+export const setToken: ActionFunctionAny<Action<string>> = createAction(SET_TOKEN);
