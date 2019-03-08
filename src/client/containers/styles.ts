@@ -70,10 +70,6 @@ export const ControlContainer = styled.div`
 `;
 
 export const RoomWrapper = styled.div`
-  position: relative;
-`;
-
-export const StyledContainer = styled.div`
   font-family: ${props => props.theme.fonts.text};
   font-size: 18px;
   font-weight: 300;
@@ -107,4 +103,27 @@ export const RowWrapper = styled.div`
   width: 100%;
   padding-right: 17px;
   overflow-y: scroll;
+`;
+
+export const MusicStyle = styled.button`
+  width: 30px;
+  height: 30px;
+  border-radius: 0px;
+  position: fixed;
+  background-color: #000;
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 10px 20px rgba(255,44,55,0.30);
+  bottom: 20px;
+  right: 20px;
+`;
+
+export const BackgroundImage = styled.div`
+  background-image: url('assets/bg.jpg');
+  filter: brightness(0.6) sepia(80%) grayscale(70%) saturate(80%);
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;

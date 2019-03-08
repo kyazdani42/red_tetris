@@ -9,7 +9,7 @@ export const ModalWrapper = styled.div`
   height: 100vh;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(10,0,0,0.7);
+  background-color: rgba(0,0,0,0.7);
 `;
 
 export const ModalStyle = styled.div`

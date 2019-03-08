@@ -4,10 +4,9 @@ import { Redirect } from 'react-router-dom';
 
 import { State } from '../store';
 
-import { Background } from '../components/Background/Background';
 import CreateRoomButton from '../components/Home/CreateRoom';
 import { RoomRow } from '../components/Home/RoomRow';
-import { RoomWrapper, RowWrapper, RowWrapperHideOverflow, StyledContainer } from './styles';
+import { RoomWrapper, RowWrapper, RowWrapperHideOverflow } from './styles';
 
 interface RoomsProps {
   playerName: string | null;
@@ -24,19 +23,14 @@ export const RoomContainer: React.SFC<RoomsProps> = ({ rooms, socket, playerName
 };
 
 export const RoomComponent: React.SFC<{ rooms: RoomsProps['rooms'] }> = ({ rooms }) => (
-  <React.Fragment>
-    <Background />
-    <RoomWrapper>
-      <StyledContainer>
-        <RowWrapperHideOverflow>
-          <RowWrapper>
-            {getRoomRows(rooms)}
-          </RowWrapper>
-        </RowWrapperHideOverflow>
-        <CreateRoomButton />
-      </StyledContainer>
-    </RoomWrapper>
-  </React.Fragment>
+  <RoomWrapper>
+    <RowWrapperHideOverflow>
+      <RowWrapper>
+        {getRoomRows(rooms)}
+      </RowWrapper>
+    </RowWrapperHideOverflow>
+    <CreateRoomButton />
+  </RoomWrapper>
 );
 
 export const getRoomRows = (rooms: RoomType[]): JSX.Element[] =>

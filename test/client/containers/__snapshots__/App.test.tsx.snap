@@ -29,6 +29,8 @@ ShallowWrapper {
           path="/:room[:player_name]"
         />,
         <GlobalStyleComponent />,
+        <Unknown />,
+        <UNDEFINED />,
       ],
     },
     "ref": null,
@@ -67,6 +69,51 @@ ShallowWrapper {
         "rendered": null,
         "type": [Function],
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-iAyFgw",
+            "isStatic": true,
+            "rules": Array [
+              "
+  background-image: url('assets/bg.jpg');
+  filter: brightness(0.6) sepia(80%) grayscale(70%) saturate(80%);
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-iAyFgw",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
     ],
     "type": Symbol(react.fragment),
   },
@@ -87,6 +134,8 @@ ShallowWrapper {
             path="/:room[:player_name]"
           />,
           <GlobalStyleComponent />,
+          <Unknown />,
+          <UNDEFINED />,
         ],
       },
       "ref": null,
@@ -124,6 +173,51 @@ ShallowWrapper {
           "ref": null,
           "rendered": null,
           "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-iAyFgw",
+              "isStatic": true,
+              "rules": Array [
+                "
+  background-image: url('assets/bg.jpg');
+  filter: brightness(0.6) sepia(80%) grayscale(70%) saturate(80%);
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-iAyFgw",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
         },
       ],
       "type": Symbol(react.fragment),
