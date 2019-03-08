@@ -4,6 +4,7 @@ const {
   playersLoop,
   playersAddLine,
   counting,
+  saveData,
 } = require('../utils/game');
 const Player = require('./Player');
 const { removeGame, getGames } = require('../services/games');
@@ -117,6 +118,7 @@ module.exports = class Game {
         this.timer -= 1;
       }
     }
+    saveData(this.players);
     this.io.emit('games', getGames());
   }
 

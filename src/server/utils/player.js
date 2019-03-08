@@ -1,5 +1,12 @@
+const { getStats } = require('./common');
+
 const stackCase = { color: 'black', value: 0, fix: false };
 const fixStackCase = { color: 'grey', value: 1, fix: true };
+const defaultHistory = {
+  bestScore: 0,
+  gamesPlay: 0,
+  multiPlayersWin: 0,
+};
 
 const getSpectre = (stack) => {
   const result = [];
@@ -75,7 +82,7 @@ const getMirrorStack = (stack) => {
     }
   }
   return mirrorStack;
-}
+};
 
 const initStack = () => {
   const stack = [];
@@ -98,7 +105,12 @@ const calculNewScore = (nbLine) => {
     default:
       return 0;
   }
-}
+};
+
+const initHistory = (token) => {
+  const stats = getStats();
+  return stats[token] || defaultHistory;
+};
 
 module.exports = {
   checkPosition,
@@ -109,4 +121,5 @@ module.exports = {
   getSpectre,
   getMirrorStack,
   calculNewScore,
+  initHistory,
 };
