@@ -1,5 +1,6 @@
 // tslint:disable
-import { getEmitStringFromType, getUrl } from '../../../src/client/middlewares/utils';
+jest.mock('../../../src/client/redux/store.ts')
+import { getEmitStringFromType, getUrl, handleKeyDown } from '../../../src/client/middlewares/utils';
 import { BACKEND_URL } from '../../../src/client/redux/constants';
 
 describe('testing getUrl', () => {
