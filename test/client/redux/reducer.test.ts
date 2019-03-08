@@ -1,6 +1,6 @@
 // tslint:disable
 import * as actions from '../../../src/client/redux/actions';
-import reducer from '../../../src/client/redux/app';
+import reducer from '../../../src/client/redux/reducer';
 
 describe('testing reducer', () => {
   const initialState = {
