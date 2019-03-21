@@ -1,6 +1,6 @@
 // tslint:disable
 import * as actions from '../../../src/client/redux/actions';
-import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS, SET_PLAYER_NAME, SET_OPTIONS, SET_TOKEN } from '../../../src/client/redux/constants';
+import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS, SET_PLAYER_NAME, SET_OPTIONS, SET_TOKEN, SET_MUSIC_PLAYING } from '../../../src/client/redux/constants';
 
 describe('testing action creators', () => {
   it('tests setRooms', () => {
@@ -78,4 +78,8 @@ describe('testing action creators', () => {
     };
     expect(actions.setToken('token')).toEqual(expected);
   });
+  it('tests setMusicPlaying', () => {
+    const expected = { type: SET_MUSIC_PLAYING }
+    expect(actions.setMusicPlaying()).toEqual(expected);
+  })
 })

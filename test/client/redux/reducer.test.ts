@@ -9,6 +9,7 @@ describe('testing reducer', () => {
     rooms: [],
     gameData: null,
     key: null,
+    musicPlaying: false,
     options: {
       reverse: false,
       mirror: false,
@@ -80,6 +81,12 @@ describe('testing reducer', () => {
     };
     const nextState = reducer(state, actions.setOptions(newOptions))
     const expected = { ...state, options: newOptions };
+    expect(nextState).toEqual(expected);
+  })
+  it('toggles music playing', () => {
+    const state = initialState;
+    const nextState = reducer(state, actions.setMusicPlaying());
+    const expected = { ...state, musicPlaying: true };
     expect(nextState).toEqual(expected);
   })
 });

@@ -29,7 +29,7 @@ ShallowWrapper {
           path="/:room[:player_name]"
         />,
         <GlobalStyleComponent />,
-        <Unknown />,
+        <Connect(Component) />,
         <UNDEFINED />,
       ],
     },
@@ -72,7 +72,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {},
         "ref": null,
         "rendered": null,
@@ -134,7 +134,7 @@ ShallowWrapper {
             path="/:room[:player_name]"
           />,
           <GlobalStyleComponent />,
-          <Unknown />,
+          <Connect(Component) />,
           <UNDEFINED />,
         ],
       },
@@ -177,7 +177,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {},
           "ref": null,
           "rendered": null,

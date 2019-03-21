@@ -23,8 +23,6 @@ export const getEmitStringFromType = (type: keyType | null = null) => {
   }
 };
 
-// two next function untested, too many level of abstraction
-// might wanna split. Fucking jest makes tdd too hard to do
 export const setWindowEvents = () => {
   const emitter = (type: keyType) => store.dispatch(handleKeyPress(type));
   const listener = handleKeyDown(emitter);
