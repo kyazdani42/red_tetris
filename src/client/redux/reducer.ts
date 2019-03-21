@@ -5,6 +5,7 @@ export interface AppState {
   playerName: string | null;
   socket: SocketIOClient.Socket;
   rooms: RoomType[];
+  musicPlaying: boolean;
   gameData: GameProps | null;
   key: keyType | null;
   options: Options;
@@ -20,6 +21,7 @@ const initialState: AppState = {
   rooms: [],
   gameData: null,
   key: null,
+  musicPlaying: true,
   options: {
     reverse: false,
     mirror: false,
@@ -53,6 +55,10 @@ const reducer = handleActions<any>(
     SET_PLAYER_NAME: (state: AppState, { payload }: Action<string>): AppState => ({
       ...state,
       playerName: payload || null
+    }),
+    SET_MUSIC_PLAYING: (state: AppState): AppState => ({
+      ...state,
+      musicPlaying: !state.musicPlaying
     }),
     SET_OPTIONS: (state: AppState, { payload }: Action<Options>): AppState => ({
       ...state,

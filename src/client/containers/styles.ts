@@ -108,13 +108,14 @@ export const RowWrapper = styled.div`
 export const MusicStyle = styled.button`
   width: 30px;
   height: 30px;
+  line-height: 30px;
   border-radius: 0px;
   position: fixed;
   background-color: #000;
   border: 1px solid rgba(255,255,255,0.5);
   box-shadow: 0 10px 20px rgba(255,44,55,0.30);
-  bottom: 20px;
-  right: 20px;
+  top: 20px;
+  left: 20px;
 `;
 
 export const BackgroundImage = styled.div`
@@ -126,4 +127,13 @@ export const BackgroundImage = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
+`;
+
+export const ImgStyle = styled.img`
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  filter: invert(1);
 `;

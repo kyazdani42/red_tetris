@@ -9,6 +9,7 @@ import {
   LEAVE_ROOM,
   SET_GAME_DATA,
   SET_KEY,
+  SET_MUSIC_PLAYING,
   SET_OPTIONS,
   SET_PLAYER_NAME,
   SET_ROOMS,
@@ -31,3 +32,4 @@ export const handleKeyPress: ActionFunctionAny<Action<keyType>> = createAction(H
 export const setPlayerName: ActionFunctionAny<Action<string>> = createAction(SET_PLAYER_NAME);
 export const setOptions: ActionFunctionAny<Action<AppState['options']>> = createAction(SET_OPTIONS);
 export const setToken: ActionFunctionAny<Action<string>> = createAction(SET_TOKEN);
+export const setMusicPlaying: ActionFunctionAny<Action<undefined>> = createAction(SET_MUSIC_PLAYING);

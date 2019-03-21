@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 
 import GameContainer from './GameContainer';
-import { Music } from './Music';
+import Music from './Music';
 import RoomContainer from './RoomContainer';
 import { BackgroundImage, GlobalStyle } from './styles';
 
