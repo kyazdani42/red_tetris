@@ -8,6 +8,7 @@ export interface AppState {
   musicPlaying: boolean;
   gameData: GameProps | null;
   error: string | null;
+  modal: boolean;
   key: keyType | null;
   options: Options;
   token: string | null;
@@ -18,6 +19,7 @@ const { playerName, token } = getDataFromCookie();
 const initialState: AppState = {
   playerName,
   token,
+  modal: false,
   socket: null as any,
   rooms: [],
   gameData: null,
@@ -48,7 +50,8 @@ const reducer = handleActions<any>(
     }),
     CREATE_ROOM: (state: AppState, { payload }: Action<any>): AppState => ({
       ...state,
-      playerName: payload
+      playerName: payload,
+      modal: false
     }),
     SET_KEY: (state: AppState, { payload }: Action<keyType>): AppState => ({
       ...state,
@@ -76,6 +79,10 @@ const reducer = handleActions<any>(
     SET_ERROR: (state: AppState, { payload }: Action<string | null>): AppState => ({
       ...state,
       error: payload || null
+    }),
+    SET_MODAL: (state: AppState, { payload }: Action<boolean>): AppState => ({
+      ...state,
+      modal: payload || false
     })
   },
   initialState

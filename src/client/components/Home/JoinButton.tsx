@@ -2,25 +2,27 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { withTheme } from 'styled-components';
 
-import { joinRoom } from '../../redux/actions';
+import { joinRoom, setModal } from '../../redux/actions';
+import { State } from '../../redux/store';
 import CreateNameModal from './CreateNameModal';
 import { JoinButtonStyle } from './styles';
 
 interface Props {
   dispatchJoinRoom: (id: string) => (name: string) => void;
+  dispatchSetModal: (display: boolean) => void;
+  displayModal: boolean;
   roomId: string;
 }
-export const JoinButton: React.SFC<Props> = ({ dispatchJoinRoom, roomId }) => {
-  const [displayModal, setDisplayModal] = React.useState<boolean>(false);
+export const JoinButton: React.SFC<Props> = ({ dispatchJoinRoom, roomId, dispatchSetModal, displayModal }) => {
   let modal;
   if (displayModal) {
-    modal = <CreateNameModal setDisplayModal={setDisplayModal} handleDispatch={dispatchJoinRoom(roomId)} />;
+    modal = <CreateNameModal setDisplayModal={dispatchSetModal} handleDispatch={dispatchJoinRoom(roomId)} />;
   } else {
     modal = null;
   }
   return (
     <React.Fragment>
-      <JoinButtonStyle onClick={handleClick(setDisplayModal)}><span>Join</span><Svg /></JoinButtonStyle>
+      <JoinButtonStyle onClick={handleClick(dispatchSetModal)}><span>Join</span><Svg /></JoinButtonStyle>
       {modal}
     </React.Fragment>
   );
@@ -40,12 +42,14 @@ const Svg = () => (
   </svg>
 );
 
-const mapStateToProps = (_: any, { roomId }: { roomId: string }) => ({
-  roomId
+const mapStateToProps = (state: State, { roomId }: { roomId: string }) => ({
+  roomId,
+  displayModal: state.app.modal
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
   dispatchJoinRoom: (id: string) => (name: string) => dispatch(joinRoom({ room: id, playerName: name })),
+  dispatchSetModal: (display: boolean) => dispatch(setModal(display))
 });
 
 export default connect(

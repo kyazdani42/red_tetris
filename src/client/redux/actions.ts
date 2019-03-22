@@ -10,6 +10,7 @@ import {
   SET_ERROR,
   SET_GAME_DATA,
   SET_KEY,
+  SET_MODAL,
   SET_MUSIC_PLAYING,
   SET_OPTIONS,
   SET_PLAYER_NAME,
@@ -23,6 +24,7 @@ export const setRooms: ActionFunctionAny<Action<RoomType[]>> = createAction(SET_
 export const createRoom: ActionFunctionAny<Action<string>> = createAction(CREATE_ROOM);
 export const joinRoom: ActionFunctionAny<Action<undefined>> = createAction(JOIN_ROOM);
 export const leaveRoom: ActionFunctionAny<Action<undefined>> = createAction(LEAVE_ROOM);
+export const setModal: ActionFunctionAny<Action<boolean>> = createAction(SET_MODAL);
 
 export const setSocket: ActionFunctionAny<Action<SocketIOClient.Socket>> = createAction(SET_SOCKET);
 
