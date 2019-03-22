@@ -1,13 +1,7 @@
-interface Player {
-  id: string;
-  username: string;
-}
-
 interface RoomType {
-  id: string;
-  players: Player[];
-  activePlayers: Player[];
-  owner: Player;
+  name: string;
+  players: number;
+  ownerName: string;
   running: boolean;
 }
 

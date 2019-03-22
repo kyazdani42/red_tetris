@@ -34,7 +34,7 @@ export const RoomComponent: React.SFC<{ rooms: RoomsProps['rooms'] }> = ({ rooms
 );
 
 export const getRoomRows = (rooms: RoomType[]): JSX.Element[] =>
-  rooms.map((d, i) => <RoomRow {...d} key={`room-_${d.id}_${i}`} />);
+  rooms.map((d, i) => <RoomRow {...d} key={`room-_${d.name}_${i}`} />);
 
 const mapStateToProps = ({ app: { rooms, socket, playerName } }: State) => ({ rooms, socket, playerName });
 

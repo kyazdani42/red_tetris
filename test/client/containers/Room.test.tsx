@@ -32,7 +32,7 @@ describe('testing getRoomRows', () => {
   const getElements = (i: number) => {
     const els = [];
     for (let x = 0; x < i; x++) {
-      els.push({ id: 'room' + x, players: [], activePlayers: [], owner: x.toString(20) as any, running: Boolean(x % 2) });
+      els.push({ name: 'room' + x, players: 1, ownerName: x.toString(20) as any, running: Boolean(x % 2) });
     }
     return els;
   };

@@ -3,9 +3,8 @@ import * as React from 'react';
 import JoinButton from './JoinButton';
 import { StyledRow } from './styles';
 
-export const RoomRow: React.SFC<RoomType> = (props: any) => {
-  const { running, name, players, ownerName } = props;
-  const join = running ? null : <JoinButton roomId={name} />;
+export const RoomRow: React.SFC<RoomType> = ({ running, name, players, ownerName }) => {
+  const join = running ? null : <JoinButton className="join-button" roomId={name} />;
 
   return (
     <StyledRow>
