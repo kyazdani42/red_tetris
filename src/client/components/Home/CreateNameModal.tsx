@@ -41,7 +41,7 @@ export const CreateNameModal: React.SFC<Props> = ({
             onKeyDown={handleKeyDown(handleDispatch, dispatchSetError)}
             autoFocus={true}
           />
-          {error ? <ErrorStyle>{error}</ErrorStyle> : null}
+          {error ? <ErrorStyle className="error">{error}</ErrorStyle> : null}
         </InputWrapper>
         <CreateRoomStyle onClick={handleCreateRoom(handleDispatch, dispatchSetError)}>
           Launch Game

@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing the component smoke tests the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    dispatchCreateRoom={[Function]}
+    dispatchSetModal={[Function]}
+    displayModal={true}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <UNDEFINED
+          onClick={[Function]}
+        >
+          New Game
+        </UNDEFINED>,
+        <Connect(Component)
+          className="name-modal"
+          handleDispatch={[Function]}
+          setDisplayModal={[Function]}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "New Game",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "New Game",
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-gzVnrw",
+            "isStatic": false,
+            "rules": Array [
+              "
+  font-family: ",
+              [Function],
+              ";
+  background-color: ",
+              [Function],
+              ";
+  border-radius: 4px;
+  color: #fff;
+  width: 35%;
+  padding: 4px;
+  font-size: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  cursor: pointer;
+  :hover {
+    opacity: 0.94;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 15px;
+  }
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-gzVnrw",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "className": "name-modal",
+          "handleDispatch": [Function],
+          "setDisplayModal": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <UNDEFINED
+            onClick={[Function]}
+          >
+            New Game
+          </UNDEFINED>,
+          <Connect(Component)
+            className="name-modal"
+            handleDispatch={[Function]}
+            setDisplayModal={[Function]}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "New Game",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "New Game",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-gzVnrw",
+              "isStatic": false,
+              "rules": Array [
+                "
+  font-family: ",
+                [Function],
+                ";
+  background-color: ",
+                [Function],
+                ";
+  border-radius: 4px;
+  color: #fff;
+  width: 35%;
+  padding: 4px;
+  font-size: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  cursor: pointer;
+  :hover {
+    opacity: 0.94;
+  }
+  @media screen and (max-width: 500px) {
+    font-size: 15px;
+  }
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-gzVnrw",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "name-modal",
+            "handleDispatch": [Function],
+            "setDisplayModal": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

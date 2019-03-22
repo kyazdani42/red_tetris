@@ -1,0 +1,610 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing the component smoke tests the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    dispatchSetError={[Function]}
+    error={null}
+    handleDispatch={[Function]}
+    playerName={null}
+    setDisplayModal={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": <UNDEFINED>
+        <UNDEFINED>
+          <UNDEFINED>
+            Pick a username
+          </UNDEFINED>
+          <UNDEFINED
+            autoFocus={true}
+            onKeyDown={[Function]}
+          />
+        </UNDEFINED>
+        <UNDEFINED
+          onClick={[Function]}
+        >
+          Launch Game
+        </UNDEFINED>
+      </UNDEFINED>,
+      "id": "modal-name",
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <UNDEFINED>
+            <UNDEFINED>
+              Pick a username
+            </UNDEFINED>
+            <UNDEFINED
+              autoFocus={true}
+              onKeyDown={[Function]}
+            />
+          </UNDEFINED>,
+          <UNDEFINED
+            onClick={[Function]}
+          >
+            Launch Game
+          </UNDEFINED>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <UNDEFINED>
+                Pick a username
+              </UNDEFINED>,
+              <UNDEFINED
+                autoFocus={true}
+                onKeyDown={[Function]}
+              />,
+              null,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "Pick a username",
+              },
+              "ref": null,
+              "rendered": "Pick a username",
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-ifAKCX",
+                  "isStatic": false,
+                  "rules": Array [
+                    "
+  font-family: ",
+                    [Function],
+                    ";
+  width: 50px;
+  margin: auto;
+  font-size: 14px;
+  color: #fff;
+",
+                  ],
+                },
+                "displayName": "styled.label",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-ifAKCX",
+                "target": "label",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "autoFocus": true,
+                "onKeyDown": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-EHOje",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+  margin: auto;
+  padding: 5px 10px 5px 10px;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  width: 250px;
+  height: 30px;
+",
+                  ],
+                },
+                "displayName": "styled.input",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-EHOje",
+                "target": "input",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+            null,
+          ],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-bxivhb",
+              "isStatic": true,
+              "rules": Array [
+                "
+  width: 250px;
+  height: 65px;
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-bxivhb",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Launch Game",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Launch Game",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-htpNat",
+              "isStatic": false,
+              "rules": Array [
+                "
+  font-family: ",
+                [Function],
+                ";
+  background-color: ",
+                [Function],
+                ";
+  font-weight: bold;
+  border-radius: 24px;
+  color: #fff;
+  line-height: 40px;
+  height: 40px;
+  width: 120px;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  cursor: pointer;
+  :hover {
+    opacity: 0.94;
+  }
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-htpNat",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bwzfXH",
+          "isStatic": true,
+          "rules": Array [
+            "
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 130px;
+  margin: auto;
+  margin-top: 40vh;
+  background-color: #000;
+  border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.2);
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bwzfXH",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": true,
+        "rules": Array [
+          "
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.7);
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <UNDEFINED>
+          <UNDEFINED>
+            <UNDEFINED>
+              Pick a username
+            </UNDEFINED>
+            <UNDEFINED
+              autoFocus={true}
+              onKeyDown={[Function]}
+            />
+          </UNDEFINED>
+          <UNDEFINED
+            onClick={[Function]}
+          >
+            Launch Game
+          </UNDEFINED>
+        </UNDEFINED>,
+        "id": "modal-name",
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <UNDEFINED>
+              <UNDEFINED>
+                Pick a username
+              </UNDEFINED>
+              <UNDEFINED
+                autoFocus={true}
+                onKeyDown={[Function]}
+              />
+            </UNDEFINED>,
+            <UNDEFINED
+              onClick={[Function]}
+            >
+              Launch Game
+            </UNDEFINED>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <UNDEFINED>
+                  Pick a username
+                </UNDEFINED>,
+                <UNDEFINED
+                  autoFocus={true}
+                  onKeyDown={[Function]}
+                />,
+                null,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": "Pick a username",
+                },
+                "ref": null,
+                "rendered": "Pick a username",
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-ifAKCX",
+                    "isStatic": false,
+                    "rules": Array [
+                      "
+  font-family: ",
+                      [Function],
+                      ";
+  width: 50px;
+  margin: auto;
+  font-size: 14px;
+  color: #fff;
+",
+                    ],
+                  },
+                  "displayName": "styled.label",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-ifAKCX",
+                  "target": "label",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                },
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "autoFocus": true,
+                  "onKeyDown": [Function],
+                },
+                "ref": null,
+                "rendered": null,
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-EHOje",
+                    "isStatic": true,
+                    "rules": Array [
+                      "
+  margin: auto;
+  padding: 5px 10px 5px 10px;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  width: 250px;
+  height: 30px;
+",
+                    ],
+                  },
+                  "displayName": "styled.input",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-EHOje",
+                  "target": "input",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                },
+              },
+              null,
+            ],
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-bxivhb",
+                "isStatic": true,
+                "rules": Array [
+                  "
+  width: 250px;
+  height: 65px;
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-bxivhb",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Launch Game",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Launch Game",
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-htpNat",
+                "isStatic": false,
+                "rules": Array [
+                  "
+  font-family: ",
+                  [Function],
+                  ";
+  background-color: ",
+                  [Function],
+                  ";
+  font-weight: bold;
+  border-radius: 24px;
+  color: #fff;
+  line-height: 40px;
+  height: 40px;
+  width: 120px;
+  font-size: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  cursor: pointer;
+  :hover {
+    opacity: 0.94;
+  }
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-htpNat",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+        ],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-bwzfXH",
+            "isStatic": true,
+            "rules": Array [
+              "
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 130px;
+  margin: auto;
+  margin-top: 40vh;
+  background-color: #000;
+  border-radius: 5px;
+  border: 1px solid rgba(255,255,255,0.2);
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-bwzfXH",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": true,
+          "rules": Array [
+            "
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.7);
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
