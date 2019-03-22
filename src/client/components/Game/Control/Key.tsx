@@ -8,11 +8,13 @@ interface Props {
   keyPressed: keyType | null;
 }
 
-const Key = ({ keyPressed, emitter, type }: Props) => (
-  <KeyStyle
-    onClick={emitter}
-  >
-    <KeyImg src={`/assets/icon${type === ' ' ? 'space' : type}.png`} isPressed={keyPressed === type} />
+const Key: React.SFC<Props> = ({ keyPressed, emitter, type }) => (
+  <KeyStyle onClick={emitter}>
+    <KeyImg
+      className="key-img"
+      src={`/assets/icon${type === ' ' ? 'space' : type}.png`}
+      isPressed={keyPressed === type}
+    />
   </KeyStyle>
 );
 

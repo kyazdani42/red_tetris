@@ -12,7 +12,7 @@ interface Props {
   dispatchHandleKey: (key: keyType) => void;
 }
 
-const GameController: React.SFC<Props> = ({ dispatchHandleKey, keyPressed }) => (
+export const GameController: React.SFC<Props> = ({ dispatchHandleKey, keyPressed }) => (
   <ControllerWrapper>
     <KeyWrapper>
       <KeySubWrapper>
