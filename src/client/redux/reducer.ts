@@ -7,6 +7,7 @@ export interface AppState {
   rooms: RoomType[];
   musicPlaying: boolean;
   gameData: GameProps | null;
+  error: string | null;
   key: keyType | null;
   options: Options;
   token: string | null;
@@ -22,6 +23,7 @@ const initialState: AppState = {
   gameData: null,
   key: null,
   musicPlaying: true,
+  error: null,
   options: {
     reverse: false,
     mirror: false,
@@ -70,7 +72,11 @@ const reducer = handleActions<any>(
         ...state,
         token: payload as string
       };
-    }
+    },
+    SET_ERROR: (state: AppState, { payload }: Action<string | null>): AppState => ({
+      ...state,
+      error: payload || null
+    })
   },
   initialState
 );

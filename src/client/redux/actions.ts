@@ -7,6 +7,7 @@ import {
   HANDLE_KEY_PRESS,
   JOIN_ROOM,
   LEAVE_ROOM,
+  SET_ERROR,
   SET_GAME_DATA,
   SET_KEY,
   SET_MUSIC_PLAYING,
@@ -30,6 +31,7 @@ export const setKey: ActionFunctionAny<Action<keyType>> = createAction(SET_KEY);
 export const handleKeyPress: ActionFunctionAny<Action<keyType>> = createAction(HANDLE_KEY_PRESS);
 
 export const setPlayerName: ActionFunctionAny<Action<string>> = createAction(SET_PLAYER_NAME);
+export const setError: ActionFunctionAny<Action<string | null>> = createAction(SET_ERROR);
 export const setOptions: ActionFunctionAny<Action<AppState['options']>> = createAction(SET_OPTIONS);
 export const setToken: ActionFunctionAny<Action<string>> = createAction(SET_TOKEN);
 export const setMusicPlaying: ActionFunctionAny<Action<undefined>> = createAction(SET_MUSIC_PLAYING);

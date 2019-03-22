@@ -15,4 +15,6 @@ export const SET_PLAYER_NAME = 'SET_PLAYER_NAME';
 export const SET_OPTIONS = 'SET_OPTIONS';
 export const SET_MUSIC_PLAYING = 'SET_MUSIC_PLAYING';
 
+export const SET_ERROR = 'SET_ERROR';
+
 export const BACKEND_URL = 'http://localhost:3000';

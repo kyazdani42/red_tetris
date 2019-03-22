@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import { setError } from '../../redux/actions';
 import { State } from '../../redux/store';
 import {
   CreateRoomStyle,
@@ -16,10 +17,17 @@ interface Props {
   playerName: string | null;
   handleDispatch: (username: string) => void;
   setDisplayModal: (d: boolean) => void;
+  dispatchSetError: (error: string | null) => void;
+  error: string | null;
 }
 
-export const CreateNameModal: React.SFC<Props> = ({ handleDispatch, setDisplayModal, playerName }) => {
-  const [error, setError] = React.useState(null);
+export const CreateNameModal: React.SFC<Props> = ({
+  handleDispatch,
+  setDisplayModal,
+  playerName,
+  dispatchSetError,
+  error
+}) => {
   if (playerName) {
     handleDispatch(playerName);
     return null;
@@ -29,10 +37,13 @@ export const CreateNameModal: React.SFC<Props> = ({ handleDispatch, setDisplayMo
       <ModalStyle>
         <InputWrapper>
           <LabelStyle>Pick a username</LabelStyle>
-          <NameInputStyle onKeyDown={handleKeyDown(handleDispatch, setError)} autoFocus={true} />
+          <NameInputStyle
+            onKeyDown={handleKeyDown(handleDispatch, dispatchSetError)}
+            autoFocus={true}
+          />
           {error ? <ErrorStyle>{error}</ErrorStyle> : null}
         </InputWrapper>
-        <CreateRoomStyle onClick={handleCreateRoom(handleDispatch, setError)}>
+        <CreateRoomStyle onClick={handleCreateRoom(handleDispatch, dispatchSetError)}>
           Launch Game
         </CreateRoomStyle>
       </ModalStyle>
@@ -40,26 +51,32 @@ export const CreateNameModal: React.SFC<Props> = ({ handleDispatch, setDisplayMo
   );
 };
 
-const handleRemoveModal = (setDisplayModal: any) => (e: any) => {
+export const handleRemoveModal = (setDisplayModal: any) => (e: any) => {
   if (e.target.id === 'modal-name') {
     setDisplayModal(false);
   }
 };
 
-const handleCreateRoom = (dispatch: (username: string) => void, setError: any) => (e: any) => {
+export const handleCreateRoom = (
+  dispatch: (username: string) => void,
+  dispatchSetError: (error: string | null) => void
+) => (e: any) => {
   const value = e.target.previousSibling.firstChild.nextElementSibling.value;
   if (!value.length) {
-    setError('please enter something');
+    dispatchSetError('please enter something');
   } else {
     dispatch(value);
   }
 };
 
-const handleKeyDown = (dispatch: (username: string) => void, setError: any) => (e: any) => {
-  setError(null);
+export const handleKeyDown = (
+  dispatch: (username: string) => void,
+  dispatchSetError: (error: string | null) => void
+) => (e: any) => {
+  dispatchSetError(null);
   if (e.key === 'Enter') {
     if (!e.target.value.length) {
-      setError('please enter something');
+      dispatchSetError('please enter something');
     } else {
       dispatch(e.target.value);
     }
@@ -68,7 +85,12 @@ const handleKeyDown = (dispatch: (username: string) => void, setError: any) => (
 
 const mapStateToProps = (state: State, ownProps: any) => ({
   playerName: state.app.playerName,
+  error: state.app.error,
   ...ownProps
 });
 
-export default connect(mapStateToProps)(CreateNameModal);
+const mapDispatchToProps = (dispatch: any) => ({
+  dispatchSetError: (error: string | null) => dispatch(setError(error))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateNameModal);

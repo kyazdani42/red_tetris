@@ -6,6 +6,7 @@ describe('testing reducer', () => {
   const initialState = {
     playerName: 'tester',
     socket: null,
+    error: null,
     rooms: [],
     gameData: null,
     key: null,
@@ -87,6 +88,12 @@ describe('testing reducer', () => {
     const state = initialState;
     const nextState = reducer(state, actions.setMusicPlaying());
     const expected = { ...state, musicPlaying: true };
+    expect(nextState).toEqual(expected);
+  })
+  it('set an error in the state', () => {
+    const state = initialState;
+    const nextState = reducer(state, actions.setError('testerror'));
+    const expected = { ...state, error: 'testerror' };
     expect(nextState).toEqual(expected);
   })
 });

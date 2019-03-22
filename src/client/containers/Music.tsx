@@ -26,7 +26,7 @@ export const Music: React.SFC<Props> = ({ isPlaying, dispatchSetIsPlaying }) => 
           }
         }}
       >
-        <ImgStyle src={isPlaying ? '/assets/iconpause.png' : '/assets/iconplay.png'} />
+        <ImgStyle className="audio-icon" src={isPlaying ? '/assets/iconpause.png' : '/assets/iconplay.png'} />
       </MusicStyle>
       <audio id="tetris-music" loop autoPlay>
         <source src="/assets/theme-tetris.mp3">
