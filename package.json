@@ -5,7 +5,7 @@
   "scripts": {
     "dev-client": "webpack-dev-server --env.mode=development --progress=on --open",
     "build": "webpack --env.mode=production && mv dist src/server",
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "tslint -c ./tslint.json './src/client/**/*.ts*'",
     "dev-server": "nodemon ./src/server/index.js",
     "eslint": "./node_modules/.bin/eslint src/server"

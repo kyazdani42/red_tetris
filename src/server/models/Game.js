@@ -114,9 +114,6 @@ module.exports = class Game {
       this.addPiecesData(maxIndex);
       this.running = playersAddLine(this.players);
       this.updateGame();
-      if (this.players.length === 1 && this.timer > 1) {
-        this.timer -= 1;
-      }
     }
     saveData(this.players);
     this.io.emit('games', getGames());
@@ -127,7 +124,7 @@ module.exports = class Game {
       this.options.reverse = options.reverse;
       this.options.mirror = options.mirror;
       this.options.invisible = options.invisible;
-      this.options.speed = options.speed;
+      this.options.speed = !options.speed;
     }
   }
 
@@ -147,7 +144,7 @@ module.exports = class Game {
   reduceTimer() {
     this.timer = 500;
     if (this.options.speed && this.players.length === 1) {
-      setInterval(this.updateTimer, 20000);
+      setInterval(this.updateTimer.bind(this), 20000);
     }
   }
 
