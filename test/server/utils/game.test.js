@@ -6,7 +6,7 @@ const {
   counting,
 } = require('../../../src/server/utils/game');
 
-const { getTwoPlayers } = require('./utils');
+const { getTwoPlayers } = require('../utils');
 
 describe('utils/game', () => {
   it('generate an array of pieces data', () => {

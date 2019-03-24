@@ -13,9 +13,11 @@ describe('models/Game', () => {
     expect(publicInfo.running).toBe(false);
     expect(publicInfo.players).toBe(0);
     expect(publicInfo.owner).toBe(undefined);
-    game.addPlayer({ id: 'anId', emit: () => true });
+    game.addPlayer({ handshake: { query: { playerName: 'aPlayerName' } }, id: 'anId', emit: () => true });
+    game.addPlayer({ handshake: { query: { playerName: 'anotherPlayerNameB' } }, id: 'anotherId', emit: () => true });
+    game.updatePlayerName('anotherId', 'anotherPlayerName');
     publicInfo = game.getPublicInfo();
-    expect(publicInfo.owner).toBe('anId');
+    expect(publicInfo.ownerName).toEqual('aPlayerName');
     game.start('anId', { reverse: true, mirror: true, invisible: true });
     publicInfo = game.getPublicInfo();
     expect(publicInfo.running).toBe(true);
@@ -28,6 +30,9 @@ describe('models/Game', () => {
     game.actions('anId', 'goDown');
     expect(game.players[0].piece.y).toBe(18);
     game.removePlayer('anId');
+    publicInfo = game.getPublicInfo();
+    expect(publicInfo.ownerName).toEqual('anotherPlayerName');
+    game.removePlayer('anotherId');
     expect(game.players).toEqual([]);
   });
 });
