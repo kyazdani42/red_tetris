@@ -1,0 +1,269 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing the component smoke tests the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    gameData={
+      Object {
+        "isOwner": true,
+        "isPlaying": true,
+        "name": "",
+        "nextPiece": Object {
+          "color": "",
+          "patterns": Array [
+            Array [
+              Array [
+                0,
+              ],
+            ],
+          ],
+        },
+        "otherPlayers": Array [
+          Object {
+            "name": "",
+            "spectre": Array [
+              0,
+            ],
+          },
+        ],
+        "running": true,
+        "score": 0,
+        "stack": Array [
+          Array [
+            Object {
+              "color": "",
+              "fix": true,
+              "value": 0,
+            },
+          ],
+        ],
+        "winner": true,
+      }
+    }
+    socket={null}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <Unknown
+          stack={
+            Array [
+              Array [
+                Object {
+                  "color": "",
+                  "fix": true,
+                  "value": 0,
+                },
+              ],
+            ]
+          }
+        />,
+        <Unknown
+          score={0}
+        />,
+        <Unknown
+          nextPiece={
+            Object {
+              "color": "",
+              "patterns": Array [
+                Array [
+                  Array [
+                    0,
+                  ],
+                ],
+              ],
+            }
+          }
+        />,
+        false,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "stack": Array [
+            Array [
+              Object {
+                "color": "",
+                "fix": true,
+                "value": 0,
+              },
+            ],
+          ],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "score": 0,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "nextPiece": Object {
+            "color": "",
+            "patterns": Array [
+              Array [
+                Array [
+                  0,
+                ],
+              ],
+            ],
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      false,
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <Unknown
+            stack={
+              Array [
+                Array [
+                  Object {
+                    "color": "",
+                    "fix": true,
+                    "value": 0,
+                  },
+                ],
+              ]
+            }
+          />,
+          <Unknown
+            score={0}
+          />,
+          <Unknown
+            nextPiece={
+              Object {
+                "color": "",
+                "patterns": Array [
+                  Array [
+                    Array [
+                      0,
+                    ],
+                  ],
+                ],
+              }
+            }
+          />,
+          false,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "stack": Array [
+              Array [
+                Object {
+                  "color": "",
+                  "fix": true,
+                  "value": 0,
+                },
+              ],
+            ],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "score": 0,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "nextPiece": Object {
+              "color": "",
+              "patterns": Array [
+                Array [
+                  Array [
+                    0,
+                  ],
+                ],
+              ],
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        false,
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

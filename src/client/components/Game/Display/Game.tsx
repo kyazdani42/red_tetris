@@ -51,7 +51,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
   );
 };
 
-const mapStateToProps = ({ app }: State) => ({
+export const mapStateToProps = ({ app }: State) => ({
   gameData: app.gameData,
   socket: app.socket
 });

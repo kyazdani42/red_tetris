@@ -25,7 +25,7 @@ export const Options: React.SFC<Props> = ({ options, dispatchSetOptions }) => {
   );
 };
 
-const checkbox = (
+export const checkbox = (
   checked: boolean,
   name: string,
   dispatch: (option: { name: string; on: boolean }) => void,
@@ -37,11 +37,11 @@ const checkbox = (
   </OptionLabelWrapper>
 );
 
-const mapStateToProps = (state: State) => ({
+export const mapStateToProps = (state: State) => ({
   options: state.app.options
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+export const mapDispatchToProps = (dispatch: any) => ({
   dispatchSetOptions: (options: Options) => dispatch(setOptions(options))
 });
 
