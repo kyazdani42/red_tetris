@@ -15,7 +15,7 @@ export const StartButton: React.SFC<Props> = ({ socket, options }) => (
   </StartButtonStyle>
 );
 
-const mapStateToProps = (state: State) => ({
+export const mapStateToProps = (state: State) => ({
   options: state.app.options
 });
 

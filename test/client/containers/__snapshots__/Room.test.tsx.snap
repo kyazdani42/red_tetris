@@ -31,18 +31,177 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "rooms": Array [
-        Object {
-          "id": 1,
-        },
-        Object {
-          "id": 2,
-        },
+      "children": Array [
+        <UNDEFINED>
+          <UNDEFINED>
+            <Unknown
+              id={1}
+            />
+            <Unknown
+              id={2}
+            />
+          </UNDEFINED>
+        </UNDEFINED>,
+        <Connect(Component) />,
       ],
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <UNDEFINED>
+            <Unknown
+              id={1}
+            />
+            <Unknown
+              id={2}
+            />
+          </UNDEFINED>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <Unknown
+                id={1}
+              />,
+              <Unknown
+                id={2}
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "room-_undefined_0",
+              "nodeType": "function",
+              "props": Object {
+                "id": 1,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "room-_undefined_1",
+              "nodeType": "function",
+              "props": Object {
+                "id": 2,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-jzJRlG",
+              "isStatic": true,
+              "rules": Array [
+                "
+  height: 100%;
+  width: 100%;
+  padding-right: 17px;
+  overflow-y: scroll;
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-jzJRlG",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-fjdhpX",
+            "isStatic": true,
+            "rules": Array [
+              "
+  height: 88%;
+  width: 90%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-fjdhpX",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-jTzLTM",
+        "isStatic": false,
+        "rules": Array [
+          "
+  font-family: ",
+          [Function],
+          ";
+  font-size: 18px;
+  font-weight: 300;
+  background-color: #000;
+  color: #000;
+  z-index: 100;
+  height: 80vh;
+  width: 70vw;
+  margin: 10vh auto auto;
+  max-width: 500px;
+  border: 1px solid rgba(255,69,100,0.4);
+  box-shadow: 0 10px 10px rgba(255,44,55,0.20), 0 5px 5px rgba(255,55,55,0.20);
+  transition: all 1s;
+  align-self: flex-end;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-jTzLTM",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -50,18 +209,177 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "rooms": Array [
-          Object {
-            "id": 1,
-          },
-          Object {
-            "id": 2,
-          },
+        "children": Array [
+          <UNDEFINED>
+            <UNDEFINED>
+              <Unknown
+                id={1}
+              />
+              <Unknown
+                id={2}
+              />
+            </UNDEFINED>
+          </UNDEFINED>,
+          <Connect(Component) />,
         ],
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <UNDEFINED>
+              <Unknown
+                id={1}
+              />
+              <Unknown
+                id={2}
+              />
+            </UNDEFINED>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <Unknown
+                  id={1}
+                />,
+                <Unknown
+                  id={2}
+                />,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "room-_undefined_0",
+                "nodeType": "function",
+                "props": Object {
+                  "id": 1,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": "room-_undefined_1",
+                "nodeType": "function",
+                "props": Object {
+                  "id": 2,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-jzJRlG",
+                "isStatic": true,
+                "rules": Array [
+                  "
+  height: 100%;
+  width: 100%;
+  padding-right: 17px;
+  overflow-y: scroll;
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-jzJRlG",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-fjdhpX",
+              "isStatic": true,
+              "rules": Array [
+                "
+  height: 88%;
+  width: 90%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-fjdhpX",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-jTzLTM",
+          "isStatic": false,
+          "rules": Array [
+            "
+  font-family: ",
+            [Function],
+            ";
+  font-size: 18px;
+  font-weight: 300;
+  background-color: #000;
+  color: #000;
+  z-index: 100;
+  height: 80vh;
+  width: 70vw;
+  margin: 10vh auto auto;
+  max-width: 500px;
+  border: 1px solid rgba(255,69,100,0.4);
+  box-shadow: 0 10px 10px rgba(255,44,55,0.20), 0 5px 5px rgba(255,55,55,0.20);
+  transition: all 1s;
+  align-self: flex-end;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-jTzLTM",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
     },
   ],
   Symbol(enzyme.__options__): Object {

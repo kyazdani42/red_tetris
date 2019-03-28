@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import { Redirect } from 'react-router';
 
-import { RoomContainer, RoomComponent, getRoomRows } from '../../../src/client/containers/RoomContainer';
+import { RoomContainer, RoomComponent, getRoomRows, mapStateToProps } from '../../../src/client/containers/RoomContainer';
 
 describe('testing the component', () => {
   const getProps = (rooms: any, socket: any, playerName: any) => ({
@@ -23,7 +23,7 @@ describe('testing the component', () => {
   })
   it('smoke tests the component', () => {
     const props = getProps([{ id: 1 }, { id: 2 }], null, null);
-    const wrapper = shallow(<RoomContainer {...props} />);
+    const wrapper = shallow(<RoomComponent {...props} />);
     expect(wrapper.update()).toMatchSnapshot();
   })
 });
@@ -46,4 +46,17 @@ describe('testing getRoomRows', () => {
     const nodes = getRoomRows(elements);
     expect(nodes[0].key).toEqual('room-_room0_0');
   });
+})
+
+describe('testing mapStateToProps', () => {
+  const state: any = {
+    app: {
+      rooms: [],
+      socket: 'testSocket',
+      playerName: 'testPlayer'
+    }
+  };
+  it('tests the function', () => {
+    expect(mapStateToProps(state)).toEqual(state.app);
+  })
 })
