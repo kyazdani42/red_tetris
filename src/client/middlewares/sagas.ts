@@ -14,7 +14,7 @@ import {
   LEAVE_ROOM,
 } from '../redux/constants';
 import { initHomeSocket, joinTheRoom } from './socketListeners';
-import { getEmitStringFromType, getUrl, setWindowEvents } from './utils';
+import { getEmitStringFromType, getSetWindowEvents, getUrl } from './utils';
 
 export default function* rootSaga() {
   const url = getUrl('/');
@@ -76,7 +76,7 @@ function* performKeyPress(action: Action<keyType>) {
 
 function* handleKeyDownListeners() {
   while (yield take([CREATE_ROOM, JOIN_ROOM])) {
-    const listener = setWindowEvents();
+    const listener = getSetWindowEvents();
     yield take(LEAVE_ROOM);
     window.removeEventListener('keydown', listener);
   }

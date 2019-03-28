@@ -1,6 +1,6 @@
 // tslint:disable
 jest.mock('../../../src/client/redux/store.ts')
-import { getEmitStringFromType, getUrl, handleKeyDown } from '../../../src/client/middlewares/utils';
+import { setWindowEvents, getEmitStringFromType, getUrl, handleKeyDown } from '../../../src/client/middlewares/utils';
 import { BACKEND_URL } from '../../../src/client/redux/constants';
 
 describe('testing getUrl', () => {
@@ -37,6 +37,16 @@ describe('testing getEmitStringFromType', () => {
   it('return an empty string when key is null', () => {
     expect(getEmitStringFromType(null)).toEqual('');
   });
+})
+
+describe('test setWindowEvents', () => {
+  it('calls the spies', () => {
+    const fn1 = jest.fn();
+    const window = { addEventListener: jest.fn() };
+    const listener = setWindowEvents(fn1, window);
+    expect(fn1).not.toHaveBeenCalled();
+    expect(window.addEventListener).toHaveBeenCalledWith('keydown', listener);
+  })
 })
 
 describe('testing handleKeyDown', () => {

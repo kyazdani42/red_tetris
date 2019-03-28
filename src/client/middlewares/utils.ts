@@ -23,8 +23,10 @@ export const getEmitStringFromType = (type: keyType | null = null) => {
   }
 };
 
-export const setWindowEvents = () => {
-  const emitter = (type: keyType) => store.dispatch(handleKeyPress(type));
+export const getSetWindowEvents = () =>
+  setWindowEvents((type: keyType) => store.dispatch(handleKeyPress(type)), window);
+
+export const setWindowEvents = (emitter: (type: keyType) => void, window: any) => {
   const listener = handleKeyDown(emitter);
   window.addEventListener('keydown', listener);
   return listener;
