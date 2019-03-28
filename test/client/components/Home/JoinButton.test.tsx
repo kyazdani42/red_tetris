@@ -2,7 +2,8 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import { JoinButton } from '../../../../src/client/components/Home/JoinButton';
+import { JoinButton, mapStateToProps, mapDispatchToProps } from '../../../../src/client/components/Home/JoinButton';
+import { setModal, joinRoom } from '../../../../src/client/redux/actions';
 
 describe('testing the component', () => {
   const props = {
@@ -23,3 +24,26 @@ describe('testing the component', () => {
     expect(wrapper.find('.name-modal').exists()).toBeFalsy();
   })
 });
+
+describe('testing mapStateToProps', () => {
+  const state: any = { app: { modal: 'modal' } };
+  const ownProps = { roomId: 'roomIdTest' };
+  it('test the mapping', () => {
+    const expected = { displayModal: 'modal', roomId: 'roomIdTest' };
+    expect(mapStateToProps(state, ownProps)).toEqual(expected);
+  })
+})
+
+describe('testing mapDispatchToProps', () => {
+  const dispatch = jest.fn();
+  const mapper = mapDispatchToProps(dispatch);
+  it('checks the keys', () => {
+    expect(Object.keys(mapper)).toEqual(['dispatchJoinRoom', 'dispatchSetModal']);
+  })
+  it('checks the dispatch functions', () => {
+    mapper.dispatchJoinRoom('test')('innerTest');
+    expect(dispatch).toHaveBeenCalledWith(joinRoom({ room: 'test', playerName: 'innerTest' }));
+    mapper.dispatchSetModal(true);
+    expect(dispatch).toHaveBeenCalledWith(setModal(true));
+  })
+})

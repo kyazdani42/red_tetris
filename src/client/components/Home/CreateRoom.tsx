@@ -38,11 +38,11 @@ export const CreateRoomButton: React.SFC<Props> = ({
   );
 };
 
-const mapStateToProps = (state: State) => ({
+export const mapStateToProps = (state: State) => ({
   displayModal: state.app.modal
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+export const mapDispatchToProps = (dispatch: any) => ({
   dispatchCreateRoom: (username: string) => dispatch(createRoom(username)),
   dispatchSetModal: (display: boolean) => dispatch(setModal(display))
 });

@@ -50,12 +50,12 @@ const Svg = () => (
   </svg>
 );
 
-const mapStateToProps = (state: State, { roomId }: { roomId: string }) => ({
+export const mapStateToProps = (state: State, { roomId }: { roomId: string }) => ({
   roomId,
   displayModal: state.app.modal
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+export const mapDispatchToProps = (dispatch: any) => ({
   dispatchJoinRoom: (id: string) => (name: string) =>
     dispatch(joinRoom({ room: id, playerName: name })),
   dispatchSetModal: (display: boolean) => dispatch(setModal(display))

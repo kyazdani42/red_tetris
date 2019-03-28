@@ -2,7 +2,8 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import { CreateRoomButton } from '../../../../src/client/components/Home/CreateRoom';
+import { CreateRoomButton, mapStateToProps, mapDispatchToProps } from '../../../../src/client/components/Home/CreateRoom';
+import { createRoom, setModal } from '../../../../src/client/redux/actions';
 
 describe('testing the component', () => {
   const props = {
@@ -22,3 +23,25 @@ describe('testing the component', () => {
     expect(wrapper.find('.name-modal').exists()).toBeFalsy();
   })
 });
+
+describe('testing mapStateToProps', () => {
+  const state: any = { app: { modal: 'modal' } };
+  it('test the mapping', () => {
+    const expected = { displayModal: 'modal' };
+    expect(mapStateToProps(state)).toEqual(expected);
+  })
+})
+
+describe('testing mapDispatchToProps', () => {
+  const dispatch = jest.fn();
+  const mapper = mapDispatchToProps(dispatch);
+  it('checks the keys', () => {
+    expect(Object.keys(mapper)).toEqual(['dispatchCreateRoom', 'dispatchSetModal']);
+  })
+  it('checks the dispatch functions', () => {
+    mapper.dispatchCreateRoom('test');
+    expect(dispatch).toHaveBeenCalledWith(createRoom('test'))
+    mapper.dispatchSetModal(true);
+    expect(dispatch).toHaveBeenCalledWith(setModal(true));
+  })
+})
