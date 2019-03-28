@@ -97,7 +97,6 @@ module.exports = class Game {
       winner: player.winner,
       otherPlayers,
       score: player.score,
-      history: player.history,
     };
   }
 
@@ -145,20 +144,21 @@ module.exports = class Game {
   reduceTimer() {
     this.timer = 500;
     if (this.options.speed && this.players.length === 1) {
-      setInterval(this.updateTimer.bind(this), 20000);
+      return setInterval(this.updateTimer.bind(this), 20000);
     }
   }
 
-  start(id, options) {
+  async start(id, options) {
     if (id === this.owner && !this.running) {
       this.setOptions(options);
       this.allPieces = generate();
       this.initPlayers();
       console.log('start');
       this.running = true;
-      this.reduceTimer();
+      const reduceTimer = this.reduceTimer();
       this.io.emit('games', getGames());
-      this.run();
+      await this.run();
+      clearInterval(reduceTimer);
     }
   }
 
@@ -167,8 +167,10 @@ module.exports = class Game {
       this.owner = socket.id;
       this.ownerName = socket.handshake.query.playerName;
     }
-    this.players.push(new Player(socket));
+    const player = new Player(socket);
+    this.players.push(player);
     this.io.emit('games', getGames());
+    player.socket.emit('history', player.history);
     this.updateGame();
   }
 

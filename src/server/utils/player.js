@@ -2,11 +2,12 @@ const { getStats } = require('./common');
 
 const stackCase = { color: 'black', value: 0, fix: false };
 const fixStackCase = { color: 'grey', value: 1, fix: true };
-const defaultHistory = {
+const defaultHistory = name => ({
   bestScore: 0,
   gamesPlay: 0,
   multiPlayersWin: 0,
-};
+  name,
+});
 
 const getSpectre = (stack) => {
   const result = [];
@@ -107,9 +108,13 @@ const calculNewScore = (nbLine) => {
   }
 };
 
-const initHistory = (token) => {
+const getBestScore = (stats) => Object.values(stats).sort((a, b) => a.bestScore - b.bestScore);
+
+const initHistory = (token, name) => {
   const stats = getStats();
-  return stats[token] || defaultHistory;
+  const bestsScores = getBestScore(stats);
+  const history = stats[token] || defaultHistory(name);
+  return { ...history, bestsScores };
 };
 
 module.exports = {
