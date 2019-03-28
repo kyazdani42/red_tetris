@@ -38,3 +38,28 @@ describe('testing getEmitStringFromType', () => {
     expect(getEmitStringFromType(null)).toEqual('');
   });
 })
+
+describe('testing handleKeyDown', () => {
+  const emitter = jest.fn();
+  const keyDown = handleKeyDown(emitter);
+  it('calls the emitter with space', () => {
+    keyDown({ key: ' ' });
+    expect(emitter).toHaveBeenCalledWith(' ');
+  })
+  it('calls the emitter with up', () => {
+    keyDown({ key: 'ArrowUp' });
+    expect(emitter).toHaveBeenCalledWith('up');
+  })
+  it('calls the emitter with down', () => {
+    keyDown({ key: 'ArrowDown' });
+    expect(emitter).toHaveBeenCalledWith('down');
+  })
+  it('calls the emitter with left', () => {
+    keyDown({ key: 'ArrowLeft' });
+    expect(emitter).toHaveBeenCalledWith('left');
+  })
+  it('calls the emitter with right', () => {
+    keyDown({ key: 'ArrowRight' });
+    expect(emitter).toHaveBeenCalledWith('right');
+  })
+})

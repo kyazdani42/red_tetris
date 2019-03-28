@@ -83,13 +83,13 @@ export const handleKeyDown = (
   }
 };
 
-const mapStateToProps = (state: State, ownProps: any) => ({
+export const mapStateToProps = (state: State, ownProps: any) => ({
   playerName: state.app.playerName,
   error: state.app.error,
   ...ownProps
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+export const mapDispatchToProps = (dispatch: any) => ({
   dispatchSetError: (error: string | null) => dispatch(setError(error))
 });
 

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import { Redirect } from 'react-router';
 
-import { GameContainer, GameComponent } from '../../../src/client/containers/GameContainer';
+import { GameContainer, GameComponent, mapStateToProps } from '../../../src/client/containers/GameContainer';
 
 describe('testing the component', () => {
   it('doesn\'t render the components but redirect when socket is null', () => {
@@ -19,3 +19,24 @@ describe('testing the component', () => {
     expect(wrapper.update()).toMatchSnapshot();
   })
 });
+
+describe('testing GameComponent', () => {
+  it('smoke tests the component', () => {
+    const wrapper = shallow(<GameComponent />);
+    expect(wrapper.update()).toMatchSnapshot();
+  })
+})
+
+describe('testing mapStateToProps', () => {
+  const state = {
+    app: {
+      socket: 1
+    }
+  };
+  it('tests the mapping', () => {
+    const expected = {
+      socket: 1
+    };
+    expect(mapStateToProps(state)).toEqual(expected);
+  });
+})

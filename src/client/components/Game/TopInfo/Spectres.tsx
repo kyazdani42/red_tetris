@@ -9,7 +9,6 @@ import {
   SpectreStyle,
   SpectreWrapper
 } from './styles';
-import { getSpectreArray } from './utils';
 
 interface Props {
   data: GameProps | null;
@@ -32,6 +31,11 @@ const getSpectres = (otherPlayers: GameProps['otherPlayers'] = []) =>
 const getSpectreBlocks = (player: any) =>
   getSpectreArray(player.spectre).map((row, j) =>
     row.map((col, k) => <SpectreBlockStyle col={col} key={`spectre-block-${j}-${k}`} />)
+  );
+
+const getSpectreArray = (spectre: number[]) =>
+  [...Array(20)].map((_, row) =>
+    [...Array(10)].map((__, col) => (spectre[col] !== null && spectre[col] <= row ? 1 : null))
   );
 
 const mapStateToProps = (state: State): Props => ({

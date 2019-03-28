@@ -15,16 +15,7 @@ export const Music: React.SFC<Props> = ({ isPlaying, dispatchSetIsPlaying }) => 
   return (
     <React.Fragment>
       <MusicStyle
-        onClick={() => {
-          const audio: any = document.getElementById('tetris-music');
-          if (audio && isPlaying) {
-            audio.pause();
-            dispatchSetIsPlaying();
-          } else if (audio) {
-            audio.play();
-            dispatchSetIsPlaying();
-          }
-        }}
+        onClick={handleAudio(document, isPlaying, dispatchSetIsPlaying)}
       >
         <ImgStyle className="audio-icon" src={isPlaying ? '/assets/iconpause.png' : '/assets/iconplay.png'} />
       </MusicStyle>
@@ -36,11 +27,22 @@ export const Music: React.SFC<Props> = ({ isPlaying, dispatchSetIsPlaying }) => 
   );
 };
 
-const mapStateToProps = (state: State) => ({
+export const handleAudio = (document: any, isPlaying: boolean, dispatchSetIsPlaying: () => void) => () => {
+  const audio: any = document.getElementById('tetris-music');
+  if (audio && isPlaying) {
+    audio.pause();
+    dispatchSetIsPlaying();
+  } else if (audio) {
+    audio.play();
+    dispatchSetIsPlaying();
+  }
+};
+
+export const mapStateToProps = (state: State) => ({
   isPlaying: state.app.musicPlaying
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+export const mapDispatchToProps = (dispatch: any) => ({
   dispatchSetIsPlaying: () => dispatch(setMusicPlaying())
 });
 

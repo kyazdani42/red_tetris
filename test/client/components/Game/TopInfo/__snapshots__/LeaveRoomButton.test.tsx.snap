@@ -1,0 +1,138 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing the component smoke tests the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    dispatchLeaveRoom={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": "Quit",
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": "Quit",
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": false,
+        "rules": Array [
+          "
+  position: absolute;
+  right: 4%;
+  height: 30px;
+  width: 70px;
+  line-height: 30px;
+  text-align: center;
+  background-color: ",
+          [Function],
+          ";
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 3px 6px rgba(255,255,255,0.05), 0 3px 6px rgba(255,255,255,0.13);
+  transition: box-shadow 300ms;
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 3px 6px rgba(255,255,255,0.2), 0 3px 6px rgba(255,255,255,0.3);
+  };
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": "Quit",
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": "Quit",
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": false,
+          "rules": Array [
+            "
+  position: absolute;
+  right: 4%;
+  height: 30px;
+  width: 70px;
+  line-height: 30px;
+  text-align: center;
+  background-color: ",
+            [Function],
+            ";
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 3px 6px rgba(255,255,255,0.05), 0 3px 6px rgba(255,255,255,0.13);
+  transition: box-shadow 300ms;
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 3px 6px rgba(255,255,255,0.2), 0 3px 6px rgba(255,255,255,0.3);
+  };
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

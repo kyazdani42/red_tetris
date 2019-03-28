@@ -29,7 +29,7 @@ export const GameComponent = () => (
   </BackgroundStyle>
 );
 
-const mapStateToProps = (state: any) => ({
+export const mapStateToProps = (state: any) => ({
   socket: state.app.socket
 });
 

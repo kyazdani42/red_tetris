@@ -7,7 +7,7 @@ import Key from '../../../../../src/client/components/Game/Control/Key';
 describe('testing the component', () => {
   const props = {
     emitter: jest.fn(),
-    type: ' ',
+    type: ' ' as ' ',
     keyPressed: null
   };
   const wrapper = shallow(<Key {...props} />);
@@ -27,14 +27,15 @@ describe('testing the component', () => {
     const image = wrapper.find('.key-img');
     expect(image.prop('src')).toEqual('/assets/icontest.png');
   })
-  it('checks that keyPress is false', () => {
-    const image = wrapper.find('.key-img');
-    expect(image.prop('isPressed')).toBeFalsy();
-  });
   it('checks that keyPress is true', () => {
-    wrapper.setProps({ keyPressed: ' '});
+    wrapper.setProps({ keyPressed: ' ', type: ' ' });
     const image = wrapper.find('.key-img');
     expect(image.prop('isPressed')).toBeTruthy()
+  });
+  it('checks that keyPress is false', () => {
+    wrapper.setProps({ keyPressed: null, type: ' ' });
+    const image = wrapper.update().find('.key-img');
+    expect(image.prop('isPressed')).toBeFalsy();
   });
 });
 
