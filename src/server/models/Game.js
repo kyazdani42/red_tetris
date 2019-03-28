@@ -97,6 +97,7 @@ module.exports = class Game {
       winner: player.winner,
       otherPlayers,
       score: player.score,
+      history: player.history,
     };
   }
 
