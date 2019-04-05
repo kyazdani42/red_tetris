@@ -1,13 +1,5 @@
-const { getStats } = require('./common');
-
 const stackCase = { color: 'black', value: 0, fix: false };
 const fixStackCase = { color: 'grey', value: 1, fix: true };
-const defaultHistory = name => ({
-  bestScore: 0,
-  gamesPlay: 0,
-  multiPlayersWin: 0,
-  name,
-});
 
 const getSpectre = (stack) => {
   const result = [];

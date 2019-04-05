@@ -17,10 +17,10 @@ io.on('connection', socket => {
     setGame(game, gameName);
     socket.emit('gameName', { gameName });
   });
-  io.on('getScores', (socketClient) => {
+  socket.on('getScores', () => {
     const stats = getStats();
-    socketClient.emit('scores', getBestScore(stats).slice(0, 25));
-  })
+    socket.emit('scores', getBestScore(stats).slice(0, 25));
+  });
 });
 
 app.disable('x-powered-by');

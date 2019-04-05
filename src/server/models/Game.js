@@ -3,7 +3,6 @@ const {
   generate,
   playersLoop,
   playersAddLine,
-  counting,
   saveData,
 } = require('../utils/game');
 const Player = require('./Player');
@@ -108,7 +107,6 @@ module.exports = class Game {
   }
 
   async run() {
-    // await counting(this.socket);
     while (this.running) {
       await timeout(this.timer);
       const maxIndex = playersLoop(this.players, this.allPieces, this.addPiecesData);

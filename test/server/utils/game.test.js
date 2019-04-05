@@ -3,7 +3,6 @@ const {
   playersLoop,
   playersAddLine,
   timeout,
-  counting,
 } = require('../../../src/server/utils/game');
 
 const { getTwoPlayers } = require('../utils');
@@ -57,10 +56,6 @@ describe('utils/game', () => {
   });
   it('wait 0.1s', async () => {
     await timeout();
-    expect(true).toBe(true);
-  });
-  it('wait starting', async () => {
-    await counting({ emit: () => true });
     expect(true).toBe(true);
   });
 });
