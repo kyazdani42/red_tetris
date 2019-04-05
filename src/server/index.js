@@ -21,6 +21,10 @@ io.on('connection', socket => {
     const stats = getStats();
     socket.emit('scores', getBestScore(stats).slice(0, 25));
   });
+  socket.on('getPlayerScore', (playerToken) => {
+    const stats = getStats();
+    socket.emit('playerScore', stats[playerToken]);
+  });
 });
 
 app.disable('x-powered-by');

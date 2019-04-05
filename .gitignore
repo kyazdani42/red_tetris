@@ -4,3 +4,4 @@ schema.app
 .idea
 .DS_STORE
 coverage
+src/server/stats/stats.json
