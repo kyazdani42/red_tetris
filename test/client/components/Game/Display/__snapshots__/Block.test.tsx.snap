@@ -3,8 +3,15 @@
 exports[`testing block smoke tests the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Unknown
-    color="testColor"
+  Symbol(enzyme.__unrendered__): <div
+    style={
+      Object {
+        "backgroundColor": "testColor",
+        "border": "1px solid black",
+        "height": "calc(5% - 2px)",
+        "width": "calc(10% - 2px)",
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -17,13 +24,11 @@ ShallowWrapper {
   },
   Symbol(enzyme.__node__): Object {
     "instance": null,
-    "key": "[object Object]",
+    "key": "testKey",
     "nodeType": "host",
     "props": Object {
       "style": Object {
-        "backgroundColor": Object {
-          "color": "testColor",
-        },
+        "backgroundColor": "testColor",
         "border": "1px solid black",
         "height": "calc(5% - 2px)",
         "width": "calc(10% - 2px)",
@@ -36,13 +41,11 @@ ShallowWrapper {
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
-      "key": "[object Object]",
+      "key": "testKey",
       "nodeType": "host",
       "props": Object {
         "style": Object {
-          "backgroundColor": Object {
-            "color": "testColor",
-          },
+          "backgroundColor": "testColor",
           "border": "1px solid black",
           "height": "calc(5% - 2px)",
           "width": "calc(10% - 2px)",
@@ -80,8 +83,15 @@ ShallowWrapper {
 exports[`testing nextBlock smoke tests the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Unknown
-    color="testColor"
+  Symbol(enzyme.__unrendered__): <div
+    style={
+      Object {
+        "backgroundColor": "testColor",
+        "border": "1px solid black",
+        "height": "calc(25% - 2px)",
+        "width": "calc(25% - 2px)",
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -94,13 +104,11 @@ ShallowWrapper {
   },
   Symbol(enzyme.__node__): Object {
     "instance": null,
-    "key": "[object Object]",
+    "key": "testkey",
     "nodeType": "host",
     "props": Object {
       "style": Object {
-        "backgroundColor": Object {
-          "color": "testColor",
-        },
+        "backgroundColor": "testColor",
         "border": "1px solid black",
         "height": "calc(25% - 2px)",
         "width": "calc(25% - 2px)",
@@ -113,13 +121,11 @@ ShallowWrapper {
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
-      "key": "[object Object]",
+      "key": "testkey",
       "nodeType": "host",
       "props": Object {
         "style": Object {
-          "backgroundColor": Object {
-            "color": "testColor",
-          },
+          "backgroundColor": "testColor",
           "border": "1px solid black",
           "height": "calc(25% - 2px)",
           "width": "calc(25% - 2px)",

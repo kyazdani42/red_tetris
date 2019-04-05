@@ -119,8 +119,9 @@ export const MusicStyle = styled.button`
 `;
 
 export const BackgroundImage = styled.div`
-  background-image: url('assets/bg.jpg');
-  filter: brightness(0.6) sepia(80%) grayscale(70%) saturate(80%);
+  background: url('assets/bg.jpg');
+  background-size: cover;
+  filter: brightness(0.4) grayscale(50%);
   position: fixed;
   z-index: -1;
   top: 0;

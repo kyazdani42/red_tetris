@@ -42,7 +42,7 @@ ShallowWrapper {
         <div
           style={
             Object {
-              "backgroundColor": "blue",
+              "backgroundColor": "#7427CC",
               "border": "1px solid black",
               "height": "calc(25% - 2px)",
               "width": "calc(25% - 2px)",
@@ -52,17 +52,7 @@ ShallowWrapper {
         <div
           style={
             Object {
-              "backgroundColor": "blue",
-              "border": "1px solid black",
-              "height": "calc(25% - 2px)",
-              "width": "calc(25% - 2px)",
-            }
-          }
-        />,
-        <div
-          style={
-            Object {
-              "backgroundColor": "black",
+              "backgroundColor": "#7427CC",
               "border": "1px solid black",
               "height": "calc(25% - 2px)",
               "width": "calc(25% - 2px)",
@@ -82,7 +72,7 @@ ShallowWrapper {
         <div
           style={
             Object {
-              "backgroundColor": "blue",
+              "backgroundColor": "black",
               "border": "1px solid black",
               "height": "calc(25% - 2px)",
               "width": "calc(25% - 2px)",
@@ -92,7 +82,17 @@ ShallowWrapper {
         <div
           style={
             Object {
-              "backgroundColor": "blue",
+              "backgroundColor": "#7427CC",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
+        />,
+        <div
+          style={
+            Object {
+              "backgroundColor": "#7427CC",
               "border": "1px solid black",
               "height": "calc(25% - 2px)",
               "width": "calc(25% - 2px)",
@@ -209,7 +209,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "style": Object {
-            "backgroundColor": "blue",
+            "backgroundColor": "#7427CC",
             "border": "1px solid black",
             "height": "calc(25% - 2px)",
             "width": "calc(25% - 2px)",
@@ -225,7 +225,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "style": Object {
-            "backgroundColor": "blue",
+            "backgroundColor": "#7427CC",
             "border": "1px solid black",
             "height": "calc(25% - 2px)",
             "width": "calc(25% - 2px)",
@@ -273,7 +273,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "style": Object {
-            "backgroundColor": "blue",
+            "backgroundColor": "#7427CC",
             "border": "1px solid black",
             "height": "calc(25% - 2px)",
             "width": "calc(25% - 2px)",
@@ -289,7 +289,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "style": Object {
-            "backgroundColor": "blue",
+            "backgroundColor": "#7427CC",
             "border": "1px solid black",
             "height": "calc(25% - 2px)",
             "width": "calc(25% - 2px)",
@@ -503,7 +503,7 @@ ShallowWrapper {
           <div
             style={
               Object {
-                "backgroundColor": "blue",
+                "backgroundColor": "#7427CC",
                 "border": "1px solid black",
                 "height": "calc(25% - 2px)",
                 "width": "calc(25% - 2px)",
@@ -513,17 +513,7 @@ ShallowWrapper {
           <div
             style={
               Object {
-                "backgroundColor": "blue",
-                "border": "1px solid black",
-                "height": "calc(25% - 2px)",
-                "width": "calc(25% - 2px)",
-              }
-            }
-          />,
-          <div
-            style={
-              Object {
-                "backgroundColor": "black",
+                "backgroundColor": "#7427CC",
                 "border": "1px solid black",
                 "height": "calc(25% - 2px)",
                 "width": "calc(25% - 2px)",
@@ -543,7 +533,7 @@ ShallowWrapper {
           <div
             style={
               Object {
-                "backgroundColor": "blue",
+                "backgroundColor": "black",
                 "border": "1px solid black",
                 "height": "calc(25% - 2px)",
                 "width": "calc(25% - 2px)",
@@ -553,7 +543,17 @@ ShallowWrapper {
           <div
             style={
               Object {
-                "backgroundColor": "blue",
+                "backgroundColor": "#7427CC",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
+          />,
+          <div
+            style={
+              Object {
+                "backgroundColor": "#7427CC",
                 "border": "1px solid black",
                 "height": "calc(25% - 2px)",
                 "width": "calc(25% - 2px)",
@@ -670,7 +670,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "style": Object {
-              "backgroundColor": "blue",
+              "backgroundColor": "#7427CC",
               "border": "1px solid black",
               "height": "calc(25% - 2px)",
               "width": "calc(25% - 2px)",
@@ -686,7 +686,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "style": Object {
-              "backgroundColor": "blue",
+              "backgroundColor": "#7427CC",
               "border": "1px solid black",
               "height": "calc(25% - 2px)",
               "width": "calc(25% - 2px)",
@@ -734,7 +734,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "style": Object {
-              "backgroundColor": "blue",
+              "backgroundColor": "#7427CC",
               "border": "1px solid black",
               "height": "calc(25% - 2px)",
               "width": "calc(25% - 2px)",
@@ -750,7 +750,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "style": Object {
-              "backgroundColor": "blue",
+              "backgroundColor": "#7427CC",
               "border": "1px solid black",
               "height": "calc(25% - 2px)",
               "width": "calc(25% - 2px)",
