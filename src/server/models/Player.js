@@ -127,12 +127,4 @@ module.exports = class Player {
     this.score += calculNewScore(this.nbLine);
     this.nbLine = 0;
   }
-
-  updateHistory() {
-    if (this.winner) {
-      this.history.multiPlayersWin += 1;
-    }
-    this.history.gamesPlay += 1;
-    this.history.bestScore = Math.max(this.history.bestScore, this.score);
-  }
 };

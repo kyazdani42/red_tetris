@@ -3,17 +3,16 @@ const fs = require('fs');
 const { getRandomPiece } = require('./pieces');
 const { getStats } = require('./common');
 
+const defaultStat = name => ({
+  bestScore: 0,
+  gamesPlay: 0,
+  multiPlayersWin: 0,
+  name,
+});
+
 const timeout = (time) => new Promise(resolve => setTimeout(resolve, time));
 
 const generate = () => [...Array(200)].map(() => getRandomPiece());
-
-const counting = async (socket) => {
-  socket.emit('updateData', { gameStatus: '3' });
-  await timeout(500);
-  socket.emit('updateData', { gameStatus: '2' });
-  await timeout(500);
-  socket.emit('updateData', { gameStatus: '1' });
-};
 
 const playersLoop = (players, allPieces) => {
   let maxIndex = 0;
@@ -62,8 +61,13 @@ const checkRunning = (players, nbPlayerPlaying) => {
 const saveData = (players) => {
   const stats = getStats();
   for (const player of players) {
-    player.updateHistory();
-    stats[player.token] = player.history;
+    const playerStat = stats[player.token] || defaultStat(player.name);
+    if (player.winner) {
+      playerStat.multiPlayersWin += 1;
+    }
+    playerStat.gamesPlay += 1;
+    playerStat.bestScore = Math.max(playerStat.bestScore, player.score);
+    stats[player.token] = playerStat;
   }
   fs.writeFile(`${__dirname}/../stats/stats.json`, JSON.stringify(stats), 'utf8', (err) => {
     if (err) throw err;
@@ -73,7 +77,6 @@ const saveData = (players) => {
 module.exports = {
   timeout,
   generate,
-  counting,
   playersLoop,
   playersAddLine,
   saveData,
