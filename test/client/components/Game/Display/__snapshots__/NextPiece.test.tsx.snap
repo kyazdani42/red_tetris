@@ -1,0 +1,596 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing NextPiece component smoke tests the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    nextPiece={
+      Object {
+        "color": "blue",
+        "patterns": Array [
+          Array [
+            Array [
+              1,
+              1,
+              0,
+            ],
+            Array [
+              1,
+              1,
+              0,
+            ],
+          ],
+        ],
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <Unknown
+          color="blue"
+        />,
+        <Unknown
+          color="blue"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="blue"
+        />,
+        <Unknown
+          color="blue"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+        <Unknown
+          color="black"
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "block0-0-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "blue",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block0-1-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "blue",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block0-2-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block0-3-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block1-0-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "blue",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block1-1-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "blue",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block1-2-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block1-3-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block2-0-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block2-1-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block2-2-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block2-3-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block3-0-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block3-1-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block3-2-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": "block3-3-next",
+        "nodeType": "function",
+        "props": Object {
+          "color": "black",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-htpNat",
+        "isStatic": true,
+        "rules": Array [
+          "
+  z-index: 10;
+  position: absolute;
+  bottom: -1px;
+  left: calc(-17vmin - 3px);
+  height: 17vmin;
+  width: 17vmin;
+  border: 1px solid #fff;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #000;
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-htpNat",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <Unknown
+            color="blue"
+          />,
+          <Unknown
+            color="blue"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="blue"
+          />,
+          <Unknown
+            color="blue"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+          <Unknown
+            color="black"
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "block0-0-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "blue",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block0-1-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "blue",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block0-2-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block0-3-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block1-0-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "blue",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block1-1-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "blue",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block1-2-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block1-3-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block2-0-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block2-1-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block2-2-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block2-3-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block3-0-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block3-1-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block3-2-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": "block3-3-next",
+          "nodeType": "function",
+          "props": Object {
+            "color": "black",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-htpNat",
+          "isStatic": true,
+          "rules": Array [
+            "
+  z-index: 10;
+  position: absolute;
+  bottom: -1px;
+  left: calc(-17vmin - 3px);
+  height: 17vmin;
+  width: 17vmin;
+  border: 1px solid #fff;
+  border-right: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #000;
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-htpNat",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

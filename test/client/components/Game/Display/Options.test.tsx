@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import { mapStateToProps, mapDispatchToProps, Options, checkbox } from '../../../../../src/client/components/Game/Display/Options';
+import { mapStateToProps, mapDispatchToProps, Options, checkbox, handleDispatch } from '../../../../../src/client/components/Game/Display/Options';
 import { setOptions } from '../../../../../src/client/redux/actions';
 
 const props = {
@@ -55,3 +55,15 @@ describe('testing mapDispatchToProps', () => {
   })
 })
 
+describe('testing handleDispatch', () => {
+  const handler = handleDispatch(props);
+  it('calls dispatchSetOptions with the appropriate parameters', () => {
+    const args = { name: 'test', on: false };
+    const expectedParams = {
+      ...props.options,
+      test: false
+    };
+    handler(args);
+    expect(props.dispatchSetOptions).toHaveBeenCalledWith(expectedParams);
+  })
+})

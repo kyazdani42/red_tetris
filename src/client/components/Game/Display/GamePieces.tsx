@@ -7,7 +7,7 @@ interface Props {
   stack: GameProps['stack'];
 }
 
-const getDivsFromStack = (stack: GameProps['stack']) => {
+export const getDivsFromStack = (stack: GameProps['stack']) => {
   const container = Array(200);
   for (let i = 0; i < 20; i++) {
     for (let j = 0; j < 10; j++) {

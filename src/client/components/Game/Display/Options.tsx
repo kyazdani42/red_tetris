@@ -10,7 +10,7 @@ interface Props {
   dispatchSetOptions: (options: Options) => void;
 }
 
-const handleDispatch = (params: Props) => (option: { name: string; on: boolean }) =>
+export const handleDispatch = (params: Props) => (option: { name: string; on: boolean }) =>
   params.dispatchSetOptions({ ...params.options, [option.name]: option.on });
 
 export const Options: React.SFC<Props> = ({ options, dispatchSetOptions }) => {

@@ -38,7 +38,7 @@ const getSpectreArray = (spectre: number[]) =>
     [...Array(10)].map((__, col) => (spectre[col] !== null && spectre[col] <= row ? 1 : null))
   );
 
-const mapStateToProps = (state: State): Props => ({
+export const mapStateToProps = (state: State): Props => ({
   data: state.app.gameData
 });
 

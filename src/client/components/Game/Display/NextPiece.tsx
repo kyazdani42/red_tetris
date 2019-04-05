@@ -16,7 +16,7 @@ export const NextPiece: React.SFC<Props> = ({ nextPiece }) => (
   </PieceContainer>
 );
 
-const getBlocksFromPiece = (nextPiece: Props['nextPiece']) => {
+export const getBlocksFromPiece = (nextPiece: Props['nextPiece']) => {
   if (!nextPiece) return null;
   const piece = [];
   const len = nextPiece.patterns[0].length;
