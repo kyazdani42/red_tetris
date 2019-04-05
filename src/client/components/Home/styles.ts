@@ -186,3 +186,17 @@ export const ScoreRowStyle = styled.div`
   margin: auto;
   color: #fff;
 `;
+
+export const PlayerScoreWrapper = styled.div`
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+`;
+
+export const PlayerScoreDisplay = styled.h4`
+  margin: 10px;
+`;

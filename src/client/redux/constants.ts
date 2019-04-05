@@ -21,5 +21,6 @@ export const SET_CREATE_MODAL = 'SET_CREATE_MODAL';
 
 export const GET_SCORES = 'GET_SCORES';
 export const SET_SCORES = 'SET_SCORES';
+export const SET_PLAYER_SCORE = 'SET_PLAYER_SCORE';
 
 export const BACKEND_URL = 'http://localhost:3000';

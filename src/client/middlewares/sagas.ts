@@ -21,17 +21,19 @@ export default function* rootSaga() {
   const url = getUrl('/');
   const socket: SocketIOClient.Socket = io.connect(url);
   initHomeSocket(socket);
+  const token = yield select((state: State) => state.app.token);
+  socket.emit('getPlayerScore', token);
   yield all([
     call(createRoomSaga, socket),
     call(scoreSaga, socket),
-    call(leaveRoomSaga),
+    call(leaveRoomSaga, socket),
     call(joinRoomSaga),
     call(keyPressHandler),
     call(handleKeyDownListeners)
   ]);
 }
 
-function* leaveRoomSaga() {
+function* leaveRoomSaga(homeSocket: SocketIOClient.Socket) {
   while (yield take(LEAVE_ROOM)) {
     const socket: AppState['socket'] = yield select((state: State) => state.app.socket);
     if (socket) {
@@ -39,6 +41,8 @@ function* leaveRoomSaga() {
       yield put(setSocket(null));
       yield put(setGameData(null));
     }
+    const token = yield select((state: State) => state.app.token);
+    homeSocket.emit('getPlayerScore', token);
   }
 }
 

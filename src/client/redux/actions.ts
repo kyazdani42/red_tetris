@@ -16,6 +16,7 @@ import {
   SET_MUSIC_PLAYING,
   SET_OPTIONS,
   SET_PLAYER_NAME,
+  SET_PLAYER_SCORE,
   SET_ROOMS,
   SET_SCORES,
   SET_SOCKET,
@@ -43,4 +44,5 @@ export const setToken: ActionFunctionAny<Action<string>> = createAction(SET_TOKE
 export const setMusicPlaying: ActionFunctionAny<Action<undefined>> = createAction(SET_MUSIC_PLAYING);
 
 export const getScores: ActionFunctionAny<Action<undefined>> = createAction(GET_SCORES);
-export const setScores: ActionFunctionAny<Action<undefined>> = createAction(SET_SCORES);
+export const setScores: ActionFunctionAny<Action<BestScore[] | null>> = createAction(SET_SCORES);
+export const setPlayerScore: ActionFunctionAny<Action<BestScore>> = createAction(SET_PLAYER_SCORE);

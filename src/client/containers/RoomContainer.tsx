@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { State } from '../redux/store';
 
 import CreateRoomButton from '../components/Home/CreateRoom';
+import PlayerScore from '../components/Home/PlayerScore';
 import { RoomRow } from '../components/Home/RoomRow';
 import ScoreButton from '../components/Home/ScoreButton';
 import ScoreDisplay from '../components/Home/ScoreDisplay';
@@ -34,6 +35,7 @@ export const RoomComponent: React.SFC<{ rooms: RoomsProps['rooms'] }> = ({ rooms
     <CreateRoomButton />
     <ScoreButton />
     <ScoreDisplay />
+    <PlayerScore />
   </RoomWrapper>
 );
 

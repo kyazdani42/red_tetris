@@ -7,6 +7,7 @@ export interface AppState {
   scores: BestScore[] | null;
   rooms: RoomType[];
   musicPlaying: boolean;
+  playerScore: BestScore | null;
   gameData: GameProps | null;
   error: string | null;
   joinModal: boolean;
@@ -24,6 +25,7 @@ const initialState: AppState = {
   joinModal: false,
   createModal: false,
   scores: null,
+  playerScore: null,
   socket: null as any,
   rooms: [],
   gameData: null,
@@ -35,7 +37,7 @@ const initialState: AppState = {
     mirror: false,
     invisible: false,
     speed: false
-  },
+  }
 };
 
 const reducer = handleActions<any>(
@@ -50,7 +52,7 @@ const reducer = handleActions<any>(
     }),
     SET_SOCKET: (state: AppState, { payload }: Action<SocketIOClient.Socket>): AppState => ({
       ...state,
-      socket: payload || null as any
+      socket: payload || (null as any)
     }),
     CREATE_ROOM: (state: AppState, { payload }: Action<any>): AppState => ({
       ...state,
@@ -95,6 +97,10 @@ const reducer = handleActions<any>(
     SET_SCORES: (state: AppState, { payload }: Action<BestScore[]>): AppState => ({
       ...state,
       scores: payload || null
+    }),
+    SET_PLAYER_SCORE: (state: AppState, { payload }: Action<BestScore | null>): AppState => ({
+      ...state,
+      playerScore: payload || null
     })
   },
   initialState

@@ -12,5 +12,7 @@ export const getDataFromCookie = (): { playerName: string | null, token: string 
 export const setCookie = (playerName: string, token: string) => {
   const cookie = new Cookies();
   const value = JSON.stringify({ playerName, token });
-  cookie.set('red_tetris_player', value);
+  if (token) {
+    cookie.set('red_tetris_player', value);
+  }
 };
