@@ -13,7 +13,7 @@ export const getDivsFromStack = (stack: GameProps['stack']) => {
     for (let j = 0; j < 10; j++) {
       const containerIndex = +`${i}${j}`;
       container[containerIndex] = (
-        <Block color={stack[i][j].color} key={'block' + containerIndex} />
+        Block(stack[i][j].color, containerIndex + 'indexKey')
       );
     }
   }

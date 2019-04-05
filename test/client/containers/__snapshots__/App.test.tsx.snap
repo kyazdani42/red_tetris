@@ -89,7 +89,7 @@ ShallowWrapper {
           "$$typeof": Symbol(react.forward_ref),
           "attrs": Array [],
           "componentStyle": ComponentStyle {
-            "componentId": "sc-iAyFgw",
+            "componentId": "sc-kEYyzF",
             "isStatic": true,
             "rules": Array [
               "
@@ -107,7 +107,7 @@ ShallowWrapper {
           "displayName": "styled.div",
           "foldedComponentIds": Array [],
           "render": [Function],
-          "styledComponentId": "sc-iAyFgw",
+          "styledComponentId": "sc-kEYyzF",
           "target": "div",
           "toString": [Function],
           "warnTooManyClasses": [Function],
@@ -194,7 +194,7 @@ ShallowWrapper {
             "$$typeof": Symbol(react.forward_ref),
             "attrs": Array [],
             "componentStyle": ComponentStyle {
-              "componentId": "sc-iAyFgw",
+              "componentId": "sc-kEYyzF",
               "isStatic": true,
               "rules": Array [
                 "
@@ -212,7 +212,7 @@ ShallowWrapper {
             "displayName": "styled.div",
             "foldedComponentIds": Array [],
             "render": [Function],
-            "styledComponentId": "sc-iAyFgw",
+            "styledComponentId": "sc-kEYyzF",
             "target": "div",
             "toString": [Function],
             "warnTooManyClasses": [Function],

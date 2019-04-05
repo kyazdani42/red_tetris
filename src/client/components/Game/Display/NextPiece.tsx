@@ -26,9 +26,9 @@ export const getBlocksFromPiece = (nextPiece: Props['nextPiece']) => {
       const blockValue = line ? j < line.length ? line[j] : 0 : 0;
       const key = `block${i}-${j}-next`;
       if (blockValue) {
-        piece.push(<NextBlock color={nextPiece.color} key={key} />);
+        piece.push(NextBlock(nextPiece.color, key));
       } else {
-        piece.push(<NextBlock color="black" key={key} />);
+        piece.push(NextBlock('black', key));
       }
     }
   }

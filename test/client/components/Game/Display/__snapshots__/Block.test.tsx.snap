@@ -17,76 +17,40 @@ ShallowWrapper {
   },
   Symbol(enzyme.__node__): Object {
     "instance": null,
-    "key": undefined,
-    "nodeType": "function",
+    "key": "[object Object]",
+    "nodeType": "host",
     "props": Object {
-      "color": "testColor",
+      "style": Object {
+        "backgroundColor": Object {
+          "color": "testColor",
+        },
+        "border": "1px solid black",
+        "height": "calc(5% - 2px)",
+        "width": "calc(10% - 2px)",
+      },
     },
     "ref": null,
     "rendered": null,
-    "type": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "attrs": Array [],
-      "componentStyle": ComponentStyle {
-        "componentId": "sc-ifAKCX",
-        "isStatic": false,
-        "rules": Array [
-          "
-  width: calc(10% - 2px);
-  border: solid 1px black;
-  height: calc(5% - 2px);
-  background-color: ",
-          [Function],
-          ";
-",
-        ],
-      },
-      "displayName": "styled.div",
-      "foldedComponentIds": Array [],
-      "render": [Function],
-      "styledComponentId": "sc-ifAKCX",
-      "target": "div",
-      "toString": [Function],
-      "warnTooManyClasses": [Function],
-      "withComponent": [Function],
-    },
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
-      "key": undefined,
-      "nodeType": "function",
+      "key": "[object Object]",
+      "nodeType": "host",
       "props": Object {
-        "color": "testColor",
+        "style": Object {
+          "backgroundColor": Object {
+            "color": "testColor",
+          },
+          "border": "1px solid black",
+          "height": "calc(5% - 2px)",
+          "width": "calc(10% - 2px)",
+        },
       },
       "ref": null,
       "rendered": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-ifAKCX",
-          "isStatic": false,
-          "rules": Array [
-            "
-  width: calc(10% - 2px);
-  border: solid 1px black;
-  height: calc(5% - 2px);
-  background-color: ",
-            [Function],
-            ";
-",
-          ],
-        },
-        "displayName": "styled.div",
-        "foldedComponentIds": Array [],
-        "render": [Function],
-        "styledComponentId": "sc-ifAKCX",
-        "target": "div",
-        "toString": [Function],
-        "warnTooManyClasses": [Function],
-        "withComponent": [Function],
-      },
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -130,76 +94,40 @@ ShallowWrapper {
   },
   Symbol(enzyme.__node__): Object {
     "instance": null,
-    "key": undefined,
-    "nodeType": "function",
+    "key": "[object Object]",
+    "nodeType": "host",
     "props": Object {
-      "color": "testColor",
+      "style": Object {
+        "backgroundColor": Object {
+          "color": "testColor",
+        },
+        "border": "1px solid black",
+        "height": "calc(25% - 2px)",
+        "width": "calc(25% - 2px)",
+      },
     },
     "ref": null,
     "rendered": null,
-    "type": Object {
-      "$$typeof": Symbol(react.forward_ref),
-      "attrs": Array [],
-      "componentStyle": ComponentStyle {
-        "componentId": "sc-EHOje",
-        "isStatic": false,
-        "rules": Array [
-          "
-  width: calc(25% - 2px);
-  border: solid 1px black;
-  height: calc(25% - 2px);
-  background-color: ",
-          [Function],
-          ";
-",
-        ],
-      },
-      "displayName": "styled.div",
-      "foldedComponentIds": Array [],
-      "render": [Function],
-      "styledComponentId": "sc-EHOje",
-      "target": "div",
-      "toString": [Function],
-      "warnTooManyClasses": [Function],
-      "withComponent": [Function],
-    },
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
-      "key": undefined,
-      "nodeType": "function",
+      "key": "[object Object]",
+      "nodeType": "host",
       "props": Object {
-        "color": "testColor",
+        "style": Object {
+          "backgroundColor": Object {
+            "color": "testColor",
+          },
+          "border": "1px solid black",
+          "height": "calc(25% - 2px)",
+          "width": "calc(25% - 2px)",
+        },
       },
       "ref": null,
       "rendered": null,
-      "type": Object {
-        "$$typeof": Symbol(react.forward_ref),
-        "attrs": Array [],
-        "componentStyle": ComponentStyle {
-          "componentId": "sc-EHOje",
-          "isStatic": false,
-          "rules": Array [
-            "
-  width: calc(25% - 2px);
-  border: solid 1px black;
-  height: calc(25% - 2px);
-  background-color: ",
-            [Function],
-            ";
-",
-          ],
-        },
-        "displayName": "styled.div",
-        "foldedComponentIds": Array [],
-        "render": [Function],
-        "styledComponentId": "sc-EHOje",
-        "target": "div",
-        "toString": [Function],
-        "warnTooManyClasses": [Function],
-        "withComponent": [Function],
-      },
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

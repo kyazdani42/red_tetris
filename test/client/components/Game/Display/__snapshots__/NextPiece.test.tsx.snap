@@ -39,53 +39,165 @@ ShallowWrapper {
     "nodeType": "function",
     "props": Object {
       "children": Array [
-        <Unknown
-          color="blue"
+        <div
+          style={
+            Object {
+              "backgroundColor": "blue",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="blue"
+        <div
+          style={
+            Object {
+              "backgroundColor": "blue",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="blue"
+        <div
+          style={
+            Object {
+              "backgroundColor": "blue",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="blue"
+        <div
+          style={
+            Object {
+              "backgroundColor": "blue",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
-        <Unknown
-          color="black"
+        <div
+          style={
+            Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            }
+          }
         />,
       ],
     },
@@ -94,178 +206,258 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": "block0-0-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "blue",
+          "style": Object {
+            "backgroundColor": "blue",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block0-1-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "blue",
+          "style": Object {
+            "backgroundColor": "blue",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block0-2-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block0-3-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block1-0-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "blue",
+          "style": Object {
+            "backgroundColor": "blue",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block1-1-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "blue",
+          "style": Object {
+            "backgroundColor": "blue",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block1-2-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block1-3-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block2-0-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block2-1-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block2-2-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block2-3-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block3-0-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block3-1-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block3-2-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
       Object {
         "instance": null,
         "key": "block3-3-next",
-        "nodeType": "function",
+        "nodeType": "host",
         "props": Object {
-          "color": "black",
+          "style": Object {
+            "backgroundColor": "black",
+            "border": "1px solid black",
+            "height": "calc(25% - 2px)",
+            "width": "calc(25% - 2px)",
+          },
         },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "div",
       },
     ],
     "type": Object {
@@ -308,53 +500,165 @@ ShallowWrapper {
       "nodeType": "function",
       "props": Object {
         "children": Array [
-          <Unknown
-            color="blue"
+          <div
+            style={
+              Object {
+                "backgroundColor": "blue",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="blue"
+          <div
+            style={
+              Object {
+                "backgroundColor": "blue",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="blue"
+          <div
+            style={
+              Object {
+                "backgroundColor": "blue",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="blue"
+          <div
+            style={
+              Object {
+                "backgroundColor": "blue",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
-          <Unknown
-            color="black"
+          <div
+            style={
+              Object {
+                "backgroundColor": "black",
+                "border": "1px solid black",
+                "height": "calc(25% - 2px)",
+                "width": "calc(25% - 2px)",
+              }
+            }
           />,
         ],
       },
@@ -363,178 +667,258 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": "block0-0-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "blue",
+            "style": Object {
+              "backgroundColor": "blue",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block0-1-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "blue",
+            "style": Object {
+              "backgroundColor": "blue",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block0-2-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block0-3-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block1-0-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "blue",
+            "style": Object {
+              "backgroundColor": "blue",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block1-1-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "blue",
+            "style": Object {
+              "backgroundColor": "blue",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block1-2-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block1-3-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block2-0-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block2-1-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block2-2-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block2-3-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block3-0-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block3-1-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block3-2-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
         Object {
           "instance": null,
           "key": "block3-3-next",
-          "nodeType": "function",
+          "nodeType": "host",
           "props": Object {
-            "color": "black",
+            "style": Object {
+              "backgroundColor": "black",
+              "border": "1px solid black",
+              "height": "calc(25% - 2px)",
+              "width": "calc(25% - 2px)",
+            },
           },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "div",
         },
       ],
       "type": Object {

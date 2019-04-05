@@ -29,7 +29,7 @@ ShallowWrapper {
       "$$typeof": Symbol(react.forward_ref),
       "attrs": Array [],
       "componentStyle": ComponentStyle {
-        "componentId": "sc-htoDjs",
+        "componentId": "sc-bZQynM",
         "isStatic": false,
         "rules": Array [
           "
@@ -50,7 +50,7 @@ ShallowWrapper {
       "displayName": "styled.h1",
       "foldedComponentIds": Array [],
       "render": [Function],
-      "styledComponentId": "sc-htoDjs",
+      "styledComponentId": "sc-bZQynM",
       "target": "h1",
       "toString": [Function],
       "warnTooManyClasses": [Function],
@@ -72,7 +72,7 @@ ShallowWrapper {
         "$$typeof": Symbol(react.forward_ref),
         "attrs": Array [],
         "componentStyle": ComponentStyle {
-          "componentId": "sc-htoDjs",
+          "componentId": "sc-bZQynM",
           "isStatic": false,
           "rules": Array [
             "
@@ -93,7 +93,7 @@ ShallowWrapper {
         "displayName": "styled.h1",
         "foldedComponentIds": Array [],
         "render": [Function],
-        "styledComponentId": "sc-htoDjs",
+        "styledComponentId": "sc-bZQynM",
         "target": "h1",
         "toString": [Function],
         "warnTooManyClasses": [Function],

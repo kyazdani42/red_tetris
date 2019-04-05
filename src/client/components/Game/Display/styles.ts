@@ -58,20 +58,6 @@ export const GamePiecesContainer = styled.div`
   justify-content: center;
 `;
 
-export const BlockStyle = styled.div`
-  width: calc(10% - 2px);
-  border: solid 1px black;
-  height: calc(5% - 2px);
-  background-color: ${props => props.color};
-`;
-
-export const NextBlockStyle: any = styled.div`
-  width: calc(25% - 2px);
-  border: solid 1px black;
-  height: calc(25% - 2px);
-  background-color: ${props => props.color};
-`;
-
 export const OptionsWrapper = styled.div`
   display: flex;
   background-color: rgba(0,0,0,0.5);
