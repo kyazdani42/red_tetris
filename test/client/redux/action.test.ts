@@ -1,6 +1,6 @@
 // tslint:disable
 import * as actions from '../../../src/client/redux/actions';
-import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS, SET_PLAYER_NAME, SET_OPTIONS, SET_TOKEN, SET_MUSIC_PLAYING, SET_ERROR, SET_MODAL } from '../../../src/client/redux/constants';
+import { SET_ROOMS, CREATE_ROOM, JOIN_ROOM, LEAVE_ROOM, SET_SOCKET, SET_KEY, HANDLE_KEY_PRESS, SET_PLAYER_NAME, SET_OPTIONS, SET_TOKEN, SET_MUSIC_PLAYING, SET_ERROR, SET_JOIN_MODAL, SET_CREATE_MODAL } from '../../../src/client/redux/constants';
 
 describe('testing action creators', () => {
   it('tests setRooms', () => {
@@ -89,11 +89,18 @@ describe('testing action creators', () => {
     };
     expect(actions.setError('error')).toEqual(expected);
   });
-  it('tests setModal', () => {
+  it('tests setCreateModal', () => {
     const expected = {
-      type: SET_MODAL,
+      type: SET_CREATE_MODAL,
       payload: true
     };
-    expect(actions.setModal(true)).toEqual(expected);
+    expect(actions.setCreateModal(true)).toEqual(expected);
+  });
+  it('tests setJoinModal', () => {
+    const expected = {
+      type: SET_JOIN_MODAL,
+      payload: true
+    };
+    expect(actions.setJoinModal(true)).toEqual(expected);
   });
 })

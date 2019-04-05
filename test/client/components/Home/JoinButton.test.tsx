@@ -3,7 +3,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import { JoinButton, mapStateToProps, mapDispatchToProps } from '../../../../src/client/components/Home/JoinButton';
-import { setModal, joinRoom } from '../../../../src/client/redux/actions';
+import { setJoinModal, joinRoom } from '../../../../src/client/redux/actions';
 
 describe('testing the component', () => {
   const props = {
@@ -26,7 +26,7 @@ describe('testing the component', () => {
 });
 
 describe('testing mapStateToProps', () => {
-  const state: any = { app: { modal: 'modal' } };
+  const state: any = { app: { joinModal: 'modal' } };
   const ownProps = { roomId: 'roomIdTest' };
   it('test the mapping', () => {
     const expected = { displayModal: 'modal', roomId: 'roomIdTest' };
@@ -44,6 +44,6 @@ describe('testing mapDispatchToProps', () => {
     mapper.dispatchJoinRoom('test')('innerTest');
     expect(dispatch).toHaveBeenCalledWith(joinRoom({ room: 'test', playerName: 'innerTest' }));
     mapper.dispatchSetModal(true);
-    expect(dispatch).toHaveBeenCalledWith(setModal(true));
+    expect(dispatch).toHaveBeenCalledWith(setJoinModal(true));
   })
 })

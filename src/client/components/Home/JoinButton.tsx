@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { withTheme } from 'styled-components';
 
-import { joinRoom, setModal } from '../../redux/actions';
+import { joinRoom, setJoinModal } from '../../redux/actions';
 import { State } from '../../redux/store';
 import CreateNameModal from './CreateNameModal';
 import { JoinButtonStyle } from './styles';
@@ -52,13 +52,13 @@ const Svg = () => (
 
 export const mapStateToProps = (state: State, { roomId }: { roomId: string }) => ({
   roomId,
-  displayModal: state.app.modal
+  displayModal: state.app.joinModal
 });
 
 export const mapDispatchToProps = (dispatch: any) => ({
   dispatchJoinRoom: (id: string) => (name: string) =>
-    dispatch(joinRoom({ room: id, playerName: name })),
-  dispatchSetModal: (display: boolean) => dispatch(setModal(display))
+   dispatch(joinRoom({ room: id, playerName: name })),
+  dispatchSetModal: (display: boolean) => dispatch(setJoinModal(display))
 });
 
 export default connect(

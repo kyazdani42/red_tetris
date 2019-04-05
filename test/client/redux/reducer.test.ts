@@ -8,7 +8,8 @@ describe('testing reducer', () => {
     socket: null,
     error: null,
     rooms: [],
-    modal: false,
+    createModal: false,
+    joinModal: false,
     gameData: null,
     key: null,
     musicPlaying: false,
@@ -97,10 +98,16 @@ describe('testing reducer', () => {
     const expected = { ...state, error: 'testerror' };
     expect(nextState).toEqual(expected);
   })
-  it('set modal to true', () => {
+  it('set createModal to true', () => {
     const state = initialState;
-    const nextState = reducer(state, actions.setModal(true));
-    const expected = { ...state, modal: true };
+    const nextState = reducer(state, actions.setCreateModal(true));
+    const expected = { ...state, createModal: true };
+    expect(nextState).toEqual(expected);
+  })
+  it('set joinModal to true', () => {
+    const state = initialState;
+    const nextState = reducer(state, actions.setJoinModal(true));
+    const expected = { ...state, joinModal: true };
     expect(nextState).toEqual(expected);
   })
 });

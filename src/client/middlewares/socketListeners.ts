@@ -18,15 +18,6 @@ export const initHomeSocket = (socket: SocketIOClient.Socket) => {
   });
 };
 
-export const initGameSocket = (socket: SocketIOClient.Socket) => {
-  socket.on('updateGame', (data: GameProps) => {
-    store.dispatch(setGameData(data));
-  });
-  socket.on('token', (token: string) => {
-    store.dispatch(setToken(token));
-  });
-};
-
 export const joinTheRoom = (room: string, playerName: string, token: string | null) => {
   const url = getUrl(room);
   token = token || '';
@@ -36,4 +27,13 @@ export const joinTheRoom = (room: string, playerName: string, token: string | nu
   });
   initGameSocket(gameSocket);
   store.dispatch(setSocket(gameSocket));
+};
+
+export const initGameSocket = (socket: SocketIOClient.Socket) => {
+  socket.on('updateGame', (data: GameProps) => {
+    store.dispatch(setGameData(data));
+  });
+  socket.on('token', (token: string) => {
+    store.dispatch(setToken(token));
+  });
 };

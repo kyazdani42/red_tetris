@@ -157,7 +157,7 @@ export const ScoresWrapper = styled.div`
 export const ScoreTitle = styled.h1`
   color: #fff;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 `;
 
 export const ScoreRowWrapper = styled.div`
@@ -172,7 +172,8 @@ export const ScoreRowStyle = styled.div`
   border-bottom: 1px solid rgba(255,255,255,0.2);
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  text-align: center;
   width: 95%;
   margin: auto;
   color: #fff;

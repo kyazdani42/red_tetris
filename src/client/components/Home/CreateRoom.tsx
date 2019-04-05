@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { createRoom, setModal } from '../../redux/actions';
+import { createRoom, setCreateModal } from '../../redux/actions';
 import { State } from '../../redux/store';
 import CreateNameModal from './CreateNameModal';
 import { NewGameButton } from './styles';
@@ -39,12 +39,12 @@ export const CreateRoomButton: React.SFC<Props> = ({
 };
 
 export const mapStateToProps = (state: State) => ({
-  displayModal: state.app.modal
+  displayModal: state.app.createModal
 });
 
 export const mapDispatchToProps = (dispatch: any) => ({
   dispatchCreateRoom: (username: string) => dispatch(createRoom(username)),
-  dispatchSetModal: (display: boolean) => dispatch(setModal(display))
+  dispatchSetModal: (display: boolean) => dispatch(setCreateModal(display))
 });
 
 export default connect(

@@ -90,9 +90,9 @@ ShallowWrapper {
   background-color: ",
               [Function],
               ";
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 17px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.13);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.13);
   padding-top: 1px;
   padding-left: 5px;
   margin-left: 3px;
@@ -105,8 +105,8 @@ ShallowWrapper {
   user-select: none;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.3);
-  };
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+  }
 ",
             ],
           },
@@ -209,9 +209,9 @@ ShallowWrapper {
   background-color: ",
                 [Function],
                 ";
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
   font-size: 17px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.05), 0 3px 6px rgba(0,0,0,0.13);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05), 0 3px 6px rgba(0, 0, 0, 0.13);
   padding-top: 1px;
   padding-left: 5px;
   margin-left: 3px;
@@ -224,8 +224,8 @@ ShallowWrapper {
   user-select: none;
   cursor: pointer;
   &:hover {
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2), 0 3px 6px rgba(0,0,0,0.3);
-  };
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.3);
+  }
 ",
               ],
             },

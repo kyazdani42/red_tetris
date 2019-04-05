@@ -22,7 +22,7 @@ export const ScoreDisplay: React.SFC<Props> = ({ scores, resetScores }) => score
     <ScoresWrapper>
       <ScoreTitle>Top 25 Scores</ScoreTitle>
       <ScoreRowWrapper>
-        <ScoreRowStyle>
+        <ScoreRowStyle style={{ marginBottom: '20px' }}>
           <span><b>Player</b></span>
           <span><b>Top Score</b></span>
           <span><b>Games Played</b></span>
@@ -35,8 +35,8 @@ export const ScoreDisplay: React.SFC<Props> = ({ scores, resetScores }) => score
 ) || null;
 
 const getRows = (scores: BestScore[]) => scores.map(
-  d => (
-  <ScoreRowStyle>
+  (d, i) => (
+  <ScoreRowStyle key={`score-nb-${i}`}>
     <span>{d.name}</span>
     <span>{d.bestScore}</span>
     <span>{d.gamesPlay}</span>

@@ -16,7 +16,8 @@ export const SET_OPTIONS = 'SET_OPTIONS';
 export const SET_MUSIC_PLAYING = 'SET_MUSIC_PLAYING';
 
 export const SET_ERROR = 'SET_ERROR';
-export const SET_MODAL = 'SET_MODAL';
+export const SET_JOIN_MODAL = 'SET_JOIN_MODAL';
+export const SET_CREATE_MODAL = 'SET_CREATE_MODAL';
 
 export const GET_SCORES = 'GET_SCORES';
 export const SET_SCORES = 'SET_SCORES';

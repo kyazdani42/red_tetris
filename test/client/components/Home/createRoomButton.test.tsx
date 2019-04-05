@@ -3,7 +3,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import { CreateRoomButton, mapStateToProps, mapDispatchToProps } from '../../../../src/client/components/Home/CreateRoom';
-import { createRoom, setModal } from '../../../../src/client/redux/actions';
+import { createRoom, setCreateModal } from '../../../../src/client/redux/actions';
 
 describe('testing the component', () => {
   const props = {
@@ -25,7 +25,7 @@ describe('testing the component', () => {
 });
 
 describe('testing mapStateToProps', () => {
-  const state: any = { app: { modal: 'modal' } };
+  const state: any = { app: { createModal: 'modal' } };
   it('test the mapping', () => {
     const expected = { displayModal: 'modal' };
     expect(mapStateToProps(state)).toEqual(expected);
@@ -42,6 +42,6 @@ describe('testing mapDispatchToProps', () => {
     mapper.dispatchCreateRoom('test');
     expect(dispatch).toHaveBeenCalledWith(createRoom('test'))
     mapper.dispatchSetModal(true);
-    expect(dispatch).toHaveBeenCalledWith(setModal(true));
+    expect(dispatch).toHaveBeenCalledWith(setCreateModal(true));
   })
 })
