@@ -8,6 +8,7 @@ const {
 } = require('../utils/game');
 const Player = require('./Player');
 const { removeGame, getGames } = require('../services/games');
+const { getStats } = require('../utils/common');
 
 module.exports = class Game {
   constructor({ name, io }) {
@@ -159,6 +160,10 @@ module.exports = class Game {
       this.io.emit('games', getGames());
       await this.run();
       clearInterval(reduceTimer);
+      const stats = getStats();
+      this.players.map((player) => {
+        player.socket.emit('history', stats[player.token]);
+      });
     }
   }
 
@@ -170,7 +175,6 @@ module.exports = class Game {
     const player = new Player(socket);
     this.players.push(player);
     this.io.emit('games', getGames());
-    player.socket.emit('history', player.history);
     this.updateGame();
   }
 

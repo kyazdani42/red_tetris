@@ -7,6 +7,7 @@ const uniqId = require('uniqid');
 const { getGames, setGame } = require('./services/games');
 const Game = require('./models/Game');
 const corsConfig = require('./middlewares/cors');
+const { getBestScore, getStats } = require('./utils/common');
 
 io.on('connection', socket => {
   socket.emit('games', getGames());
@@ -15,6 +16,10 @@ io.on('connection', socket => {
     const game = new Game({ io, name: gameName });
     setGame(game, gameName);
     socket.emit('gameName', { gameName });
+  });
+  io.on('getScores', (socketClient) => {
+    const stats = getStats();
+    socketClient.emit('scores', getBestScore(stats).slice(0, 25));
   })
 });
 

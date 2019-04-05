@@ -108,15 +108,6 @@ const calculNewScore = (nbLine) => {
   }
 };
 
-const getBestScore = (stats) => Object.values(stats).sort((a, b) => a.bestScore - b.bestScore);
-
-const initHistory = (token, name) => {
-  const stats = getStats();
-  const bestsScores = getBestScore(stats);
-  const history = stats[token] || defaultHistory(name);
-  return { ...history, bestsScores };
-};
-
 module.exports = {
   checkPosition,
   fusionPieceAndStack,
@@ -126,5 +117,4 @@ module.exports = {
   getSpectre,
   getMirrorStack,
   calculNewScore,
-  initHistory,
 };

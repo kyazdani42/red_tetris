@@ -17,7 +17,6 @@ module.exports = class Player {
   constructor(socket) {
     this.id = socket.id;
     this.token = socket.handshake.query.token || uniqId();
-    this.history = initHistory(this.token, socket.handshake.query.playerName);
     this.socket = socket;
     this.pieceIndex = 0;
     this.stack = [];
