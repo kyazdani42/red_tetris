@@ -7,6 +7,7 @@ import { State } from '../redux/store';
 import CreateRoomButton from '../components/Home/CreateRoom';
 import { RoomRow } from '../components/Home/RoomRow';
 import ScoreButton from '../components/Home/ScoreButton';
+import ScoreDisplay from '../components/Home/ScoreDisplay';
 import { RoomWrapper, RowWrapper, RowWrapperHideOverflow } from './styles';
 
 interface RoomsProps {
@@ -32,6 +33,7 @@ export const RoomComponent: React.SFC<{ rooms: RoomsProps['rooms'] }> = ({ rooms
     </RowWrapperHideOverflow>
     <CreateRoomButton />
     <ScoreButton />
+    <ScoreDisplay />
   </RoomWrapper>
 );
 

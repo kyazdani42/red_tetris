@@ -4,6 +4,7 @@ import { getDataFromCookie, setCookie } from './cookieUtils';
 export interface AppState {
   playerName: string | null;
   socket: SocketIOClient.Socket;
+  scores: BestScore[] | null;
   rooms: RoomType[];
   musicPlaying: boolean;
   gameData: GameProps | null;
@@ -20,6 +21,7 @@ const initialState: AppState = {
   playerName,
   token,
   modal: false,
+  scores: null,
   socket: null as any,
   rooms: [],
   gameData: null,
@@ -83,6 +85,10 @@ const reducer = handleActions<any>(
     SET_MODAL: (state: AppState, { payload }: Action<boolean>): AppState => ({
       ...state,
       modal: payload || false
+    }),
+    SET_SCORES: (state: AppState, { payload }: Action<BestScore[]>): AppState => ({
+      ...state,
+      scores: payload || null
     })
   },
   initialState

@@ -16,6 +16,7 @@ import {
   SET_OPTIONS,
   SET_PLAYER_NAME,
   SET_ROOMS,
+  SET_SCORES,
   SET_SOCKET,
   SET_TOKEN,
 } from './constants';
@@ -40,3 +41,4 @@ export const setToken: ActionFunctionAny<Action<string>> = createAction(SET_TOKE
 export const setMusicPlaying: ActionFunctionAny<Action<undefined>> = createAction(SET_MUSIC_PLAYING);
 
 export const getScores: ActionFunctionAny<Action<undefined>> = createAction(GET_SCORES);
+export const setScores: ActionFunctionAny<Action<undefined>> = createAction(SET_SCORES);

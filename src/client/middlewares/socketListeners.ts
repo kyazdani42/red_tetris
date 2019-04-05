@@ -1,6 +1,6 @@
 import * as io from 'socket.io-client';
 
-import { setGameData, setRooms, setSocket, setToken } from '../redux/actions';
+import { setGameData, setRooms, setScores, setSocket, setToken } from '../redux/actions';
 import store from '../redux/store';
 import { getUrl } from './utils';
 
@@ -14,7 +14,7 @@ export const initHomeSocket = (socket: SocketIOClient.Socket) => {
     joinTheRoom(gameName, playerName as string, token);
   });
   socket.on('scores', (data: BestScore[]) => {
-    console.log(data);
+    store.dispatch(setScores(data));
   });
 };
 
@@ -29,6 +29,8 @@ export const initGameSocket = (socket: SocketIOClient.Socket) => {
 
 export const joinTheRoom = (room: string, playerName: string, token: string | null) => {
   const url = getUrl(room);
+  token = token || '';
+  playerName = playerName || '';
   const gameSocket: SocketIOClient.Socket = io(url, {
     query: { playerName, token }
   });
