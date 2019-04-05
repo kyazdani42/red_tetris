@@ -9,7 +9,6 @@ const {
   getSpectre,
   getMirrorStack,
   calculNewScore,
-  initHistory,
 } = require('../utils/player');
 const Piece = require('./Piece');
 
