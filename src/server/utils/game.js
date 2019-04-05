@@ -68,6 +68,7 @@ const saveData = (players) => {
     playerStat.gamesPlay += 1;
     playerStat.bestScore = Math.max(playerStat.bestScore, player.score);
     stats[player.token] = playerStat;
+    player.socket.emit('history', playerStat);
   }
   fs.writeFile(`${__dirname}/../stats/stats.json`, JSON.stringify(stats), 'utf8', (err) => {
     if (err) throw err;
