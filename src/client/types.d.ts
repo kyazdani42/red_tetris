@@ -43,8 +43,7 @@ interface PlayerType {
 
 interface BestScore {
   bestScore: number;
-  bestsScores: any;
-  gamePlay: number;
+  gamesPlay: number;
   multiPlayersWin: number;
   name: string;
 }
