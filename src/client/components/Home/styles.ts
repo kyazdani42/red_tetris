@@ -132,3 +132,12 @@ export const StyledRow = styled.div`
   text-align: center;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 `;
+
+export const ScoreButtonStyle = styled.div`
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 100px;
+  height: 65px;
+  background-color: #fff;
+`;

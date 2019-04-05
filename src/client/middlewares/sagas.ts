@@ -9,6 +9,7 @@ import { State } from '../redux/store';
 import { setGameData, setKey, setPlayerName, setSocket } from '../redux/actions';
 import {
   CREATE_ROOM,
+  GET_SCORES,
   HANDLE_KEY_PRESS,
   JOIN_ROOM,
   LEAVE_ROOM,
@@ -22,6 +23,7 @@ export default function* rootSaga() {
   initHomeSocket(socket);
   yield all([
     call(createRoomSaga, socket),
+    call(scoreSaga, socket),
     call(leaveRoomSaga),
     call(joinRoomSaga),
     call(keyPressHandler),
@@ -56,6 +58,12 @@ function* createRoomSaga(homeSocket: SocketIOClient.Socket) {
     const playerName = action.payload;
     yield put(setPlayerName(playerName));
     homeSocket.emit('createRoom');
+  }
+}
+
+function* scoreSaga(homeSocket: SocketIOClient.Socket) {
+  while (yield take(GET_SCORES)) {
+    homeSocket.emit('getScores');
   }
 }
 

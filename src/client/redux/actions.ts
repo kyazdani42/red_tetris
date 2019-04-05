@@ -4,6 +4,7 @@ import { AppState } from './reducer';
 
 import {
   CREATE_ROOM,
+  GET_SCORES,
   HANDLE_KEY_PRESS,
   JOIN_ROOM,
   LEAVE_ROOM,
@@ -37,3 +38,5 @@ export const setError: ActionFunctionAny<Action<string | null>> = createAction(S
 export const setOptions: ActionFunctionAny<Action<AppState['options']>> = createAction(SET_OPTIONS);
 export const setToken: ActionFunctionAny<Action<string>> = createAction(SET_TOKEN);
 export const setMusicPlaying: ActionFunctionAny<Action<undefined>> = createAction(SET_MUSIC_PLAYING);
+
+export const getScores: ActionFunctionAny<Action<undefined>> = createAction(GET_SCORES);

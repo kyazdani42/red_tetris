@@ -9,9 +9,12 @@ export const initHomeSocket = (socket: SocketIOClient.Socket) => {
     store.dispatch(setRooms(data.games));
   });
   socket.on('gameName', (data: { gameName: string }) => {
-    const { gameName} = data;
+    const { gameName } = data;
     const { playerName, token } = store.getState().app;
     joinTheRoom(gameName, playerName as string, token);
+  });
+  socket.on('scores', (data: BestScore[]) => {
+    console.log(data);
   });
 };
 
