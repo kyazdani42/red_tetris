@@ -9,10 +9,10 @@ interface Props {
 }
 
 export const ScoreButton: React.SFC<Props> = ({ dispatchGetScores }) => (
-  <ScoreButtonStyle onClick={() => dispatchGetScores()} />
+  <ScoreButtonStyle onClick={() => dispatchGetScores()}>Scores</ScoreButtonStyle>
 );
 
-const mapDispatchToProps = (dispatch: any) => ({
+export const mapDispatchToProps = (dispatch: any) => ({
   dispatchGetScores: () => dispatch(getScores())
 });
 

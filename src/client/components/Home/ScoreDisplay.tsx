@@ -45,11 +45,11 @@ const getRows = (scores: BestScore[]) => scores.map(
   )
 );
 
-const mapStateToProps = (state: State) => ({
+export const mapStateToProps = (state: State) => ({
   scores: state.app.scores
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+export const mapDispatchToProps = (dispatch: any) => ({
   resetScores: () => dispatch(setScores(null))
 });
 

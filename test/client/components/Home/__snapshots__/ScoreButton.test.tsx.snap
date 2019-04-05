@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing the component smoke tests the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    dispatchGetScores={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": "Scores",
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": "Scores",
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-iwsKbI",
+        "isStatic": true,
+        "rules": Array [
+          "
+  position: fixed;
+  top: 15px;
+  cursor: pointer;
+  right: 15px;
+  width: 90px;
+  text-align: center;
+  height: 40px;
+  line-height: 39px;
+  font-weight: 400;
+  background-color: #000;
+  letter-spacing: 1px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 10px 10px rgba(255, 44, 55, 0.2), 0 5px 5px rgba(255, 55, 55, 0.2);
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-iwsKbI",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": "Scores",
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": "Scores",
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-iwsKbI",
+          "isStatic": true,
+          "rules": Array [
+            "
+  position: fixed;
+  top: 15px;
+  cursor: pointer;
+  right: 15px;
+  width: 90px;
+  text-align: center;
+  height: 40px;
+  line-height: 39px;
+  font-weight: 400;
+  background-color: #000;
+  letter-spacing: 1px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 10px 10px rgba(255, 44, 55, 0.2), 0 5px 5px rgba(255, 55, 55, 0.2);
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-iwsKbI",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

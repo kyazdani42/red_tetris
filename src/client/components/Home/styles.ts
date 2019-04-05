@@ -136,10 +136,18 @@ export const StyledRow = styled.div`
 export const ScoreButtonStyle = styled.div`
   position: fixed;
   top: 15px;
+  cursor: pointer;
   right: 15px;
-  width: 100px;
-  height: 65px;
-  background-color: #fff;
+  width: 90px;
+  text-align: center;
+  height: 40px;
+  line-height: 39px;
+  font-weight: 400;
+  background-color: #000;
+  letter-spacing: 1px;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: 0 10px 10px rgba(255, 44, 55, 0.2), 0 5px 5px rgba(255, 55, 55, 0.2);
 `;
 
 export const ScoresWrapper = styled.div`

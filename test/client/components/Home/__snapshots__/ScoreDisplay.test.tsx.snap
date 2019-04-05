@@ -1,0 +1,1134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing the component smoke tests the component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Unknown
+    resetScores={[Function]}
+    scores={
+      Array [
+        Object {
+          "bestScore": 10,
+          "gamesPlay": 1,
+          "multiPlayersWin": 1,
+          "name": "testplayer",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": <UNDEFINED>
+        <UNDEFINED>
+          Top 25 Scores
+        </UNDEFINED>
+        <UNDEFINED>
+          <UNDEFINED
+            style={
+              Object {
+                "marginBottom": "20px",
+              }
+            }
+          >
+            <span>
+              <b>
+                Player
+              </b>
+            </span>
+            <span>
+              <b>
+                Top Score
+              </b>
+            </span>
+            <span>
+              <b>
+                Games Played
+              </b>
+            </span>
+            <span>
+              <b>
+                Multiplayer Game Wins
+              </b>
+            </span>
+          </UNDEFINED>
+          <UNDEFINED>
+            <span>
+              testplayer
+            </span>
+            <span>
+              10
+            </span>
+            <span>
+              1
+            </span>
+            <span>
+              1
+            </span>
+          </UNDEFINED>
+        </UNDEFINED>
+      </UNDEFINED>,
+      "className": "modal",
+      "onClick": [Function],
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <UNDEFINED>
+            Top 25 Scores
+          </UNDEFINED>,
+          <UNDEFINED>
+            <UNDEFINED
+              style={
+                Object {
+                  "marginBottom": "20px",
+                }
+              }
+            >
+              <span>
+                <b>
+                  Player
+                </b>
+              </span>
+              <span>
+                <b>
+                  Top Score
+                </b>
+              </span>
+              <span>
+                <b>
+                  Games Played
+                </b>
+              </span>
+              <span>
+                <b>
+                  Multiplayer Game Wins
+                </b>
+              </span>
+            </UNDEFINED>
+            <UNDEFINED>
+              <span>
+                testplayer
+              </span>
+              <span>
+                10
+              </span>
+              <span>
+                1
+              </span>
+              <span>
+                1
+              </span>
+            </UNDEFINED>
+          </UNDEFINED>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Top 25 Scores",
+          },
+          "ref": null,
+          "rendered": "Top 25 Scores",
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-gqjmRU",
+              "isStatic": true,
+              "rules": Array [
+                "
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+",
+              ],
+            },
+            "displayName": "styled.h1",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-gqjmRU",
+            "target": "h1",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": Array [
+              <UNDEFINED
+                style={
+                  Object {
+                    "marginBottom": "20px",
+                  }
+                }
+              >
+                <span>
+                  <b>
+                    Player
+                  </b>
+                </span>
+                <span>
+                  <b>
+                    Top Score
+                  </b>
+                </span>
+                <span>
+                  <b>
+                    Games Played
+                  </b>
+                </span>
+                <span>
+                  <b>
+                    Multiplayer Game Wins
+                  </b>
+                </span>
+              </UNDEFINED>,
+              Array [
+                <UNDEFINED>
+                  <span>
+                    testplayer
+                  </span>
+                  <span>
+                    10
+                  </span>
+                  <span>
+                    1
+                  </span>
+                  <span>
+                    1
+                  </span>
+                </UNDEFINED>,
+              ],
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    <b>
+                      Player
+                    </b>
+                  </span>,
+                  <span>
+                    <b>
+                      Top Score
+                    </b>
+                  </span>,
+                  <span>
+                    <b>
+                      Games Played
+                    </b>
+                  </span>,
+                  <span>
+                    <b>
+                      Multiplayer Game Wins
+                    </b>
+                  </span>,
+                ],
+                "style": Object {
+                  "marginBottom": "20px",
+                },
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <b>
+                      Player
+                    </b>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Player",
+                    },
+                    "ref": null,
+                    "rendered": "Player",
+                    "type": "b",
+                  },
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <b>
+                      Top Score
+                    </b>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Top Score",
+                    },
+                    "ref": null,
+                    "rendered": "Top Score",
+                    "type": "b",
+                  },
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <b>
+                      Games Played
+                    </b>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Games Played",
+                    },
+                    "ref": null,
+                    "rendered": "Games Played",
+                    "type": "b",
+                  },
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <b>
+                      Multiplayer Game Wins
+                    </b>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Multiplayer Game Wins",
+                    },
+                    "ref": null,
+                    "rendered": "Multiplayer Game Wins",
+                    "type": "b",
+                  },
+                  "type": "span",
+                },
+              ],
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-jTzLTM",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  color: #fff;
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-jTzLTM",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+            Object {
+              "instance": null,
+              "key": "score-nb-0",
+              "nodeType": "function",
+              "props": Object {
+                "children": Array [
+                  <span>
+                    testplayer
+                  </span>,
+                  <span>
+                    10
+                  </span>,
+                  <span>
+                    1
+                  </span>,
+                  <span>
+                    1
+                  </span>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "testplayer",
+                  },
+                  "ref": null,
+                  "rendered": "testplayer",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": 10,
+                  },
+                  "ref": null,
+                  "rendered": 10,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": 1,
+                  },
+                  "ref": null,
+                  "rendered": 1,
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": 1,
+                  },
+                  "ref": null,
+                  "rendered": 1,
+                  "type": "span",
+                },
+              ],
+              "type": Object {
+                "$$typeof": Symbol(react.forward_ref),
+                "attrs": Array [],
+                "componentStyle": ComponentStyle {
+                  "componentId": "sc-jTzLTM",
+                  "isStatic": true,
+                  "rules": Array [
+                    "
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  color: #fff;
+",
+                  ],
+                },
+                "displayName": "styled.div",
+                "foldedComponentIds": Array [],
+                "render": [Function],
+                "styledComponentId": "sc-jTzLTM",
+                "target": "div",
+                "toString": [Function],
+                "warnTooManyClasses": [Function],
+                "withComponent": [Function],
+              },
+            },
+          ],
+          "type": Object {
+            "$$typeof": Symbol(react.forward_ref),
+            "attrs": Array [],
+            "componentStyle": ComponentStyle {
+              "componentId": "sc-VigVT",
+              "isStatic": true,
+              "rules": Array [
+                "
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: fit-content;
+  width: 100%;
+",
+              ],
+            },
+            "displayName": "styled.div",
+            "foldedComponentIds": Array [],
+            "render": [Function],
+            "styledComponentId": "sc-VigVT",
+            "target": "div",
+            "toString": [Function],
+            "warnTooManyClasses": [Function],
+            "withComponent": [Function],
+          },
+        },
+      ],
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-gZMcBi",
+          "isStatic": true,
+          "rules": Array [
+            "
+  position: relative;
+  margin: auto;
+  top: 5%;
+  height: 90%;
+  width: 70%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: #000;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(255, 44, 55, 0.2), 0 5px 5px rgba(255, 55, 55, 0.2);
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-gZMcBi",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+    "type": Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-bdVaJa",
+        "isStatic": true,
+        "rules": Array [
+          "
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-bdVaJa",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    },
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": <UNDEFINED>
+          <UNDEFINED>
+            Top 25 Scores
+          </UNDEFINED>
+          <UNDEFINED>
+            <UNDEFINED
+              style={
+                Object {
+                  "marginBottom": "20px",
+                }
+              }
+            >
+              <span>
+                <b>
+                  Player
+                </b>
+              </span>
+              <span>
+                <b>
+                  Top Score
+                </b>
+              </span>
+              <span>
+                <b>
+                  Games Played
+                </b>
+              </span>
+              <span>
+                <b>
+                  Multiplayer Game Wins
+                </b>
+              </span>
+            </UNDEFINED>
+            <UNDEFINED>
+              <span>
+                testplayer
+              </span>
+              <span>
+                10
+              </span>
+              <span>
+                1
+              </span>
+              <span>
+                1
+              </span>
+            </UNDEFINED>
+          </UNDEFINED>
+        </UNDEFINED>,
+        "className": "modal",
+        "onClick": [Function],
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": Array [
+            <UNDEFINED>
+              Top 25 Scores
+            </UNDEFINED>,
+            <UNDEFINED>
+              <UNDEFINED
+                style={
+                  Object {
+                    "marginBottom": "20px",
+                  }
+                }
+              >
+                <span>
+                  <b>
+                    Player
+                  </b>
+                </span>
+                <span>
+                  <b>
+                    Top Score
+                  </b>
+                </span>
+                <span>
+                  <b>
+                    Games Played
+                  </b>
+                </span>
+                <span>
+                  <b>
+                    Multiplayer Game Wins
+                  </b>
+                </span>
+              </UNDEFINED>
+              <UNDEFINED>
+                <span>
+                  testplayer
+                </span>
+                <span>
+                  10
+                </span>
+                <span>
+                  1
+                </span>
+                <span>
+                  1
+                </span>
+              </UNDEFINED>
+            </UNDEFINED>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": "Top 25 Scores",
+            },
+            "ref": null,
+            "rendered": "Top 25 Scores",
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-gqjmRU",
+                "isStatic": true,
+                "rules": Array [
+                  "
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+",
+                ],
+              },
+              "displayName": "styled.h1",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-gqjmRU",
+              "target": "h1",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "children": Array [
+                <UNDEFINED
+                  style={
+                    Object {
+                      "marginBottom": "20px",
+                    }
+                  }
+                >
+                  <span>
+                    <b>
+                      Player
+                    </b>
+                  </span>
+                  <span>
+                    <b>
+                      Top Score
+                    </b>
+                  </span>
+                  <span>
+                    <b>
+                      Games Played
+                    </b>
+                  </span>
+                  <span>
+                    <b>
+                      Multiplayer Game Wins
+                    </b>
+                  </span>
+                </UNDEFINED>,
+                Array [
+                  <UNDEFINED>
+                    <span>
+                      testplayer
+                    </span>
+                    <span>
+                      10
+                    </span>
+                    <span>
+                      1
+                    </span>
+                    <span>
+                      1
+                    </span>
+                  </UNDEFINED>,
+                ],
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": Array [
+                    <span>
+                      <b>
+                        Player
+                      </b>
+                    </span>,
+                    <span>
+                      <b>
+                        Top Score
+                      </b>
+                    </span>,
+                    <span>
+                      <b>
+                        Games Played
+                      </b>
+                    </span>,
+                    <span>
+                      <b>
+                        Multiplayer Game Wins
+                      </b>
+                    </span>,
+                  ],
+                  "style": Object {
+                    "marginBottom": "20px",
+                  },
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <b>
+                        Player
+                      </b>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Player",
+                      },
+                      "ref": null,
+                      "rendered": "Player",
+                      "type": "b",
+                    },
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <b>
+                        Top Score
+                      </b>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Top Score",
+                      },
+                      "ref": null,
+                      "rendered": "Top Score",
+                      "type": "b",
+                    },
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <b>
+                        Games Played
+                      </b>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Games Played",
+                      },
+                      "ref": null,
+                      "rendered": "Games Played",
+                      "type": "b",
+                    },
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <b>
+                        Multiplayer Game Wins
+                      </b>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Multiplayer Game Wins",
+                      },
+                      "ref": null,
+                      "rendered": "Multiplayer Game Wins",
+                      "type": "b",
+                    },
+                    "type": "span",
+                  },
+                ],
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-jTzLTM",
+                    "isStatic": true,
+                    "rules": Array [
+                      "
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  color: #fff;
+",
+                    ],
+                  },
+                  "displayName": "styled.div",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-jTzLTM",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                },
+              },
+              Object {
+                "instance": null,
+                "key": "score-nb-0",
+                "nodeType": "function",
+                "props": Object {
+                  "children": Array [
+                    <span>
+                      testplayer
+                    </span>,
+                    <span>
+                      10
+                    </span>,
+                    <span>
+                      1
+                    </span>,
+                    <span>
+                      1
+                    </span>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "testplayer",
+                    },
+                    "ref": null,
+                    "rendered": "testplayer",
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 10,
+                    },
+                    "ref": null,
+                    "rendered": 10,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 1,
+                    },
+                    "ref": null,
+                    "rendered": 1,
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": 1,
+                    },
+                    "ref": null,
+                    "rendered": 1,
+                    "type": "span",
+                  },
+                ],
+                "type": Object {
+                  "$$typeof": Symbol(react.forward_ref),
+                  "attrs": Array [],
+                  "componentStyle": ComponentStyle {
+                    "componentId": "sc-jTzLTM",
+                    "isStatic": true,
+                    "rules": Array [
+                      "
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  color: #fff;
+",
+                    ],
+                  },
+                  "displayName": "styled.div",
+                  "foldedComponentIds": Array [],
+                  "render": [Function],
+                  "styledComponentId": "sc-jTzLTM",
+                  "target": "div",
+                  "toString": [Function],
+                  "warnTooManyClasses": [Function],
+                  "withComponent": [Function],
+                },
+              },
+            ],
+            "type": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-VigVT",
+                "isStatic": true,
+                "rules": Array [
+                  "
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: fit-content;
+  width: 100%;
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-VigVT",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            },
+          },
+        ],
+        "type": Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "attrs": Array [],
+          "componentStyle": ComponentStyle {
+            "componentId": "sc-gZMcBi",
+            "isStatic": true,
+            "rules": Array [
+              "
+  position: relative;
+  margin: auto;
+  top: 5%;
+  height: 90%;
+  width: 70%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: #000;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(255, 44, 55, 0.2), 0 5px 5px rgba(255, 55, 55, 0.2);
+",
+            ],
+          },
+          "displayName": "styled.div",
+          "foldedComponentIds": Array [],
+          "render": [Function],
+          "styledComponentId": "sc-gZMcBi",
+          "target": "div",
+          "toString": [Function],
+          "warnTooManyClasses": [Function],
+          "withComponent": [Function],
+        },
+      },
+      "type": Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "attrs": Array [],
+        "componentStyle": ComponentStyle {
+          "componentId": "sc-bdVaJa",
+          "isStatic": true,
+          "rules": Array [
+            "
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+",
+          ],
+        },
+        "displayName": "styled.div",
+        "foldedComponentIds": Array [],
+        "render": [Function],
+        "styledComponentId": "sc-bdVaJa",
+        "target": "div",
+        "toString": [Function],
+        "warnTooManyClasses": [Function],
+        "withComponent": [Function],
+      },
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
