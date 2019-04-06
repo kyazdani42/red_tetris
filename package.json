@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev-client": "webpack-dev-server --env.mode=development --progress=on --open",
-    "build": "webpack --env.mode=production && mv dist src/server",
+    "build": "./build.sh",
     "test": "jest --coverage",
     "dev-server": "nodemon ./src/server/index.js"
   },

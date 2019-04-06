@@ -1,5 +1,6 @@
 const path = require('path');
-const app = require('express')();
+const express = require('express');
+const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 const uniqId = require('uniqid');
@@ -30,6 +31,7 @@ app.disable('x-powered-by');
 app.set('port', (process.env.PORT || 3000));
 app.use(corsConfig);
 
+app.use('/assets', express.static('assets'))
 app.get('/', (_, res) => {
   res.sendFile(path.join(__dirname + '/dist/index.html'));
 });

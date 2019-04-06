@@ -6,7 +6,7 @@ import * as io from 'socket.io-client';
 import { AppState } from '../redux/reducer';
 import { State } from '../redux/store';
 
-import { setGameData, setKey, setPlayerName, setSocket } from '../redux/actions';
+import { setCreateModal, setGameData, setJoinModal, setKey, setPlayerName, setSocket } from '../redux/actions';
 import {
   CREATE_ROOM,
   GET_SCORES,
@@ -52,6 +52,7 @@ function* joinRoomSaga() {
     const { room, playerName } = action.payload;
     yield put(setPlayerName(playerName));
     const token = yield select((state: State) => state.app.token);
+    yield* resetModals();
     joinTheRoom(room, playerName, token);
   }
 }
@@ -61,8 +62,14 @@ function* createRoomSaga(homeSocket: SocketIOClient.Socket) {
   while (action = yield take(CREATE_ROOM)) {
     const playerName = action.payload;
     yield put(setPlayerName(playerName));
+    yield* resetModals();
     homeSocket.emit('createRoom');
   }
+}
+
+function* resetModals() {
+  yield put(setJoinModal(false));
+  yield put(setCreateModal(false));
 }
 
 function* scoreSaga(homeSocket: SocketIOClient.Socket) {
