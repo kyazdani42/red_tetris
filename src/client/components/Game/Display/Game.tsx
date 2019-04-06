@@ -13,10 +13,12 @@ import { GameStartInfoWrapper } from './styles';
 interface Props {
   gameData: GameProps | null;
   socket: SocketIOClient.Socket;
+  playerScore: BestScore | null;
 }
 
-export const Game: React.SFC<Props> = ({ gameData, socket }) => {
+export const Game: React.SFC<Props> = ({ gameData, socket, playerScore }) => {
   let gamePieces, score, nextPiece, startButton, result, options;
+  const bestScore = playerScore ? playerScore.bestScore : 0;
   const isPlaying = gameData && gameData.isPlaying || false;
   if (gameData) {
     score = gameData.score;
@@ -38,7 +40,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
   return (
     <React.Fragment>
       {gamePieces}
-      <Score score={score} />
+      <Score score={score} bestScore={bestScore} />
       <NextPiece nextPiece={nextPiece} />
       {!isPlaying &&
       <GameStartInfoWrapper>
@@ -53,6 +55,7 @@ export const Game: React.SFC<Props> = ({ gameData, socket }) => {
 
 export const mapStateToProps = ({ app }: State) => ({
   gameData: app.gameData,
+  playerScore: app.playerScore,
   socket: app.socket
 });
 

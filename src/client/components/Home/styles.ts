@@ -197,6 +197,6 @@ export const PlayerScoreWrapper = styled.div`
   color: rgba(255,255,255,0.9);
 `;
 
-export const PlayerScoreDisplay = styled.h4`
+export const PlayerScoreDisplay = styled.div`
   margin: 10px;
 `;

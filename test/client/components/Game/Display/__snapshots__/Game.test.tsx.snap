@@ -72,6 +72,7 @@ ShallowWrapper {
           }
         />,
         <Unknown
+          bestScore={0}
           score={0}
         />,
         <Unknown
@@ -117,6 +118,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "bestScore": 0,
           "score": 0,
         },
         "ref": null,
@@ -168,6 +170,7 @@ ShallowWrapper {
             }
           />,
           <Unknown
+            bestScore={0}
             score={0}
           />,
           <Unknown
@@ -213,6 +216,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "bestScore": 0,
             "score": 0,
           },
           "ref": null,

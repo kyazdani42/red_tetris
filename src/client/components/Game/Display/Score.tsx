@@ -4,10 +4,14 @@ import { ScoreStyle } from './styles';
 
 interface Props {
   score: number;
+  bestScore: number;
 }
 
-export const Score: React.SFC<Props> = ({ score }) => (
+export const Score: React.SFC<Props> = ({ score, bestScore }) => (
   <ScoreStyle>
-    score: {score}
+    score: {score},
+    {' '}
+    {' '}
+    best score: {bestScore}
   </ScoreStyle>
 );

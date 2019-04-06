@@ -3,7 +3,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 import { Score } from '../../../../../src/client/components/Game/Display/Score';
 
-const props = { score: 100 };
+const props = { score: 100, bestScore: 200 };
 
 describe('testing nextBlock', () => {
   it('smoke tests the component', () => {

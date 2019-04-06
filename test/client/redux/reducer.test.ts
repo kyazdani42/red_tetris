@@ -6,6 +6,8 @@ describe('testing reducer', () => {
   const initialState = {
     playerName: 'tester',
     socket: null,
+    scores: null,
+    playerScore: null,
     error: null,
     rooms: [],
     createModal: false,
@@ -108,6 +110,18 @@ describe('testing reducer', () => {
     const state = initialState;
     const nextState = reducer(state, actions.setJoinModal(true));
     const expected = { ...state, joinModal: true };
+    expect(nextState).toEqual(expected);
+  })
+  it('sets the player score', () => {
+    const state = initialState;
+    const nextState = reducer(state, actions.setPlayerScore('testScore'));
+    const expected = { ...state, playerScore: 'testScore' };
+    expect(nextState).toEqual(expected);
+  })
+  it('sets the scores', () => {
+    const state = initialState;
+    const nextState = reducer(state, actions.setScores(['scores']));
+    const expected = { ...state, scores: ['scores'] };
     expect(nextState).toEqual(expected);
   })
 });

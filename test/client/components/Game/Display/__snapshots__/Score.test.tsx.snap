@@ -4,6 +4,7 @@ exports[`testing nextBlock smoke tests the component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Unknown
+    bestScore={200}
     score={100}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -23,12 +24,22 @@ ShallowWrapper {
       "children": Array [
         "score: ",
         100,
+        ",",
+        " ",
+        " ",
+        "best score: ",
+        200,
       ],
     },
     "ref": null,
     "rendered": Array [
       "score: ",
       100,
+      ",",
+      " ",
+      " ",
+      "best score: ",
+      200,
     ],
     "type": Object {
       "$$typeof": Symbol(react.forward_ref),
@@ -71,12 +82,22 @@ ShallowWrapper {
         "children": Array [
           "score: ",
           100,
+          ",",
+          " ",
+          " ",
+          "best score: ",
+          200,
         ],
       },
       "ref": null,
       "rendered": Array [
         "score: ",
         100,
+        ",",
+        " ",
+        " ",
+        "best score: ",
+        200,
       ],
       "type": Object {
         "$$typeof": Symbol(react.forward_ref),
