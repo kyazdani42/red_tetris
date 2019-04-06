@@ -1,3 +1,4 @@
+yarn install || npm install
 echo "building..."
 webpack --env.mode=production --progress
 cp -r ./assets ./src/server
