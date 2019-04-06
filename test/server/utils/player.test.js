@@ -1,11 +1,7 @@
 const {
-  checkPosition,
-  fusionPieceAndStack,
   initStack,
-  updateFullLine,
   addFixLine,
   getSpectre,
-  getMirrorStack,
   calculNewScore,
 } = require('../../../src/server/utils/player');
 

@@ -135,7 +135,6 @@ module.exports = class Game {
   updateTimer() {
     if (this.timer > 15) {
       this.timer -= 5;
-      console.log(this.timer);
     }
   }
 
@@ -151,7 +150,6 @@ module.exports = class Game {
       this.setOptions(options);
       this.allPieces = generate();
       this.initPlayers();
-      console.log('start');
       this.running = true;
       const reduceTimer = this.reduceTimer();
       this.io.emit('games', getGames());

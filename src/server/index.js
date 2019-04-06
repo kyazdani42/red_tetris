@@ -1,5 +1,4 @@
 const path = require('path');
-const bodyParser = require('body-parser');
 const app = require('express')();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
@@ -29,8 +28,6 @@ io.on('connection', socket => {
 
 app.disable('x-powered-by');
 app.set('port', (process.env.PORT || 3000));
-app.use(bodyParser.urlencoded({ limit: '15mb', extended: true }));
-app.use(bodyParser.json({ limit: '15mb' }));
 app.use(corsConfig);
 
 app.get('/', (_, res) => {

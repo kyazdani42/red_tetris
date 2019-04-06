@@ -6,10 +6,7 @@ const allowedHttpMethod = _.get(config, 'cors.allowedHttpMethod');
 
 const corsConfig = function (req, res, next) {
   const origin = _.get(req, 'headers.origin');
-  const originValue = _.get(config, 'endpoints.app');
- // if (origin === originValue) {
-    res.header('Access-Control-Allow-Origin', origin);
-  //}
+  res.header('Access-Control-Allow-Origin', origin);
   res.header('Access-Control-Allow-Headers', allowedHeaders.join(','));
   // doesn't seem to work
   res.header('Access-Control-Allow-Methods', allowedHttpMethod.join(','));
