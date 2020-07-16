@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-redux": "^5.1.1",
